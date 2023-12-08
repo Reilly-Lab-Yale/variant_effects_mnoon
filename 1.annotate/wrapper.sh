@@ -9,4 +9,12 @@
 
 module load miniconda
 conda activate mcn_vareff
-jupyter nbconvert --execute --to notebook --inplace ANNOTATE.ipynb
+
+# Convert the Jupyter notebook to a Python script
+jupyter nbconvert --to script ANNOTATE.ipynb
+
+# Execute the converted Python script
+python ANNOTATE.py
+
+# Remove the Python script after execution
+rm ANNOTATE.py
