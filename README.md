@@ -31,9 +31,11 @@ I define : MAF (minor allele frequency) = min(AF,1-AF)
 
 gnomad filters 1) filter = pass, 2) maf != 0, 3) allele number >= 76,156
 
+We're using gnomad v3.1.2. 
+
 activity ref OR alt:
 (-Inf,1), [1,2), [2,4), [4,6), [6,Inf) (note first bin we would call as not active)
-- I am worried that this will lose directional effects. 
+- I am worried that this will lose directional effects. I will make separate sets of bins for REF and ALT. 
 
 allelic skew:
 (-Inf, -1.5), [-1.5, 1), [-1, -0.5), [-0.5, 0), [0, 0.5), [0.5, 1), [1, 1.5), [1.5, Inf) (note middle two bins we would not call as emvars)
@@ -44,6 +46,8 @@ Todo
 - [ ] Check allele number cutoff
 - [ ] Re-run annotate on chr 22 with fixed filtering parameters
 - [ ] Branch : modify annotate to work with caching & more CPUs
+- [ ] modify graphing programs to be name agnostic.
+- [ ] annotated directly from GRCh38-cCREs.V4.bed.gz
 
 
 0. merge 
