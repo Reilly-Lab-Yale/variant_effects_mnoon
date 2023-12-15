@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH -J anno
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=24
-#SBATCH --mem=1991G
-#SBATCH -t 2-00:00:00
-#SBATCH -p ycga_bigmem
+#SBATCH --ntasks=1 
+#SBATCH --cpus-per-task=36
+#SBATCH --mem=180G
+#SBATCH -t 28-00:00:00
+#SBATCH -p long
 
 
 module load miniconda

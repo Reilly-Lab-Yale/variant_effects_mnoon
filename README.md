@@ -10,16 +10,48 @@ The goal of this analysis is to .... [WRITE ME]
 
 The basic flow:
 
-[input data] -> 0. merge -> 1. annotate -> 2. filter -> 3. graph
+[input data] -> 0. merge -> 1. annotate -> 2. count -> 3. graph
+
+
+...
+
+AF, AC & AN
+
+(from tooltips on gnomad website)
+
+AC : Allele Count : "Alternate allele count in high-quality genotypes"
+AN : Allele Number : "Total high quality genotypes"
+AF : Allele Frequency : "Alternate Allele Frequency in high quality genotypes"
+
+AF=AC/AN
+
+I define : MAF (minor allele frequency) = min(AF,1-AF)
+
+...
+
+gnomad filters 1) filter = pass, 2) maf != 0, 3) allele number >= 76,156
+
+activity ref OR alt:
+(-Inf,1), [1,2), [2,4), [4,6), [6,Inf) (note first bin we would call as not active)
+- I am worried that this will lose directional effects. 
+
+allelic skew:
+(-Inf, -1.5), [-1.5, 1), [-1, -0.5), [-0.5, 0), [0, 0.5), [0.5, 1), [1, 1.5), [1.5, Inf) (note middle two bins we would not call as emvars)
+
+...
+
+Todo
+- [ ] Check allele number cutoff
+- [ ] Re-run annotate on chr 22 with fixed filtering parameters
+- [ ] Branch : modify annotate to work with caching & more CPUs
+
 
 0. merge 
 Adds malinouis predictions to datasets
 
 1. annotate
-Adds PhyloP scores
 
-2. filter
-Produces summaries of bins of variant categories 
+
 
 (interpretations)
 CADD
