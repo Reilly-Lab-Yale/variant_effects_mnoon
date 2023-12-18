@@ -54,7 +54,7 @@ allelic skew:
 ...
 
 Todo
-- [ ] Fix genotype number cutoff
+- [x] Fix genotype number cutoff
 - [ ] fix thresholds
     - [ ] new thresholds (subdivide beyond figs), & break alt & ref into separate columns
     - [ ] 
@@ -65,8 +65,10 @@ Todo
 - [ ] Branch : modify annotate to work with caching & more CPUs
 - [ ] regraph
 - [ ] modify graphing programs to be name agnostic.
-- [ ] modify to put . instead of -
+- [ ] modify to put . instead of - in the graphs
 
+
+['dELS', 'CA', 'pELS', 'CA-H3K4me3', 'CA-CTCF', 'PLS', 'TF', 'CA-TF']
 
 0. merge 
 Adds malinouis predictions to datasets
