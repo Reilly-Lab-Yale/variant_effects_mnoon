@@ -12,6 +12,8 @@ The basic flow:
 
 [input data] -> 0. merge -> 1. annotate -> 2. count -> 3. graph
 
+Additionally "intuition" ...
+
 
 ...
 
@@ -27,9 +29,18 @@ AF=AC/AN
 
 I define : MAF (minor allele frequency) = min(AF,1-AF)
 
+gnomad filters 1) filter = pass, 2) maf != 0, 3) AN >= 76,156
+- 76,156 is [the number of high-quality genomes in 3.1](https://gnomad.broadinstitute.org/news/2020-10-gnomad-v3-1/)
+- Therefore, if a site were called in all individuals it would be 76,156\*2 . Gnomad sometimes issues the following warning
+
+> Warning This variant is covered in fewer than 50% of individuals in gnomAD v3.1.2 genomes. This may indicate a low-quality site.
+
+Example : [rs113653250](https://gnomad.broadinstitute.org/variant/1-434284-T-G?dataset=gnomad_r3)
+
 ...
 
-gnomad filters 1) filter = pass, 2) maf != 0, 3) allele number >= 76,156
+
+- 
 
 We're using gnomad v3.1.2. 
 
@@ -43,18 +54,24 @@ allelic skew:
 ...
 
 Todo
-- [ ] Check allele number cutoff
-- [ ] Re-run annotate on chr 22 with fixed filtering parameters
+- [ ] Fix genotype number cutoff
+- [ ] fix thresholds
+    - [ ] new thresholds (subdivide beyond figs), & break alt & ref into separate columns
+    - [ ] 
+- [ ] annotated directly from GRCh38-cCREs.V4.bed.gz , make all types
+    - [ ] Get list of unique 
+- [ ] chr22 branch : Re-run annotate on chr 22 with fixed filtering parameters
+    - [ ] check if slurm can still write to oytput files in branches
 - [ ] Branch : modify annotate to work with caching & more CPUs
+- [ ] regraph
 - [ ] modify graphing programs to be name agnostic.
-- [ ] annotated directly from GRCh38-cCREs.V4.bed.gz
+- [ ] modify to put . instead of -
 
 
 0. merge 
 Adds malinouis predictions to datasets
 
 1. annotate
-
 
 
 (interpretations)

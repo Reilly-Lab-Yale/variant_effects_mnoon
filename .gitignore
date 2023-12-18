@@ -3,3 +3,4 @@
 ./2.filter_and_count/filter_old/
 .ipynb_checkpoints/
 ./old/
+slurm*
