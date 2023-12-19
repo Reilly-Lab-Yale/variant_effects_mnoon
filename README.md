@@ -60,7 +60,7 @@ Todo
 - [x] chr22 : Re-run annotate on chr 22 with fixed filtering parameters
     - [x] check if slurm can still write to output files in branches (it can't, let's just not track them)
 - [~] crunch my way through the rest of the chromosomes
-- [ ] manually check annotations in IGV. 
+- [x] manually check annotations in IGV. 
 - [ ] regraph chr22
     - [ ] modify graphing programs to be name agnostic.
     - [ ] modify to put . instead of - in the graphs
@@ -76,13 +76,6 @@ x~=20
 
 Round down to 15% for safety. 
 
-
-
-https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/
-
-
-
-['dELS', 'CA', 'pELS', 'CA-H3K4me3', 'CA-CTCF', 'PLS', 'TF', 'CA-TF']
 
 0. merge 
 Adds malinouis predictions to datasets

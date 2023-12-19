@@ -162,12 +162,9 @@ elif "only_1_2" in os.environ:
     vcf = vcf.filter((F.col("CHROM") == "chr1") |
                      (F.col("CHROM") == "chr2") 
                     )
-elif "only_3_4_18" in os.environ:
-    print("only crunching chromosomes 3, 4, & 18!")
-    vcf = vcf.filter((F.col("CHROM") == "chr3") |
-                     (F.col("CHROM") == "chr4") | 
-                     (F.col("CHROM") == "chr18")
-                    )
+elif "only_3" in os.environ:
+    print("only crunching chromosome 3 !")
+    vcf = vcf.filter((F.col("CHROM") == "chr3"))
 elif "only_5_6_7" in os.environ:
     print("only crunching chromosomes 5, 6, & 7!")
     vcf = vcf.filter((F.col("CHROM") == "chr5") |
@@ -292,8 +289,8 @@ if "only_22" in os.environ:
     df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/chr22_annotated_output.csv", header=True, mode="overwrite")
 elif "only_1_2" in os.environ:
     df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/chr1_2_annotated_output.csv", header=True, mode="overwrite")
-elif "only_3_4_18" in os.environ:
-    df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/chr3_4_18_annotated_output.csv", header=True, mode="overwrite")
+elif "only_3" in os.environ:
+    df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/chr3_annotated_output.csv", header=True, mode="overwrite")
 elif "only_5_6_7" in os.environ:
     df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/chr5_6_7_annotated_output.csv", header=True, mode="overwrite")
 else:
