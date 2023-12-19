@@ -1,7 +1,7 @@
 #!/bin/bash
-#SBATCH -J 22anno
-#SBATCH --output=slurm_22_anno_result.txt
-#SBATCH --error=slurm_22_anno_error.txt
+#SBATCH -J 3_4_18anno
+#SBATCH --output=slurm_3_4_18_anno_result_%j.txt
+#SBATCH --error=slurm_3_4_18_anno_error_%j.txt
 #SBATCH --nodes=4
 #SBATCH --ntasks-per-node=64
 #SBATCH --mem=300G
@@ -13,10 +13,7 @@ module load miniconda
 conda activate mcn_vareff
 
 
-export only_22=True
-
-# Convert the Jupyter notebook to a Python script
-jupyter nbconvert --to script ANNOTATE.ipynb
+export only_3_4_18=True
 
 # Execute the converted Python script
 spark-submit \
@@ -30,5 +27,4 @@ spark-submit \
 # 31 executors * 8 CPUs each = 248. Round up to 256
 # 31 executors * 6 gb RAM each + 5gb driver + 32 exec overhead = 223. Round up to 300.
 
-# Remove the Python script after execution
-rm ANNOTATE.py
+
