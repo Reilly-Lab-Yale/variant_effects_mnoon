@@ -60,12 +60,15 @@ Todo
 - [x] chr22 : Re-run annotate on chr 22 with fixed filtering parameters
     - [x] check if slurm can still write to output files in branches (it can't, let's just not track them)
 - [~] crunch my way through the rest of the chromosomes
+  - [ ] rewrite to split by chromosome prior to annotation step. Then run that...
 - [x] manually check annotations in IGV. 
 - [ ] regraph chr22
     - [ ] modify graphing programs to be name agnostic.
     - [ ] modify to put . instead of - in the graphs
     - [ ] fix thresholds
         - [ ] new thresholds (subdivide beyond figs), & break alt & ref into separate columns
+
+
 03:43:07 = chr22 ~1.6% of the genome (job id = 15959386). Maximum allocation time for ycga is 2 days = 48 hrs. 
 
 1.7%/03:43:07 = x/48
