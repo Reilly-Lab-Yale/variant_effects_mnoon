@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Session genome="hg38" locus="chr22:10526267-10526287" version="8">
+    <Resources>
+        <Resource path="../../../../data/Malinois/gnomAD_variants/gnomad.genomes.v3.1.2.sites.chr22.converted.vcf.gz" type="vcf"/>
+        <Resource path="../../../../data/ENCODE/SCREEN_v4_cCREs_agnostic/GRCh38-cCREs.V4.bed.gz" type="bed"/>
+    </Resources>
+    <Panel height="250" name="DataPanel" width="2157">
+        <Track attributeKey="gnomad.genomes.v3.1.2.sites.chr22.converted.vcf.gz" clazz="org.broad.igv.variant.VariantTrack" displayMode="EXPANDED" featureVisibilityWindow="100100" fontSize="10" groupByStrand="false" id="/home/mcn26/varef/data/Malinois/gnomAD_variants/gnomad.genomes.v3.1.2.sites.chr22.converted.vcf.gz" name="gnomad.genomes.v3.1.2.sites.chr22.converted.vcf.gz" siteColorMode="ALLELE_FREQUENCY" visible="true"/>
+    </Panel>
+    <Panel height="238" name="FeaturePanel" width="2157">
+        <Track attributeKey="Reference sequence" clazz="org.broad.igv.track.SequenceTrack" fontSize="10" id="Reference sequence" name="Reference sequence" sequenceTranslationStrandValue="POSITIVE" shouldShowTranslation="false" visible="true"/>
+        <Track attributeKey="Refseq Genes" clazz="org.broad.igv.track.FeatureTrack" colorScale="ContinuousColorScale;0.0;836.0;255,255,255;0,0,178" fontSize="10" groupByStrand="false" id="https://hgdownload.soe.ucsc.edu/goldenPath/hg38/database/ncbiRefSeq.txt.gz" name="Refseq Genes" visible="true"/>
+        <Track attributeKey="GRCh38-cCREs.V4.bed.gz" clazz="org.broad.igv.track.FeatureTrack" featureVisibilityWindow="7653126" fontSize="10" groupByStrand="false" id="/home/mcn26/varef/data/ENCODE/SCREEN_v4_cCREs_agnostic/GRCh38-cCREs.V4.bed.gz" name="GRCh38-cCREs.V4.bed.gz" visible="true"/>
+    </Panel>
+    <PanelLayout dividerFractions="0.49896907216494846"/>
+    <HiddenAttributes>
+        <Attribute name="DATA FILE"/>
+        <Attribute name="DATA TYPE"/>
+        <Attribute name="NAME"/>
+    </HiddenAttributes>
+</Session>

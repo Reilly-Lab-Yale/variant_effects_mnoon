@@ -59,7 +59,7 @@ Todo
     - [x] Get list of unique 
 - [x] chr22 : Re-run annotate on chr 22 with fixed filtering parameters
     - [x] check if slurm can still write to output files in branches (it can't, let's just not track them)
-- [ ] crunch my way through the rest of the chromosomes
+- [~] crunch my way through the rest of the chromosomes
 - [ ] manually check annotations in IGV. 
 - [ ] regraph chr22
     - [ ] modify graphing programs to be name agnostic.
