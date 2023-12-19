@@ -76,12 +76,18 @@ x~=20
 
 Round down to 15% for safety. 
 
+for the whole thing
+
+1.7%/3.72 = 100% /x
+3.72/1.7% * 100% = x
 
 0. merge 
 Adds malinouis predictions to datasets
 
 1. annotate
 
+2. count
+Warning: cre_bool_columns is hardcoded
 
 (interpretations)
 CADD
