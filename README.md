@@ -67,7 +67,7 @@ Todo
     - [ ] modify to put . instead of - in the graphs
     - [ ] fix thresholds
         - [ ] new thresholds (subdivide beyond figs), & break alt & ref into separate columns
-
+- [ ] Add graph of purifying selection as a function of phylop value, numerically instead of thresholded. 
 
 03:43:07 = chr22 ~1.6% of the genome (job id = 15959386). Maximum allocation time for ycga is 2 days = 48 hrs. 
 
@@ -104,3 +104,11 @@ PhyloP
 
 ensembl VEP
 - 
+
+Encode
+https://screen.encodeproject.org/
+
+>1. cCREs with promoter-like signatures (cCRE-PLS) fall within 200 bp (center to center) of an annotated GENCODE TSS and have high DNase and H3K4me3 signals (evaluated as DNase and H3K4me3 max-Z scores, defined as the maximal DNase or H3K4me3 Z scores across all biosamples with data; see Methods).
+>2. cCREs with enhancer-like signatures (cCRE-ELS) have high DNase and H3K27ac max-Z scores and must additionally have a low H3K4me3 max-Z score if they are within 200 bp of an annotated TSS. The subset of cCREs-ELS within 2 kb of a TSS is denoted proximal (cCRE-pELS), while the remaining subset is denoted distal (cCRE-dELS).
+>3. DNase-H3K4me3 cCREs have high H3K4me3 max-Z scores but low H3K27ac max-Z scores and do not fall within 200 bp of a TSS.
+>4. CTCF-only cCREs have high DNase and CTCF max-Z scores and low H3K4me3 and H3K27ac max-Z scores. 
