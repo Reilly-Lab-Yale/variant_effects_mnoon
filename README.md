@@ -68,6 +68,10 @@ Todo
     - [ ] fix thresholds
         - [ ] new thresholds (subdivide beyond figs), & break alt & ref into separate columns
 - [ ] Add graph of purifying selection as a function of phylop value, numerically instead of thresholded. 
+- [ ] Add 2x2 : in/out of bin (bin=each bar=combo of skew and ref) vs rare/ common. Lets us put error bars
+- [ ] Rong: add pseudocounts of 1 to CADD scores (for both rare/common) to distinguish between 0 & inf
+- [ ] Use ensembl VEP to filter for only intronic & intergenic vars prior to subsequent analysis
+
 
 03:43:07 = chr22 ~1.6% of the genome (job id = 15959386). Maximum allocation time for ycga is 2 days = 48 hrs. 
 
