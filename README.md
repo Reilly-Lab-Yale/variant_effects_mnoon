@@ -60,9 +60,10 @@ Todo
 - [x] chr22 : Re-run annotate on chr 22 with fixed filtering parameters
     - [x] check if slurm can still write to output files in branches (it can't, let's just not track them)
 - [~] crunch my way through the rest of the chromosomes
-  - [ ] rewrite to split by chromosome prior to annotation step. Then run that...
+  - [x] rewrite to split by chromosome prior to annotation step. Then run that...
 - [x] manually check annotations in IGV. 
-- [ ] regraph chr22
+- [ ] Use ensembl VEP to filter for only intronic & intergenic vars prior to subsequent analysis
+- [ ] regraph
     - [ ] modify graphing programs to be name agnostic.
     - [ ] modify to put . instead of - in the graphs
     - [ ] fix thresholds
@@ -70,23 +71,8 @@ Todo
 - [ ] Add graph of purifying selection as a function of phylop value, numerically instead of thresholded. 
 - [ ] Add 2x2 : in/out of bin (bin=each bar=combo of skew and ref) vs rare/ common. Lets us put error bars
 - [ ] Rong: add pseudocounts of 1 to CADD scores (for both rare/common) to distinguish between 0 & inf
-- [ ] Use ensembl VEP to filter for only intronic & intergenic vars prior to subsequent analysis
 
 
-03:43:07 = chr22 ~1.6% of the genome (job id = 15959386). Maximum allocation time for ycga is 2 days = 48 hrs. 
-
-1.7%/03:43:07 = x/48
-
-1.7%/3.72 = x/48
-
-x~=20
-
-Round down to 15% for safety. 
-
-for the whole thing
-
-1.7%/3.72 = 100% /x
-3.72/1.7% * 100% = x
 
 0. merge 
 Adds malinouis predictions to datasets

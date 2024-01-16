@@ -26,7 +26,7 @@ if 'spark' in locals() and spark!=None:
     spark.stop()
 
     #are we running the actual script, or just testing?
-for_real=False
+for_real=True
 
 spark=None
 
@@ -35,7 +35,7 @@ spark = SparkSession.builder.getOrCreate()
 
 # ## load in data
 
-# In[13]:
+# In[3]:
 
 
 #define the phylop tsv schema
@@ -98,7 +98,7 @@ all_CREs = all_CREs.drop("misc_1", "misc_2")
 
 # ## Split relevant information from the VCF info field
 
-# In[5]:
+# In[4]:
 
 
 ####The `INFO` field contains a lot of useful information, but it is all smashed together into a string. 
@@ -131,7 +131,7 @@ for key in keys_to_extract:
 #     - Remove variants with a MAF of 0 (they don't really "vary") in the population if they dont exist.
 #     - Remove those variants that don't have all of the relevant metrics.
 
-# In[28]:
+# In[5]:
 
 
 vcf = vcf.filter(
@@ -154,24 +154,11 @@ vcf = vcf.filter(
 )
 
 
-if "only_22" in os.environ:
-    print("only crunching chromosome 22!")
-    vcf = vcf.filter((F.col("CHROM") == "chr22"))
-elif "only_1_2" in os.environ:
-    print("only crunching chromosomes 1, & 2")
-    vcf = vcf.filter((F.col("CHROM") == "chr1") |
-                     (F.col("CHROM") == "chr2") 
-                    )
-elif "only_3" in os.environ:
-    print("only crunching chromosome 3 !")
-    vcf = vcf.filter((F.col("CHROM") == "chr3"))
-elif "only_5_6_7" in os.environ:
-    print("only crunching chromosomes 5, 6, & 7!")
-    vcf = vcf.filter((F.col("CHROM") == "chr5") |
-                     (F.col("CHROM") == "chr6") | 
-                     (F.col("CHROM") == "chr7")
-                    )
+if "which_chr" in os.environ:
+    print("only crunching chromosome "+os.environ['which_chr'])
+    vcf = vcf.filter((F.col("CHROM") == os.environ['which_chr']))
 else:
+    print("error : did not find ")
     exit(-1)
 
 
@@ -212,7 +199,7 @@ def add_genomic_annotation(loci,regions,name):
     return final_result
 
 
-# In[12]:
+# In[7]:
 
 
 #get all the unique values we might want to add
@@ -285,14 +272,5 @@ df = df.withColumn("category",
 # In[34]:
 
 
-if "only_22" in os.environ:
-    df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/chr22_annotated_output.csv", header=True, mode="overwrite")
-elif "only_1_2" in os.environ:
-    df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/chr1_2_annotated_output.csv", header=True, mode="overwrite")
-elif "only_3" in os.environ:
-    df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/chr3_annotated_output.csv", header=True, mode="overwrite")
-elif "only_5_6_7" in os.environ:
-    df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/chr5_6_7_annotated_output.csv", header=True, mode="overwrite")
-else:
-    df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/annotated_output.csv", header=True, mode="overwrite")
+df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/batched/annotated_output_"+os.environ['which_chr']+".csv", header=True, mode="overwrite")
 
