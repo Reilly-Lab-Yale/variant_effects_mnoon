@@ -62,16 +62,19 @@ Todo
 - [~] crunch my way through the rest of the chromosomes
   - [x] rewrite to split by chromosome prior to annotation step. Then run that...
 - [x] manually check annotations in IGV. 
-- [ ] Use ensembl VEP to filter for only intronic & intergenic vars prior to subsequent analysis
+- [x] filter for only intronic & intergenic vars prior to subsequent analysis
 - [ ] regraph
     - [ ] modify graphing programs to be name agnostic.
     - [ ] modify to put . instead of - in the graphs
-    - [ ] fix thresholds
-        - [ ] new thresholds (subdivide beyond figs), & break alt & ref into separate columns
+    - [x] fix thresholds
 - [ ] Add graph of purifying selection as a function of phylop value, numerically instead of thresholded. 
-- [ ] Add 2x2 : in/out of bin (bin=each bar=combo of skew and ref) vs rare/ common. Lets us put error bars
+- [ ] ~~Add 2x2 : in/out of bin (bin=each bar=combo of skew and ref) vs rare/ common. Lets us put error bars~~
 - [ ] Rong: add pseudocounts of 1 to CADD scores (for both rare/common) to distinguish between 0 & inf
+- [ ] don't average skews : use individual cell-line skews & group by "skew in 1 cell line" "skew in 2 cell lines..." (how exactly to do latter..?)
+  - [ ] Alternative : no bins, just subsample & do quant vs quant for stat test. 
+  - [ ] alt: cumulative distro & KS test
 
+- [ ] move NN E4L9NdjPku1yFLxlZoJtXQ6TaMbewMye to better location
 
 
 0. merge 
