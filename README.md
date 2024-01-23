@@ -88,8 +88,7 @@ Todo
   - [x] rewrite to split by chromosome prior to annotation step. Then run that...
 - [x] manually check annotations in IGV. 
 - [x] filter for only intronic & intergenic vars prior to subsequent analysis
-- [ ] regraph
-    - [ ] modify graphing programs to be name agnostic.
+- [x] regraph
     - [x] modify to put . instead of - in the graphs
     - [x] fix thresholds
 - [ ] ~~Add 2x2 : in/out of bin (bin=each bar=combo of skew and ref) vs rare/ common. Lets us put error bars~~
@@ -98,6 +97,8 @@ Todo
 - [ ] don't average skews : use individual cell-line skews & group by "skew in 1 cell line" "skew in 2 cell lines..." (how exactly to do latter..?)
   - [ ] Alternative : no bins, just subsample & do quant vs quant for stat test. 
   - [ ] alt: cumulative distro & KS test
+
+- [ ] malinous graphs for all regions : not restricted to promoter, enhancer ... 
 
 - [ ] Add graph of purifying selection as a function of phylop value, numerically instead of thresholded. 
 
