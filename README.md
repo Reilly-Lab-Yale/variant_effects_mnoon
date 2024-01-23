@@ -90,14 +90,17 @@ Todo
 - [x] filter for only intronic & intergenic vars prior to subsequent analysis
 - [ ] regraph
     - [ ] modify graphing programs to be name agnostic.
-    - [ ] modify to put . instead of - in the graphs
+    - [x] modify to put . instead of - in the graphs
     - [x] fix thresholds
-- [ ] Add graph of purifying selection as a function of phylop value, numerically instead of thresholded. 
 - [ ] ~~Add 2x2 : in/out of bin (bin=each bar=combo of skew and ref) vs rare/ common. Lets us put error bars~~
 - [ ] Rong: add pseudocounts of 1 to CADD scores (for both rare/common) to distinguish between 0 & inf
+- [ ] Conservation of as a function of pleitropy 
 - [ ] don't average skews : use individual cell-line skews & group by "skew in 1 cell line" "skew in 2 cell lines..." (how exactly to do latter..?)
   - [ ] Alternative : no bins, just subsample & do quant vs quant for stat test. 
   - [ ] alt: cumulative distro & KS test
+
+- [ ] Add graph of purifying selection as a function of phylop value, numerically instead of thresholded. 
+
 
 - [ ] move NN E4L9NdjPku1yFLxlZoJtXQ6TaMbewMye to better location
 
