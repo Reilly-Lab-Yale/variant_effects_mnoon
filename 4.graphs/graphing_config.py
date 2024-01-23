@@ -12,3 +12,11 @@ CADD_default='CADD<10'
 # Function to find the column with True value
 def find_true_column(row, columns,default):
     return next((col for col in columns if row[col]), default)
+
+def lump_rarity_categories(row):
+    if row["category"] in ["SINGLETON","ULTRARARE","RARE"]:
+        return "RARE"
+    elif row["category"] == "COMMON" :
+        return "COMMON"
+    else:
+        return "not_interesting"

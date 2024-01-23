@@ -102,6 +102,7 @@ Todo
 
 - [ ] Add graph of purifying selection as a function of phylop value, numerically instead of thresholded. 
 
+- [ ] modify all graphs to look nice & export to svg or someone
 
 - [ ] move NN E4L9NdjPku1yFLxlZoJtXQ6TaMbewMye to better location
 
