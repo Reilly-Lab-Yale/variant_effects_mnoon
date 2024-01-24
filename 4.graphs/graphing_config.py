@@ -2,6 +2,8 @@
 genome_regions=["is_in_PLS","is_in_dELS","is_in_pELS","ALL"]
 data_base_path="/home/mcn26/varef/scripts/noon_data/3.count/"
 
+pickle_root="/gpfs/gibbs/pi/reilly/VariantEffects/scripts/noon_scripts/3.count/"
+
 ###convert the boolean "in CADD category" cutoff to "mosst strict CADD cutoff row is counting". 
 CADD_order = ["CADD>=10","CADD>=20","CADD>=30","CADD>=40","CADD>=50"][::-1]
 # We reverse the list so we check from right to left : from most to least strict

@@ -33,7 +33,11 @@ Worflow also includes some shell code, and so uses awk, wc, other similar utilit
 
 
 
-### note on 
+### note on encoding in count tables
+sometimes presence of variants within a bin is stored in a one-hot fashion : multiple true/false columns, one for each bin. 
+This is not generally desierable, so I convert away with "find_true_column"
+
+other times, this is desierable as it is not actually one hot, but multi-hot. Such as presence in genomic region (i.e. some variants might be both in a promoter like sequence & some other cata)
 
 ### note on sex chromosomes
 gnomad does not include the Y chromosome, so naturally it isn't included ...
