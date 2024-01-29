@@ -9,6 +9,7 @@ The basic flow:
 \[input data\] -> 0. merge -> 1. annotate 2. filter -> 3. count -> 4. graph
 
 (TODO: explain all this once the logic is semi-finalized...)
+(this should be changed to a graph instead of a linear flow)
 
 Additionally, manual verification with screenshots...
 
@@ -25,7 +26,12 @@ Additionally, "intuition" ...
     - gnomad from ...
     - malinous activity predictions produced in ...
     - The filtering step used masking produced in ...
-        - according to ...
+
+Tange, O. (2021, March 22). GNU Parallel 20210322 ('2002-01-06').
+  Zenodo. https://doi.org/10.5281/zenodo.4628277
+  
+  
+- according to ...
 
 TODO: fill all this out once completed...
 
@@ -110,6 +116,9 @@ Todo
 
 - [ ] move NN E4L9NdjPku1yFLxlZoJtXQ6TaMbewMye to better location
 
+- [ ] move NN BL2jL5SIMor1yx6B21DpQ1jm4oiF82tt to better location
+
+- [ ] If you send a copy of your published article to tange@gnu.org, it will be mentioned in the release notes of next version of GNU Parallel.
 
 0. merge 
 Adds malinouis predictions to datasets
