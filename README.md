@@ -120,6 +120,8 @@ Todo
 
 - [ ] If you send a copy of your published article to tange@gnu.org, it will be mentioned in the release notes of next version of GNU Parallel.
 
+- [ ] convert `malinois_vs_phylop=malinois_vs_phylop.rename(columns={i:i.replace('^', ',').replace('&','.') for i in malinois_vs_phylop.columns})` to function call in graphing settings file
+
 0. merge 
 Adds malinouis predictions to datasets
 
