@@ -15,6 +15,9 @@ Additionally, manual verification with screenshots...
 
 Additionally, "intuition" ...
 
+Note on filtering: 
+- MAF_OR_AC_IS_ZERO : earmarked in ANNOTATE, must be filtered @ later steps
+
 
 ## How to reproduce 
 
@@ -89,6 +92,12 @@ allelic skew:
 ...
 
 Todo
+
+- [ ] Re-run count w/ MAF_0 excluded
+    - [ ] May include this in annotate addition below
+- [ ] Annotate addition : include pleio
+    - [ ] Delete computation from downstream scripts to remove redundancy
+
 - [x] Fix genotype number cutoff
 - [x] annotated directly from GRCh38-cCREs.V4.bed.gz, make all types
     - [x] Get list of unique 
