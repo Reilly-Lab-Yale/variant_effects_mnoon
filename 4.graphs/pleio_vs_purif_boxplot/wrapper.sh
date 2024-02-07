@@ -5,7 +5,7 @@
 #SBATCH --cpus-per-task=15
 #SBATCH --mem-per-cpu=2G
 #SBATCH --array=0-15
-#SBATCH -t 1-00:00:00
+#SBATCH -t 3:00:00
 #SBATCH -p ycga
 
 module load miniconda

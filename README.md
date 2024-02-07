@@ -93,6 +93,13 @@ allelic skew:
 
 Todo
 
+Assuming rong gives me the OK 
+- [ ] make box plot code generic 
+- [ ] change to violin plot
+- [ ] apply to all.. 
+
+
+else
 - [ ] Re-run count w/ MAF_0 excluded
     - [ ] May include this in annotate addition below
 - [ ] Annotate addition : include pleio
