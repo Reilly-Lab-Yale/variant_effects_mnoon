@@ -17,10 +17,13 @@ rarity_order = ["SINGLETON", "ULTRARARE", "RARE", "LOW_FREQ", "COMMON"]
 def find_true_column(row, columns,default):
     return next((col for col in columns if row[col]), default)
 
+rare_classes=["SINGLETON","ULTRARARE","RARE"]
+common_classes=["LOW_FREQ","COMMON"]
+
 def lump_rarity_categories(row):
-    if row["category"] in ["SINGLETON","ULTRARARE","RARE"]:
+    if row["category"] in rare_classes:
         return "RARE"
-    elif row["category"] == "COMMON" :
+    elif row["category"] in common_classes :
         return "COMMON"
     else:
         return "not_interesting"

@@ -93,6 +93,12 @@ allelic skew:
 
 ## Todo
 
+issues with intuition graph
+- [ ] Need to change parser to only operate on SNPs, not other classes of
+- [ ] Need to fix parser, to split on `,N|`, not on just commas
+    - [ ] Finish updating the associated drawio figure to demonstrate this
+
+
 - [ ] re-run all graphs with repaired rare/common definition (include "not_interesting" variants with middling frequencies as common)
 - [ ] double check that all graph notebooks are loading the whole data tables with their globs. Otherwise, may read with spark then convert to pandas or introduce csv consolidation step
 
