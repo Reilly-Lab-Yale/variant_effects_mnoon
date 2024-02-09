@@ -91,15 +91,17 @@ allelic skew:
 
 ...
 
-Todo
+## Todo
 
-Assuming rong gives me the OK 
+- [ ] re-run all graphs with repaired rare/common definition (include "not_interesting" variants with middling frequencies as common)
+- [ ] double check that all graph notebooks are loading the whole data tables with their globs. Otherwise, may read with spark then convert to pandas or introduce csv consolidation step
+
+
+AF instead of ratio:
 - [ ] make box plot code generic 
 - [ ] change to violin plot
 - [ ] apply to all.. 
 
-
-else
 - [ ] Re-run count w/ MAF_0 excluded
     - [ ] May include this in annotate addition below
 - [ ] Annotate addition : include pleio
@@ -135,6 +137,7 @@ else
 - [ ] move NN BL2jL5SIMor1yx6B21DpQ1jm4oiF82tt to better location
 
 - [ ] If you send a copy of your published article to tange@gnu.org, it will be mentioned in the release notes of next version of GNU Parallel.
+- [ ] Re-export final conda YML
 
 - [ ] convert `malinois_vs_phylop=malinois_vs_phylop.rename(columns={i:i.replace('^', ',').replace('&','.') for i in malinois_vs_phylop.columns})` to function call in graphing settings file
 

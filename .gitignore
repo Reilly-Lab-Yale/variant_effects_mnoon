@@ -6,4 +6,4 @@
 *.pkl
 *.err
 *.out
-
+__pycache__
