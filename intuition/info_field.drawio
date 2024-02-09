@@ -1,65 +1,77 @@
-<mxfile host="app.diagrams.net" modified="2023-12-05T21:59:06.085Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:120.0) Gecko/20100101 Firefox/120.0" etag="LTHZd3vJW439_HJKIuYY" version="21.6.9" type="google">
+<mxfile host="Electron" modified="2024-02-09T22:03:47.263Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.0.2 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="bo9aW9AeSkO12CRfCQ0n" version="23.0.2" type="device">
   <diagram name="Page-1" id="cs0D0_WmY5EVDtQGrh1v">
-    <mxGraphModel grid="1" page="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="716" dy="486" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="hInKyJni7nB511gyt1ly-1" value="Variants" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="hInKyJni7nB511gyt1ly-1" value="Variants" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="230" y="80" width="140" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-2" value="CHROM POS ..... INFO" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="hInKyJni7nB511gyt1ly-1">
+        <mxCell id="hInKyJni7nB511gyt1ly-2" value="CHROM POS ..... INFO" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="hInKyJni7nB511gyt1ly-1" vertex="1">
           <mxGeometry y="30" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-3" value="CHROM POS ..... INFO" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="hInKyJni7nB511gyt1ly-1">
+        <mxCell id="hInKyJni7nB511gyt1ly-3" value="CHROM POS ..... INFO" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="hInKyJni7nB511gyt1ly-1" vertex="1">
           <mxGeometry y="60" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-4" value="CHROM POS ..... INFO" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" vertex="1" parent="hInKyJni7nB511gyt1ly-1">
+        <mxCell id="hInKyJni7nB511gyt1ly-4" value="CHROM POS ..... INFO" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;whiteSpace=wrap;html=1;" parent="hInKyJni7nB511gyt1ly-1" vertex="1">
           <mxGeometry y="90" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.85;exitY=-0.267;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="hInKyJni7nB511gyt1ly-3">
+        <mxCell id="hInKyJni7nB511gyt1ly-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.85;exitY=-0.267;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="hInKyJni7nB511gyt1ly-3" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="400" y="240" as="sourcePoint" />
             <mxPoint x="430" y="130" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-7" value=";key=value;key=value..." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="hInKyJni7nB511gyt1ly-7" value=";key=value;key=value..." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="403" y="114" width="190" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.442;exitY=1.233;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.514;entryY=-0.167;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="hInKyJni7nB511gyt1ly-7" target="hInKyJni7nB511gyt1ly-11">
+        <mxCell id="hInKyJni7nB511gyt1ly-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.442;exitY=1.233;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.514;entryY=-0.167;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="hInKyJni7nB511gyt1ly-7" target="hInKyJni7nB511gyt1ly-11" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="400" y="240" as="sourcePoint" />
             <mxPoint x="550" y="200" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-9" value="picking the entry where key is &quot;vep&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="hInKyJni7nB511gyt1ly-9" value="picking the entry where key is &quot;vep&quot;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="445" y="188" width="60" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-11" value="&lt;b&gt;,&lt;/b&gt;data|CONSEQUENCE CODE|for|effect|prediction&lt;b&gt;,&lt;/b&gt; data|CONSEQUENCE CODE|for|effect|prediction&lt;b&gt;,&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="hInKyJni7nB511gyt1ly-11" value="&lt;b&gt;,&lt;/b&gt;data|CONSEQUENCE CODE|for|effect|prediction&lt;b&gt;,&lt;/b&gt; data|CONSEQUENCE CODE|for|effect|prediction&lt;b&gt;,&lt;/b&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="250" y="240" width="580" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-13" value="(semicolon delimited)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="hInKyJni7nB511gyt1ly-13" value="(semicolon delimited)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="424" y="90" width="156" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-15" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+        <mxCell id="hInKyJni7nB511gyt1ly-15" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="353" y="270" as="sourcePoint" />
             <mxPoint x="440" y="330" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-16" value="CONSEQUENCE CODE&amp;amp;CONSEQUENCE CODE" style="text;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="hInKyJni7nB511gyt1ly-16" value="CONSEQUENCE CODE&amp;amp;CONSEQUENCE CODE" style="text;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="310" y="330" width="300" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-17" value="Sometimes multiple consequence codes are joined with ampersands" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="hInKyJni7nB511gyt1ly-17" value="Sometimes multiple consequence codes are joined with ampersands" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="350" y="370" width="199" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-19" value="extracting the second element" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="hInKyJni7nB511gyt1ly-19" value="extracting the second element" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="260" y="299" width="124" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-20" value="Sometimes one variant has multiple predicted effect entries.Even though it&#39;s the same nucleotide." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="590" y="270" width="199" height="30" as="geometry" />
+        <mxCell id="hInKyJni7nB511gyt1ly-20" value="Sometimes one variant has multiple predicted effect entries.Even though it&#39;s the same nucleotide." style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="546.5" y="269" width="199" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="hInKyJni7nB511gyt1ly-21" value="(Each entry is comma delimited, and withing each entry each field is pipe delimited)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+        <mxCell id="hInKyJni7nB511gyt1ly-21" value="(Each entry is comma delimited, and withing each entry each field is pipe delimited)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="546.5" y="208" width="286" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="kdeIa77CPJr7H4QIxXU3-1" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="810" y="237" as="sourcePoint" />
+            <mxPoint x="860" y="299" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="kdeIa77CPJr7H4QIxXU3-2" value="Unfortunately, commas are also sometimes used internally. Therefore, I want to look for the following pattern: `,N|` where N is A, C, T or G. After this, I should find the consequence code(s)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="784" y="310" width="176" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="kdeIa77CPJr7H4QIxXU3-4" value="(finish writing parser!)" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="800" y="420" width="140" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
