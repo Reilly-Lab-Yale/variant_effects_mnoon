@@ -93,6 +93,8 @@ allelic skew:
 
 ## Todo
 
+- [ ] add a simple phylop vs skew
+
 issues with intuition graph
 - [ ] Need to change parser to only operate on SNPs, not other classes of
 - [ ] Need to fix parser, to split on `,N|`, not on just commas
