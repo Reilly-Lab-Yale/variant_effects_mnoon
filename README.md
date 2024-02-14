@@ -16,7 +16,7 @@ Additionally, manual verification with screenshots...
 Additionally, "intuition" ...
 
 Note on filtering: 
-- MAF_OR_AC_IS_ZERO : earmarked in ANNOTATE, must be filtered @ later steps
+- MAF_OR_AC_IS_ZERO : earmarked in ANNOTATE, filtered... 
 
 
 ## How to reproduce 
@@ -43,15 +43,15 @@ Worflow also includes some shell code, and so uses awk, wc, other similar utilit
 
 
 ### note on encoding in count tables
-sometimes presence of variants within a bin is stored in a one-hot fashion : multiple true/false columns, one for each bin. 
-This is not generally desierable, so I convert away with "find_true_column"
+Sometimes presence of variants within a bin is stored in a one-hot fashion : multiple true/false columns, one for each bin. 
+This is not generally desirable, so I convert away with "find_true_column"
 
-other times, this is desierable as it is not actually one hot, but multi-hot. Such as presence in genomic region (i.e. some variants might be both in a promoter like sequence & some other cata)
+other times, this is desirable as it is not actually one hot, but multi-hot. Such as presence in genomic region (i.e. some variants might be both in a promoter like sequence & some other cata)
 
 ### note on sex chromosomes
 gnomad does not include the Y chromosome, so naturally it isn't included ...
 to avoid complications, the X chromosome isnt included either. 
-- It *is* processed for some of the steps, but the exon file "filter" 
+- It *is* processed for some of the steps, but the exon file "filter" does not contain it & so we remove around that step ....
 
 ...
 
@@ -93,28 +93,174 @@ allelic skew:
 
 ## Todo
 
-- [ ] add a simple phylop vs skew
 
-issues with intuition graph
-- [ ] Need to change parser to only operate on SNPs, not other classes of
-- [ ] Need to fix parser, to split on `,N|`, not on just commas
+
+## broad improvements 
+- [ ] Add step after annotation that computes pleiotropy, such that it need not be re-computed each time. <- **PRIORITY**
+   - [ ] Also filter MAF=0 <- **PRIORITY**
+- [ ] re-run all existing graphs with new rare/common definition <- **PRIORITY**
+- [ ] double check that all graph notebooks are loading the whole data tables with their globs. Otherwise, may read with spark then convert to pandas or introduce csv consolidation step <-  **PRIORITY**
+- [ ] Change genomic region plots to clustered bars instead of separate plots. 
+- [ ] Prepare track-hub.
+    - [ ] Tell YCRC: readable FTP
+
+## general
+- [ ] violin plotter
+    - [ ] & coresp parameter extracter
+
+## finalization tasks
+- [ ] finish writing docs
+- [ ] Re-export final conda YML
+- [ ] convert `malinois_vs_phylop=malinois_vs_phylop.rename(columns={i:i.replace('^', ',').replace('&','.') for i in malinois_vs_phylop.columns})` to function call in graphing settings file
+- [ ] modify all graphs to look nice & export to svg or something
+- [ ] move NN E4L9NdjPku1yFLxlZoJtXQ6TaMbewMye to better location
+- [ ] move NN BL2jL5SIMor1yx6B21DpQ1jm4oiF82tt to better location
+- [ ] If you send a copy of your published article to tange@gnu.org, it will be mentioned in the release notes of next version of GNU Parallel.
+
+## specific graphs
+
+### we have the following summaries of our data:
+- malinois skew
+- malinois ref activity
+- CADD score
+- PhyloP score
+- ensembl VEP
+- allele frequency
+- pleiotropy
+
+### We have the following modifiers
+- Genomic regions
+- For continuious variables we can discretize them or leave them continuious 
+    - For AF, we can do AF or rare/common discretizing
+
+
+### all possible two-variable plots:
+malinois skew, malinois ref activity,
+- [ ] todo : 2d density plot & line-fitting
+malinois skew, CADD score,
+- not planned
+malinois skew, PhyloP score,
+- [ ] todo, violin + difference of means t-test
+malinois skew, ensembl VEP,
+- not planned
+malinois skew, AF,
+- [ ] todo, violin & difference of means t-test
+malinois skew, pleio,
+- [ ] todo, violin & difference of means t-test
+malinois ref activity, CADD score,
+- Not planned
+malinois ref activity, PhyloP score,
+- not planned
+malinois ref activity, ensembl VEP,
+- Not planned
+malinois ref activity, AF,
+- [ ] todo, violin & difference of means t-test
+malinois ref activity, pleio,
+- [ ] todo, violin & difference of means t-test
+CADD score, PhyloP score,
+- not planned
+CADD score, ensembl VEP,
+- not planned
+CADD score, AF,
+- not planned
+CADD score, pleio,
+- not planned
+PhyloP score, ensembl VEP,
+- Not planned
+PhyloP score, AF,
+- Not planned
+PhyloP score, pleio,
+- Not planned
+ensembl VEP, AF,
+- [x] Performed for rare common ratio
+- [ ] change parser to only operate on SNPs, not other classes of variant
+- [ ] fix parser, to split on `,N|`, not on just commas
     - [ ] Finish updating the associated drawio figure to demonstrate this
+- [ ] repeat for AF, violin
+ensembl VEP, pleio,
+- not planned
+AF, pleio
+- not planned
+
+### All possible three-variable plots:
+malinois skew, malinois ref activity, CADD score,
+- not planned
+malinois skew, malinois ref activity, PhyloP score,
+- [ ] do this. T-test difference of means for phylop conserved/nonconserved
+malinois skew, malinois ref activity, ensembl VEP,
+malinois skew, malinois ref activity, AF, <- **PRIORITY**
+- Performed, with bins, & all genomic regions
+- [ ] Continuious, 3D plot
+- [ ] perform 3D regression (on abs skew)
+- [ ] 2D slices (density plot?)
+malinois skew, malinois ref activity, pleio,
+- not planned
+malinois skew, CADD score, PhyloP score,
+- not planned
+malinois skew, CADD score, ensembl VEP,
+- not planned
+malinois skew, CADD score, AF,
+- not planned
+malinois skew, CADD score, pleio,
+- not planned
+malinois skew, PhyloP score, ensembl VEP,
+- not planned
+malinois skew, PhyloP score, AF,
+- not planned
+malinois skew, PhyloP score, pleio,
+- not planned
+malinois skew, ensembl VEP, AF,
+- not planned
+malinois skew, ensembl VEP, pleio,
+- not planned
+malinois skew, AF, pleio,
+- not planned
+malinois ref activity, CADD score, PhyloP score,
+- not planned
+malinois ref activity, CADD score, ensembl VEP,
+- not planned
+malinois ref activity, CADD score, AF,
+- not planned
+malinois ref activity, CADD score, pleio,
+- not planned
+malinois ref activity, PhyloP score, ensembl VEP,
+- not planned
+malinois ref activity, PhyloP score, AF,
+- not planned
+malinois ref activity, PhyloP score, pleio,
+- not planned
+malinois ref activity, ensembl VEP, AF,
+- not planned
+malinois ref activity, ensembl VEP, pleio,
+- not planned
+malinois ref activity, AF, pleio,
+- not planned
+CADD score, PhyloP score, ensembl VEP,
+- not planned
+CADD score, PhyloP score, AF,
+- not planned
+CADD score, PhyloP score, pleio,
+- not planned
+CADD score, ensembl VEP, AF,
+- not planned
+CADD score, ensembl VEP, pleio,
+- not planned
+CADD score, AF, pleio,
+- not planned
+PhyloP score, ensembl VEP, AF,
+- not planned
+PhyloP score, ensembl VEP, pleio,
+- not planned
+PhyloP score, AF, pleio,
+- not planned
+ensembl VEP, AF, pleio
+- not planned
 
 
-- [ ] re-run all graphs with repaired rare/common definition (include "not_interesting" variants with middling frequencies as common)
-- [ ] double check that all graph notebooks are loading the whole data tables with their globs. Otherwise, may read with spark then convert to pandas or introduce csv consolidation step
 
 
-AF instead of ratio:
-- [ ] make box plot code generic 
-- [ ] change to violin plot
-- [ ] apply to all.. 
 
-- [ ] Re-run count w/ MAF_0 excluded
-    - [ ] May include this in annotate addition below
-- [ ] Annotate addition : include pleio
-    - [ ] Delete computation from downstream scripts to remove redundancy
-
+misc. old completed tasks
 - [x] Fix genotype number cutoff
 - [x] annotated directly from GRCh38-cCREs.V4.bed.gz, make all types
     - [x] Get list of unique 
@@ -127,27 +273,6 @@ AF instead of ratio:
 - [x] regraph
     - [x] modify to put . instead of - in the graphs
     - [x] fix thresholds
-- [ ] ~~Add 2x2 : in/out of bin (bin=each bar=combo of skew and ref) vs rare/ common. Lets us put error bars~~
-- [ ] Rong: add pseudocounts of 1 to CADD scores (for both rare/common) to distinguish between 0 & inf
-- [ ] Conservation of as a function of pleitropy 
-- [ ] don't average skews : use individual cell-line skews & group by "skew in 1 cell line" "skew in 2 cell lines..." (how exactly to do latter..?)
-  - [ ] Alternative : no bins, just subsample & do quant vs quant for stat test. 
-  - [ ] alt: cumulative distro & KS test
-
-- [ ] malinous graphs for all regions : not restricted to promoter, enhancer ... 
-
-- [ ] Add graph of purifying selection as a function of phylop value, numerically instead of thresholded. 
-
-- [ ] modify all graphs to look nice & export to svg or someone
-
-- [ ] move NN E4L9NdjPku1yFLxlZoJtXQ6TaMbewMye to better location
-
-- [ ] move NN BL2jL5SIMor1yx6B21DpQ1jm4oiF82tt to better location
-
-- [ ] If you send a copy of your published article to tange@gnu.org, it will be mentioned in the release notes of next version of GNU Parallel.
-- [ ] Re-export final conda YML
-
-- [ ] convert `malinois_vs_phylop=malinois_vs_phylop.rename(columns={i:i.replace('^', ',').replace('&','.') for i in malinois_vs_phylop.columns})` to function call in graphing settings file
 
 0. merge 
 Adds malinouis predictions to datasets
