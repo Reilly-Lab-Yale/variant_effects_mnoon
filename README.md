@@ -96,8 +96,8 @@ allelic skew:
 
 
 ## broad improvements 
-- [ ] Add step after annotation that computes pleiotropy, such that it need not be re-computed each time. <- **PRIORITY**
-   - [ ] Also filter MAF=0 <- **PRIORITY**
+- [x] Add step after annotation that computes pleiotropy, such that it need not be re-computed each time. <- **PRIORITY**
+   - [x] Also filter MAF=0 <- **PRIORITY**
 - [ ] re-run all existing graphs with new rare/common definition <- **PRIORITY**
 - [ ] double check that all graph notebooks are loading the whole data tables with their globs. Otherwise, may read with spark then convert to pandas or introduce csv consolidation step <-  **PRIORITY**
 - [ ] Change genomic region plots to clustered bars instead of separate plots. 

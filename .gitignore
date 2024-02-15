@@ -7,3 +7,7 @@
 *.err
 *.out
 __pycache__
+1.annotate/first_run/
+1.annotate/second_run/
+1.annotate/third_run/
+3.pleio_and_filter/pleio_and_filter.py
