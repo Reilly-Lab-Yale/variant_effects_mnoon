@@ -98,15 +98,16 @@ allelic skew:
 ## broad improvements 
 - [x] Add step after annotation that computes pleiotropy, such that it need not be re-computed each time. <- **PRIORITY**
    - [x] Also filter MAF=0 <- **PRIORITY**
-- [ ] re-run all existing graphs with new rare/common definition <- **PRIORITY**
-- [ ] double check that all graph notebooks are loading the whole data tables with their globs. Otherwise, may read with spark then convert to pandas or introduce csv consolidation step <-  **PRIORITY**
+- [x] re-run all existing graphs with new rare/common definition <- **PRIORITY**
+  - [x] check all notebooks to make sure they are using the unified function in the graphing_config script
+- [X] double check that all graph notebooks are loading the whole data tables with their globs. Otherwise, may read with spark then convert to pandas or introduce csv consolidation step <-  **PRIORITY**
 - [ ] Change genomic region plots to clustered bars instead of separate plots. 
 - [ ] Prepare track-hub.
-    - [ ] Tell YCRC: readable FTP
+    - [X] Tell YCRC: readable FTP (Asked, waiting for reply.)
 
 ## general
-- [ ] violin plotter
-    - [ ] & coresp parameter extracter
+- [ ] histo plotter
+    - [ ] & coresp parameter extractor
 
 ## finalization tasks
 - [ ] finish writing docs
@@ -140,13 +141,13 @@ malinois skew, malinois ref activity,
 malinois skew, CADD score,
 - not planned
 malinois skew, PhyloP score,
-- [ ] todo, violin + difference of means t-test
+- [ ] todo, histo + difference of means t-test
 malinois skew, ensembl VEP,
 - not planned
 malinois skew, AF,
-- [ ] todo, violin & difference of means t-test
+- [ ] todo, histo & difference of means t-test
 malinois skew, pleio,
-- [ ] todo, violin & difference of means t-test
+- [ ] todo, histo & difference of means t-test
 malinois ref activity, CADD score,
 - Not planned
 malinois ref activity, PhyloP score,
@@ -154,9 +155,9 @@ malinois ref activity, PhyloP score,
 malinois ref activity, ensembl VEP,
 - Not planned
 malinois ref activity, AF,
-- [ ] todo, violin & difference of means t-test
+- [ ] todo, histo & difference of means t-test
 malinois ref activity, pleio,
-- [ ] todo, violin & difference of means t-test
+- [ ] todo, histo & difference of means t-test
 CADD score, PhyloP score,
 - not planned
 CADD score, ensembl VEP,
@@ -176,7 +177,7 @@ ensembl VEP, AF,
 - [ ] change parser to only operate on SNPs, not other classes of variant
 - [ ] fix parser, to split on `,N|`, not on just commas
     - [ ] Finish updating the associated drawio figure to demonstrate this
-- [ ] repeat for AF, violin
+- [ ] repeat for AF, histo
 ensembl VEP, pleio,
 - not planned
 AF, pleio
@@ -255,8 +256,6 @@ PhyloP score, AF, pleio,
 - not planned
 ensembl VEP, AF, pleio
 - not planned
-
-
 
 
 
