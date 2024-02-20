@@ -1,5 +1,8 @@
 
 genome_regions=["is_in_PLS","is_in_dELS","is_in_pELS","ALL"]
+
+cell_types=["mean","K562","HepG2","SKNSH"]
+
 data_base_path="/home/mcn26/varef/scripts/noon_data/4.count/"
 
 pickle_root="/gpfs/gibbs/pi/reilly/VariantEffects/scripts/noon_scripts/4.count/"

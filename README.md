@@ -93,17 +93,23 @@ allelic skew:
 
 ## Todo
 
-
+- Rong is strongly opposed to using a continuious measure of allele frequency & recent purifying selection
+- Possibly perform logistic regression using rare/common as a binary output, with ref & skew as explanatory variables
+    - include interaction term
+    - perhaps also absolute value the two explanatory vars
+- pyspark code : https://chat.openai.com/share/886852cd-69de-4934-a8e8-df9f1b17b53b
 
 ## broad improvements 
-- [x] Add step after annotation that computes pleiotropy, such that it need not be re-computed each time. <- **PRIORITY**
-   - [x] Also filter MAF=0 <- **PRIORITY**
-- [x] re-run all existing graphs with new rare/common definition <- **PRIORITY**
+- [x] Add step after annotation that computes pleiotropy, such that it need not be re-computed each time.
+   - [x] Also filter MAF=0
+- [x] re-run all existing graphs with new rare/common definition
   - [x] check all notebooks to make sure they are using the unified function in the graphing_config script
-- [X] double check that all graph notebooks are loading the whole data tables with their globs. Otherwise, may read with spark then convert to pandas or introduce csv consolidation step <-  **PRIORITY**
+- [X] double check that all graph notebooks are loading the whole data tables with their globs. Otherwise, may read with spark then convert to pandas or introduce csv consolidation step
+- [ ] unify duplicate cells in `malin_purif_OR.ipynb` and `malinois_purifying_selection.ipynb`
 - [ ] Change genomic region plots to clustered bars instead of separate plots. 
 - [ ] Prepare track-hub.
-    - [X] Tell YCRC: readable FTP (Asked, waiting for reply.)
+    - [X] Tell YCRC: readable FTP
+    - [ ] contact static website people
 
 ## general
 - [ ] histo plotter
@@ -189,8 +195,13 @@ malinois skew, malinois ref activity, CADD score,
 malinois skew, malinois ref activity, PhyloP score,
 - [ ] do this. T-test difference of means for phylop conserved/nonconserved
 malinois skew, malinois ref activity, ensembl VEP,
-malinois skew, malinois ref activity, AF, <- **PRIORITY**
+malinois skew, malinois ref activity, AF, 
 - Performed, with bins, & all genomic regions
+
+- [ ] Make OR version <- **PRIORITY**
+- [ ] Recompute with Rong's new cutoffs <- **PRIORITY**
+- [ ] chop the negative skews
+
 - [ ] Continuious, 3D plot
 - [ ] perform 3D regression (on abs skew)
 - [ ] 2D slices (density plot?)

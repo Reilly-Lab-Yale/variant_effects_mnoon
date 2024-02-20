@@ -1,16 +1,26 @@
 import numpy as np
 import scipy.stats as sps
 def compute_OR(df,a,a_val,b,b_val):
-    #table is
-    # A, B  !A, B
-    # A,!B  !A,!B
-
+    """
+    Essentially computes an odds-ratio for a set intersection.
+    
+    a & b are column names, a_val and b_val are the specific values we are considering for overlap.
+    The input dataframe df must have columns `a`, `b`, and "count". Each row records the number of occurances
+    for each combination of a and b. 
+    
+    The code will define two sets A and B, where A is the set of elements where a=a_val, and B is where b=b_val
+    
+    The odds-ratio table is
+    A, B  !A, B
+    A,!B  !A,!B
+    """
+    
     table=np.array([
         [df[(df[a] == a_val) & (df[b] == b_val)]["count"].sum() , df[(df[a] != a_val) & (df[b] == b_val)]["count"].sum()],
         [df[(df[a] == a_val) & (df[b] != b_val)]["count"].sum() , df[(df[a] != a_val) & (df[b] != b_val)]["count"].sum()]
     ]).astype(int)
 
-    
+    print(table)
     
     #we will do two computations here
     result=sps.contingency.odds_ratio(table,kind="sample")
@@ -18,9 +28,6 @@ def compute_OR(df,a,a_val,b,b_val):
     ci=result.confidence_interval(confidence_level=0.95)
 
     p=sps.fisher_exact(table, alternative='two-sided').pvalue
-    
-    print(table)
-    print(odds)
     
     return {'OR':odds,"ci_lower":ci[0],'ci_upper':ci[1],'p':p}
 
