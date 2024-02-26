@@ -20,7 +20,7 @@ def compute_OR(df,a,a_val,b,b_val):
         [df[(df[a] == a_val) & (df[b] != b_val)]["count"].sum() , df[(df[a] != a_val) & (df[b] != b_val)]["count"].sum()]
     ]).astype(int)
 
-    print(table)
+    
     
     #we will do two computations here
     result=sps.contingency.odds_ratio(table,kind="sample")

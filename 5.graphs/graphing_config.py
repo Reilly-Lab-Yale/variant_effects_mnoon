@@ -1,6 +1,9 @@
 
 genome_regions=["is_in_PLS","is_in_dELS","is_in_pELS","ALL"]
 
+emvar_cata=["emVar_K562", "emVar_SKNSH", "emVar_HepG2", "ALL", "non_emvar"]
+emvar_cata_simple=["emVar_K562", "emVar_SKNSH", "emVar_HepG2"]
+
 cell_types=["mean","K562","HepG2","SKNSH"]
 
 data_base_path="/home/mcn26/varef/scripts/noon_data/4.count/"
@@ -29,4 +32,4 @@ def lump_rarity_categories(row):
     elif row["category"] in common_classes :
         return "COMMON"
     else:
-        return "not_interesting"
+        assert(1==2)#unknown cata
