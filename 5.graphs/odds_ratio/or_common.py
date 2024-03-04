@@ -93,7 +93,7 @@ def plot_or_combo(df,x,y,xlabel,region_col,title):
     
     
     plot = sns.catplot(x='pleio_region', y='OR', data=df, hue="pleio", kind='strip',height=6, aspect=1.5)
-    plt.xticks(rotation=45)
+    plt.xticks(rotation=45,ha="right")
     
     
     # Extract the list of x-tick labels as strings
