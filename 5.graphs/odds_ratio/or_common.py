@@ -1,5 +1,9 @@
 import numpy as np
 import scipy.stats as sps
+
+
+import graphing_config as gc
+
 def compute_OR(df,a,a_val,b,b_val):
     """
     Essentially computes an odds-ratio for a set intersection.
@@ -81,3 +85,44 @@ def plot_or(df,x,y,xlabel,ylim,title):
     plt.ylim(0,ylim)
     plt.show()
 
+def plot_or_combo(df,x,y,xlabel,region_col,title):
+
+
+    #combine the two x-tick-defining variables into one...
+    df['pleio_region'] = df.astype('str')['pleio'] + '_' + df['region']
+    
+    
+    plot = sns.catplot(x='pleio_region', y='OR', data=df, hue="pleio", kind='strip',height=6, aspect=1.5)
+    plt.xticks(rotation=45)
+    
+    
+    # Extract the list of x-tick labels as strings
+    xtick_labels = [label.get_text() for label in plot.ax.get_xticklabels()]
+    
+    plt.axhline(y=1, color='red', linestyle='--')
+    
+    #iterate over all data points
+    for i in range(df.shape[0]):
+
+        # Find the index of the current 'pleio_region' in the list of x-tick labels
+        pleio_region_index = xtick_labels.index(df.iloc[i]['pleio_region'])
+
+        # Retrieve the x-coordinate for the current 'pleio_region' from the list of x-tick positions
+        x = plot.ax.get_xticks()[pleio_region_index]
+        
+        y = df.iloc[i]['OR']
+        
+        
+        
+        plt.text(x, y+0.1, gc.p_val_to_str(df.iloc[i]['p']),  ha='left')
+        
+        
+        x_coords=[x,x]
+        y_coords=[df.iloc[i]['ci_lower'],df.iloc[i]['ci_upper']]
+        
+        plt.plot(x_coords,y_coords, marker = ',',color="black")
+        
+    plt.ylabel('Odds Ratio (OR)')
+    plt.title(title)
+    plt.show()
+    

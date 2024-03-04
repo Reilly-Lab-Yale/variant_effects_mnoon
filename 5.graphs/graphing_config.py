@@ -1,3 +1,5 @@
+import sys
+import math
 
 genome_regions=["is_in_PLS","is_in_dELS","is_in_pELS","ALL"]
 
@@ -33,3 +35,34 @@ def lump_rarity_categories(row):
         return "COMMON"
     else:
         assert(1==2)#unknown cata
+        
+        
+def p_val_to_str(p,include_star=False):
+    
+    min_positive_float = sys.float_info.min
+    threshold_exponent = math.floor(math.log10(min_positive_float)) + 1  # Slightly higher than the minimum
+    
+    annotation=""
+    
+    if include_star:
+    
+        if p < 0.001:
+            annotation+="***"
+        elif p < 0.01:
+            annotation+="**"
+        elif p < 0.05:
+            annotation+="*"
+            print("test")
+
+        annotation+=" "
+    
+    if p < 0.05:
+        if p == 0:
+            annotation+= f"p < 1e{threshold_exponent}"  # Dynamic annotation based on float precision
+        else:
+            exponent = math.floor(math.log10(p))
+            annotation+= f"p < 10^{exponent}"
+    else:
+        annotation="n.s."
+
+    return annotation
