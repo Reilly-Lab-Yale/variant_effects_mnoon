@@ -123,6 +123,7 @@ allelic skew:
 - [ ] move NN E4L9NdjPku1yFLxlZoJtXQ6TaMbewMye to better location
 - [ ] move NN BL2jL5SIMor1yx6B21DpQ1jm4oiF82tt to better location
 - [ ] If you send a copy of your published article to tange@gnu.org, it will be mentioned in the release notes of next version of GNU Parallel.
+- [ ] add better references for files Dr. Rong gave me (add_tf.ipynb et al.)
 
 ## specific graphs
 
