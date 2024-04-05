@@ -5,10 +5,11 @@
 #SBATCH --array=1-22%22
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=10G
-#SBATCH --time=02:00:00
+#SBATCH --time=08:00:00
+#SBATCH -p ycga
 
 module load miniconda
-conda activate mcn_vareff
+conda activate mcn_varef
 
 # Define the directories
 DIR1="/home/mcn26/varef/data/Malinois/gnomAD_variants/"
@@ -20,7 +21,7 @@ CHR="chr${SLURM_ARRAY_TASK_ID}"
 
 bcftools merge  \
    "${DIR1}gnomad.genomes.v3.1.2.sites.${CHR}.converted.vcf.gz"\
-   "${DIR2}gnomad.genomes.v3.1.2.sites.${CHR}.subinfo.vcf.bgz"\
+   "${DIR2}gnomad.genomes.v3.1.2.sites.${CHR}.subinfo.vcf.gz"\
   -Oz -o "${OUT_DIR}combined.${CHR}.vcf.gz"
 
 # Index the combined VCF file
