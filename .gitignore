@@ -13,3 +13,5 @@ __pycache__
 3.pleio_and_filter/pleio_and_filter.py
 *.parquet
 *.parquet.crc
+old_runs/
+2.0.annotate/*_run/

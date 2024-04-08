@@ -33,9 +33,24 @@ spark=None
 spark = SparkSession.builder.getOrCreate()
 
 
+# ## select chromosome
+
+# In[18]:
+
+
+chromosome="None"
+
+if "which_chr" in os.environ:
+    chromosome=os.environ['which_chr']
+    print("only crunching chromosome "+chromosome)
+else:
+    print("error : did not find which chromosome we are supposed to crunch")
+    exit(-1)
+
+
 # ## load in data
 
-# In[3]:
+# In[19]:
 
 
 #define the phylop tsv schema
@@ -50,7 +65,11 @@ phylop_anno = spark.read \
     .option("comment", "#") \
     .option("delimiter", "\t") \
     .schema(phylop_schema) \
-    .csv("/home/mcn26/varef/scripts/noon_data/1.annotate/out_processed.tsv", header=False)
+    .csv("/home/mcn26/varef/scripts/noon_data/1.5.format_zoonomia_phylop/out_processed.tsv", header=False)
+
+
+# In[21]:
+
 
 #define the vcf schema
 vcf_schema = StructType([
@@ -70,9 +89,10 @@ vcf = spark.read \
     .option("comment", "#") \
     .option("delimiter", "\t") \
     .schema(vcf_schema) \
-    .csv("/gpfs/gibbs/pi/reilly/VariantEffects/scripts/noon_data/0.merge/out/*.vcf.gz", header=False)
+    .csv(f"/home/mcn26/varef/scripts/noon_data/1.0.filter/filtered_output_{chromosome}.csv/*.csv.gz", header=False)
 
 
+# In[23]:
 
 
 #load the encode enhancer dataset
@@ -97,6 +117,7 @@ all_CREs = all_CREs.drop("misc_1", "misc_2")
 
 
 # ## Split relevant information from the VCF info field
+# ...into its own columns.
 
 # In[4]:
 
@@ -152,14 +173,6 @@ vcf = vcf.filter(
     (F.col("FILTER") == "PASS") 
     
 )
-
-
-if "which_chr" in os.environ:
-    print("only crunching chromosome "+os.environ['which_chr'])
-    vcf = vcf.filter((F.col("CHROM") == os.environ['which_chr']))
-else:
-    print("error : did not find ")
-    exit(-1)
 
 
 # ## Add the genomic region annotations
@@ -259,7 +272,7 @@ df = df.withColumn("AF", F.col("AF").cast("float"))
 # Calculate MAF using the Spark SQL functions
 df = df.withColumn("MAF", F.least(F.col("AF"), 1 - F.col("AF")))
 
-# Use the `when` function to apply the conditional logic
+
 df = df.withColumn("category", 
                    F.when((F.col("MAF") == 0.0) | (F.col("AC") == 0), "MAF_OR_AC_IS_ZERO")
                     .when(F.col("AC") == 1, "SINGLETON")
@@ -272,5 +285,7 @@ df = df.withColumn("category",
 # In[34]:
 
 
-df.write.csv("/home/mcn26/varef/scripts/noon_data/1.annotate/batched/annotated_output_"+os.environ['which_chr']+".csv", header=True, mode="overwrite")
+df.write.option("codec", "org.apache.hadoop.io.compress.GzipCodec") \
+    .option("delimiter", "\t") \
+    .csv(f"/home/mcn26/varef/scripts/noon_data/2.0.annotate/annotated_output_{chromosome}.csv.gz", header=True, mode="overwrite")
 
