@@ -15,3 +15,6 @@ __pycache__
 *.parquet.crc
 old_runs/
 2.0.annotate/*_run/
+*.csv
+3.5.add_TF_footprints/*_run/
+5.graphs/logistic_regressions/model/
