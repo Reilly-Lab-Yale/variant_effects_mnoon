@@ -29,7 +29,7 @@ chromosome="NONE"
 
 
 if "which_chr" in os.environ:
-    chromosome=os.environ['which_chr']
+    chromosome = os.environ['which_chr']
 
 if chromosome=="NONE":
     print("error : did not find which chromosome we are supposed to crunch!")
@@ -43,9 +43,9 @@ else:
 # In[4]:
 
 
-variant_path=f"/gpfs/gibbs/pi/reilly/VariantEffects/scripts/noon_data/3.pleio_and_filter/{chromosome}/*.csv.gz"
+variant_path=f"/gpfs/gibbs/pi/reilly/VariantEffects/scripts/noon_data/3.0pleio_and_filter/{chromosome}/*.csv.gz"
 
-variants=spark.read.csv(variant_path, header=True, inferSchema=True)
+variants=spark.read.option("delimiter","\t").csv(variant_path, header=True, inferSchema=True)
 
 
 # In[27]:

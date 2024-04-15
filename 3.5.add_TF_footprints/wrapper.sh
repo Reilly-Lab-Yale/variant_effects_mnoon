@@ -2,7 +2,7 @@
 #SBATCH -J TF
 #SBATCH --output=TF_%A_%a.out
 #SBATCH --error=TF_%A_%a.err
-#SBATCH --array=4
+#SBATCH --array=1-10
 #SBATCH --cpus-per-task=13
 #SBATCH --mem=30G
 #SBATCH -t 24:00:00
