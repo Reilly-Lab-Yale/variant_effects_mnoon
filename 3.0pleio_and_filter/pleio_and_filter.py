@@ -34,8 +34,8 @@ else:
 # In[13]:
 
 
-variant_path=f"/home/mcn26/varef/scripts/noon_data/2.filter/filtered_output_{chromosome}.csv/*.csv.gz"
-variants=spark.read.csv(variant_path, header=True, inferSchema=True)
+variant_path=f"/home/mcn26/varef/scripts/noon_data/2.0.annotate/annotated_output_{chromosome}.csv.gz/*.csv.gz"
+variants=spark.read.option("delimiter","\t").csv(variant_path, header=True, inferSchema=True)
 
 
 # ## Dropping columns with bad allele frequencies
@@ -67,10 +67,11 @@ variants = variants.withColumn("pleio", F.col("emVar_K562").cast("int") + F.col(
 # In[ ]:
 
 
-output_root="/home/mcn26/varef/scripts/noon_data/3.pleio_and_filter/"
+output_root="/home/mcn26/varef/scripts/noon_data/3.0pleio_and_filter/"
 
 variants.write \
     .option("header","true") \
+    .option("delimiter","\t") \
     .option("compression", "gzip") \
     .csv(output_root+chromosome)
 
