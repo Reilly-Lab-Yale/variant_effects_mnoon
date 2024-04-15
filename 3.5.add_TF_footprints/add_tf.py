@@ -188,6 +188,7 @@ output_root="/home/mcn26/varef/scripts/noon_data/3.5add_TF_footprints/"
 
 variants_annotated.write \
     .option("header","true") \
+    .option("delimiter","\t") \
     .option("compression", "gzip") \
     .csv(output_root+chromosome)
 
