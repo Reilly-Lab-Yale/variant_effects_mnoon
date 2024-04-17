@@ -1,2 +1,2 @@
-cat extracted_header.txt > final.vcf
-tail -n +2 fixed_info.csv >> final.vcf
+cat extracted_header_modified.txt > final.vcf
+tail -n +2 fixed_info.tsv >> final.vcf
