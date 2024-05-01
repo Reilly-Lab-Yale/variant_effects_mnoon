@@ -65,13 +65,12 @@ phylop_anno = spark.read \
     .option("comment", "#") \
     .option("delimiter", "\t") \
     .schema(phylop_schema) \
-    .csv("/home/mcn26/varef/scripts/noon_data/1.5.format_zoonomia_phylop/out_processed.tsv", header=False)
+    .csv("/home/mcn26/varef/scripts/noon_data/1.0.format_zoonomia_phylop/out_processed.tsv", header=False)
 
 
 # In[21]:
 
 
-#define the vcf schema
 vcf_schema = StructType([
     StructField("CHROM", StringType(), True),
     StructField("POS", IntegerType(), True),
@@ -84,12 +83,11 @@ vcf_schema = StructType([
 
 ])
 
-#read in the vcf data
 vcf = spark.read \
     .option("comment", "#") \
     .option("delimiter", "\t") \
     .schema(vcf_schema) \
-    .csv(f"/home/mcn26/varef/scripts/noon_data/1.0.filter/filtered_output_{chromosome}.csv/*.csv.gz", header=False)
+    .csv(f"/home/mcn26/varef/scripts/noon_data/0.merge/combined.{chromosome}.vcf.gz", header=False)
 
 
 # In[23]:
@@ -151,6 +149,7 @@ for key in keys_to_extract:
 #     - Remove low-quality variants not queried in a large number of individuals
 #     - Remove variants with a MAF of 0 (they don't really "vary") in the population if they dont exist.
 #     - Remove those variants that don't have all of the relevant metrics.
+#     - Remove non-SNP variants
 
 # In[5]:
 
