@@ -54,7 +54,7 @@ variants=spark.read.option("delimiter","\t").csv(variant_path, header=True, infe
 roulette_path=f'/home/mcn26/varef/data/roulette/{chromosome.strip("chr")}_rate_v5.2_TFBS_correction_all.vcf.gz'
 
 
-# In[10]:
+# In[6]:
 
 
 roulette=spark.read.option("delimiter","\t") \
@@ -67,13 +67,13 @@ new_columns=["CHROM","POS","ID","REF","ALT","QUAL","FILTER","INFO"]
 roulette = roulette.toDF(*new_columns)
 
 
-# In[11]:
+# In[7]:
 
 
 roulette=roulette.drop(*["ID","QUAL","FILTER"])
 
 
-# In[14]:
+# In[8]:
 
 
 ####The `INFO` field contains a lot of useful information, but it is all smashed together into a string. 
@@ -93,13 +93,13 @@ for key in keys_to_extract:
                            F.regexp_extract(F.col("INFO"), "{}=([^;]+);?".format(key), 1)).otherwise(None))
 
 
-# In[18]:
+# In[9]:
 
 
 roulette=roulette.drop("INFO")
 
 
-# In[19]:
+# In[10]:
 
 
 rename_dict={"PN":"roulette_PN","MR":"roulette_MR","MG":"roulette_MG"}
@@ -108,13 +108,19 @@ for old_name, new_name in rename_dict.items():
     roulette=roulette.withColumnRenamed(old_name,new_name)
 
 
-# In[26]:
+# In[11]:
 
 
 roulette=roulette.withColumn("POS", roulette["POS"].cast(T.IntegerType()))
 
 
-# In[22]:
+# In[18]:
+
+
+roulette = roulette.withColumn("CHROM", F.concat(F.lit("chr"), F.col("CHROM")))
+
+
+# In[12]:
 
 
 variants_annotated=variants.join(roulette,on=["CHROM","POS","REF","ALT"],how="inner")
