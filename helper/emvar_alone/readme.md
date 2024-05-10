@@ -1,0 +1,1 @@
+Extracting just ref, alt, position, and emvar true/false (true in any cell type) for Steven Gazal.
