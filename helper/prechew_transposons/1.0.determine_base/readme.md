@@ -15,10 +15,14 @@ Restricting our scope to the first chromosome,
 Each line is 50 characters long, except the first line which is just a fasta header '>chr1'
 So to get the character number at, say, the end of line 100, we would compute (100-1)*50.
 
+```
+
 Chr1        T   A   C   G   T
           | | | | | | | | | |
 1 based   | 1 | 2 | 3 | 4 | 5
 0 based   0   1   2   3   4
+
+```
 
 # First annotation
 
@@ -27,9 +31,9 @@ Chr1        T   A   C   G   T
 (line 202) thru (all but the last 3 nucleotides of line 230) are lowercase.
 
 If this was one-based
-- start is (201-1) * 50 + 1 = 10001
+- start is `(201-1) * 50 + 1 = 10001`
   - (first lowercase letter in anno is first character of line 202, which is "first 201 lines plus 1")
-- end is (230-1) * 50 - 3  = 11447
+- end is `(230-1) * 50 - 3  = 11447`
   - (last lowercase letter is 3 characters from the end of the line)
 
 If this was zero-based,
@@ -37,13 +41,13 @@ If this was zero-based,
 - end would be the same number, 11447
 
 ## Check
-
+```
    SW  perc perc perc  query      position in query           matching       repeat              position in  repeat
 score  div. del. ins.  sequence    begin     end    (left)    repeat         class/family         begin  end (left)   ID
 
   463   1.3  0.6  1.7  chr1        10001   10468 (248945954) +  (TAACCC)n      Simple_repeat            1  471    (0)      1
  3612  11.4 21.5  1.3  chr1        10469   11447 (248944975) C  TAR1           Satellite/telo       (399) 1712    483      2
-
+```
 The first two rows correspond to this string of lower-case letters : there are actually two repetitive sequences adjacent to each other. 
 
 # Second annotation
@@ -53,7 +57,7 @@ The first two rows correspond to this string of lower-case letters : there are a
 (excluding first four characters of line 232) through (the first 25 letters of line 235)
 
 If one-based
-
+```
 start= (231-1)*50                         +4                        +1 
         ^ beginning of lower-case        ^ excluding first four    ^ moving onto lowercase       
         is end of line 231 (sub 1)        upper-case letters
@@ -66,13 +70,13 @@ end = (234-1)*50              + 25
         first 234 lines
 
     = 11675 , the last lowercase letter in this annotation.
-
+```
 ## Checking
-
+```
    SW  perc perc perc  query      position in query           matching       repeat              position in  repeat
 score  div. del. ins.  sequence    begin     end    (left)    repeat         class/family         begin  end (left)   ID
 484  25.1 13.2  0.0  chr1        11505   11675 (248944747) C  L1MC5a         LINE/L1             (2382)  395    199      3
-
+```
 Consistent w/ 1-based. 
 
 # Conclusion
