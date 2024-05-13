@@ -9,4 +9,4 @@ Consulting https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/, we find:
 
 This is the file we want!
 
-The script in this directory, dl.sh retrieves it (executed in data directory `/home/mcn26/varef/data/repmask`, to place data there).
+The script in this directory, dl.sh, retrieves it.

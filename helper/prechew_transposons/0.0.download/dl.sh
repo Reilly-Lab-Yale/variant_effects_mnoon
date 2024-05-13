@@ -5,6 +5,7 @@
 #SBATCH --mail-type=END,FAIL
 #SBATCH -J dl
 
+cd /home/mcn26/varef/data/repmask
 
 wget https://hgdownload.cse.ucsc.edu/goldenpath/hg38/bigZips/hg38.fa.out.gz
 
