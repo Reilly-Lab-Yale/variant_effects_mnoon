@@ -1,0 +1,1 @@
+As mentioned, the the delimiters are inconsistent, & seem to be optimized for human readability rather than machine readability (made up of an inconsistent number of whitespace characters). This step fixes that.
