@@ -13,6 +13,7 @@ conda activate mcn_varef
 
 export which_chr="chr${SLURM_ARRAY_TASK_ID}"
 
+jupyter nbconvert --to script filter.ipynb
 
 # Execute the converted Python script
 spark-submit \
