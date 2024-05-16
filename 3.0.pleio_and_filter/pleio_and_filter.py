@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[4]:
+# In[1]:
 
 
 from pyspark.sql import SparkSession
@@ -15,11 +15,11 @@ import os
 spark = SparkSession.builder.appName("pleio_and_filter").getOrCreate()
 
 
-# In[6]:
+# In[3]:
 
 
 chromosome="NONE"
-#chromosome="chr22"
+chromosome="chr22"
 
 if "which_chr" in os.environ:
     chromosome=os.environ['which_chr']
@@ -31,10 +31,10 @@ else:
     print("only crunching chromosome "+chromosome)
 
 
-# In[13]:
+# In[4]:
 
 
-variant_path=f"/home/mcn26/varef/scripts/noon_data/2.0.annotate/annotated_output_{chromosome}.csv.gz/*.csv.gz"
+variant_path=f"/home/mcn26/varef/scripts/noon_data/2.5.filter/{chromosome}.csv.gz/*.csv.gz"
 variants=spark.read.option("delimiter","\t").csv(variant_path, header=True, inferSchema=True)
 
 
