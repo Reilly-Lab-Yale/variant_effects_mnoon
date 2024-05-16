@@ -43,9 +43,10 @@ else:
 # In[4]:
 
 
-variant_path=f"/gpfs/gibbs/pi/reilly/VariantEffects/scripts/noon_data/3.0pleio_and_filter/{chromosome}/*.csv.gz"
+variant_path=f"/gpfs/gibbs/pi/reilly/VariantEffects/scripts/noon_data/3.0.pleio_and_filter/{chromosome}/*.csv.gz"
 
-variants=spark.read.option("delimiter","\t").csv(variant_path, header=True, inferSchema=True)
+variants=spark.read.option("delimiter","\t") \
+    .csv(variant_path, header=True, inferSchema=True)
 
 
 # In[27]:
@@ -153,7 +154,7 @@ tf_footprints_broadcast = F.broadcast(tf_footprints)
 #employing a simple strategy where we make a table with every TF range
 #in a row with every (cartesian product) then just delete those that don't fall in 
 #the range. This is algorithmically boneheaded (much better algo exist w/ better time complexity), 
-#but since one of the tables is small we can broadcast is which is fast. 
+#but one of the tables is small we can broadcast is which is fast. 
 #so it works fine. 
 joined_df = variants.crossJoin(tf_footprints_broadcast) \
     .filter((F.col("POS") >= F.col("start")) & (F.col("POS") <= F.col("end")))
@@ -163,6 +164,8 @@ joined_df = variants.crossJoin(tf_footprints_broadcast) \
 
 
 #now we simply select those positions that did fall in a TF
+#Note that here we call distinct() because we just care about 
+#variant positions that fell in a TF, that's all. 
 pos_in_TF = joined_df.select("POS").distinct()
 
 
@@ -175,6 +178,13 @@ pos_in_TF = joined_df.select("POS").distinct()
 pos_in_TF = pos_in_TF.withColumn("in_TF", F.lit(True))
 
 variants_annotated = variants.join(pos_in_TF, on="POS", how="left")
+# recall the potentially problematic behavior of the left-join : 
+# if one left entry matches multiple right entries, the output will 
+# have multiple entries, each corresponding to a match! This could
+# duplicate variants. In this case, we are OK, because the right key 
+# is totally unique (we called .distinct() above) so one left key 
+# could never match multiple right keys. 
+
 
 #those positions not found to be in any interval shold be false!
 variants_annotated = variants_annotated.fillna({'in_TF': False})
