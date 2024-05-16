@@ -5,7 +5,7 @@
 
 # Load relevant libraries
 
-# In[10]:
+# In[1]:
 
 
 from pyspark.sql import SparkSession
@@ -17,17 +17,17 @@ import json
 
 # initalize the spark session
 
-# In[6]:
+# In[2]:
 
 
 spark = SparkSession.builder.appName("filter").getOrCreate()
 
 
-# In[7]:
+# In[10]:
 
 
 chromosome="NONE"
-#chromosome="chr22"
+chromosome="chr22"
 
 
 if "which_chr" in os.environ:
@@ -42,12 +42,12 @@ else:
 
 # Load the data
 
-# In[8]:
+# In[11]:
 
 
 #loading the extended-exon bed file
 #note we are discarding all information other than chromosome, start, & stop
-#!!note "autosome" : we are wholey exclusing the sex chromosomes!!
+#!!note "autosome" : we are wholey excluding the sex chromosomes!!
 exons = spark.read.csv("/home/mcn26/varef/scripts/noon_data/gencode.v44.basic.annotation.exons.splice.autosomes.v2.bed", header=False, inferSchema=True,sep="\t").select(
     F.col('_c0').alias('chromosome'),
     F.col('_c1').alias('start'),
@@ -58,30 +58,23 @@ exons = spark.read.csv("/home/mcn26/varef/scripts/noon_data/gencode.v44.basic.an
 exons = exons.filter((F.col("chromosome") == chromosome))
 
 
-# In[14]:
+# In[15]:
 
 
-#variant_path=f"/home/mcn26/varef/scripts/noon_data/1.annotate/batched/annotated_output_{chromosome}.csv/*"
-
-#variants=spark.read.csv(variant_path, header=True, inferSchema=True)
-
-vcf_schema = T.StructType([
-    T.StructField("CHROM", T.StringType(), True),
-    T.StructField("POS", T.IntegerType(), True),
-    T.StructField("ID", T.StringType(), True),
-    T.StructField("REF", T.StringType(), True),
-    T.StructField("ALT", T.StringType(), True),
-    T.StructField("QUAL", T.StringType(), True),
-    T.StructField("FILTER", T.StringType(), True),
-    T.StructField("INFO", T.StringType(), True),
-
-])
-
+#read in the vcf data
 variants = spark.read \
     .option("comment", "#") \
     .option("delimiter", "\t") \
-    .schema(vcf_schema) \
-    .csv(f"/home/mcn26/varef/scripts/noon_data/0.merge/combined.{chromosome}.vcf.gz", header=False)
+    .csv(f"/home/mcn26/varef/scripts/noon_data/2.3.add_transposons/{chromosome}.csv.gz/*.csv.gz",header=True)
+
+#cast
+variants = variants.withColumn("POS", F.col("POS").cast("int"))
+
+
+# In[16]:
+
+
+variants
 
 
 # Now that we have both kinds of data, we want to compare them. Specifically, we want to drop all those variants that fall within the bed intervals (extended exons, =)
@@ -124,5 +117,5 @@ non_exonic = variants.join(exons, condition, 'left_anti')
 
 non_exonic.write.option("codec", "org.apache.hadoop.io.compress.GzipCodec") \
     .option("delimiter", "\t") \
-    .csv(f"/home/mcn26/varef/scripts/noon_data/1.0.filter/filtered_output_{chromosome}.csv", header=True, mode="overwrite")
+    .csv(f"/home/mcn26/varef/scripts/noon_data/2.5.filter/{chromosome}.csv.gz", header=True, mode="overwrite")
 
