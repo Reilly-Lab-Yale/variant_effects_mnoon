@@ -2,17 +2,17 @@
 #SBATCH -J TF
 #SBATCH --output=TF_%A_%a.out
 #SBATCH --error=TF_%A_%a.err
-#SBATCH --array=11-22
+#SBATCH --array=9,13-22
 #SBATCH --cpus-per-task=13
 #SBATCH --mem=30G
 #SBATCH -t 24:00:00
 #SBATCH -p ycga
 
-#chromosome 4 failed last time because I forgot to delete the output directory
-#and the script was scared to over-write it. Fixing & re-running now. 
 
 module load miniconda
 conda activate mcn_varef
+
+jupyter nbconvert --to script add_tf.ipynb
 
 export which_chr="chr${SLURM_ARRAY_TASK_ID}"
 
