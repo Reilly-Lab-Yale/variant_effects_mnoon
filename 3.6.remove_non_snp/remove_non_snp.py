@@ -37,7 +37,7 @@ else:
 # In[6]:
 
 
-variant_path=f"/home/mcn26/varef/scripts/noon_data/3.5add_TF_footprints/{chromosome}/*.csv.gz"
+variant_path=f"/home/mcn26/varef/scripts/noon_data/3.5.add_TF_footprints/{chromosome}/*.csv.gz"
 variants=spark.read.option("delimiter","\t").csv(variant_path, header=True, inferSchema=True)
 
 
@@ -52,7 +52,7 @@ variants= variants.filter(
 # In[ ]:
 
 
-output_root="/home/mcn26/varef/scripts/noon_data/3.6_remove_non_snp/"
+output_root="/home/mcn26/varef/scripts/noon_data/3.6.remove_non_snp/"
 
 variants.write \
     .option("header","true") \
