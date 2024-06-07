@@ -48,7 +48,7 @@ variants=variants.filter(F.col("category")!="MAF_OR_AC_IS_ZERO")
 
 # ## Pleitropy
 # 
-# "Pleitropy" here refers to a variant which is an emVar in multiple cell-types. We're calling emVars as anything with abs(skew)>=0.5 and max(alt activitym ref activity)>=1
+# "Pleitropy" here refers to a variant which is an emVar in multiple cell-types. We're calling emVars as anything with abs(skew)>=0.5 and max(alt activity, ref activity)>=1
 
 # In[15]:
 
@@ -67,7 +67,7 @@ variants = variants.withColumn("pleio", F.col("emVar_K562").cast("int") + F.col(
 # In[ ]:
 
 
-output_root="/home/mcn26/varef/scripts/noon_data/3.0pleio_and_filter/"
+output_root="/home/mcn26/varef/scripts/noon_data/3.0.pleio_and_filter/"
 
 variants.write \
     .option("header","true") \

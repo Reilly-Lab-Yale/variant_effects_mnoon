@@ -27,7 +27,7 @@ spark = SparkSession.builder.appName("filter").getOrCreate()
 
 
 chromosome="NONE"
-chromosome="chr22"
+#chromosome="chr22"
 
 
 if "which_chr" in os.environ:

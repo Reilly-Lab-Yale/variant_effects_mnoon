@@ -194,7 +194,7 @@ variants_annotated = variants_annotated.fillna({'in_TF': False})
 
 
 #dump the data back to disc. 
-output_root="/home/mcn26/varef/scripts/noon_data/3.5add_TF_footprints/"
+output_root="/home/mcn26/varef/scripts/noon_data/3.5.add_TF_footprints/"
 
 variants_annotated.write \
     .option("header","true") \

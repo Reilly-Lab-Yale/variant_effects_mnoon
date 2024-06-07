@@ -1,27 +1,25 @@
 #!/bin/bash
-#SBATCH -J TF
-#SBATCH --output=TF_%A_%a.out
-#SBATCH --error=TF_%A_%a.err
+#SBATCH -J filter
+#SBATCH --output=filter_%A_%a.out
+#SBATCH --error=filter_%A_%a.err
 #SBATCH --array=9,13-22
-#SBATCH --cpus-per-task=13
-#SBATCH --mem=30G
+#SBATCH --cpus-per-task=9
+#SBATCH --mem=40G
 #SBATCH -t 24:00:00
 #SBATCH -p ycga
-
 
 module load miniconda
 conda activate mcn_varef
 
-jupyter nbconvert --to script add_tf.ipynb
-
 export which_chr="chr${SLURM_ARRAY_TASK_ID}"
 
+jupyter nbconvert --to script filter.ipynb
 
 # Execute the converted Python script
 spark-submit \
-    --driver-memory 2g \
-    --executor-memory 8g \
-    --num-executors 3 \
+    --driver-memory 1g \
+    --executor-memory 15g \
+    --num-executors 2 \
     --executor-cores 4 \
     --conf spark.executor.memoryOverhead=2g \
-    add_tf.py
+    filter.py
