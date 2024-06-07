@@ -27,14 +27,14 @@ Pre-processes phylo P scores retrieved from (ZOONOMIA CITE) into a format usable
 
 ## 2.0.annotate
 
-Removes variants which do **not** meet the following criteria:
+Removes variants which do **not** meet one or more of the following criteria:
 - Variant has non-null AF, AC, AN values
-    - (See section "AF, AC & AN" below, or the gnomad website for an explanation of these abbriviations.)
+    - (See section "Gnomad" below, or the gnomad website for an explanation of these abbriviations.)
 - VAriant has a non-null PHRED score.
 - Variant AN>=76156
-    - (See aforementioned "AF, AC & AN" section)
+    - (See aforementioned "Gnomad" section)
 - Has a non-null CADD score
-    - (See section CADD below).
+    - (See section "CADD" below).
 - Passes all of gnomad's own filters. 
 
 Annotates all variants with
@@ -44,17 +44,30 @@ Annotates all variants with
 Adds several columns for donwstream use, computed from existing columns:
 - Mean malinois reference activity and mean malinois skew
 - MAF : Minor Allele Frequency
-    - (See aforementioned "AF, AC & AN" section)
+    - (See aforementioned "Gnomad" section)
 - Rarity codes (simply called "category") and based on AC and MAF.
 
 
-Note on rarity code `MAF_OR_AC_IS_ZERO` : all variants bearing this code are filtered in a later step. 
+Note on rarity code `MAF_OR_AC_IS_ZERO` : all variants bearing this code are filtered later steps. 
 
+## 2.2.add_roulette
 
+Adds roulette mutation rate from (ROULETTE CITE). 
 
+## 2.3.add_transposons
+
+Annotates all variants with a boolean value that indicates whether they are in a repetitive element or not. 
+
+## 2.5.filter
+
+Removes...
+
+## 3.0.pleio_and_filter
+
+Computes emVar status and "pleiotropy" (how many cell types, of the three predicted by malinois, is the variant predicted to be an emVar in). 
 
 ## intuition
-This step takes the output of ... but its own output is not used in any subsequent steps. 
+This step takes the output of "2.3.add_transposons" but its own output is not used in any subsequent steps. 
 
 ## helper
 
@@ -71,9 +84,15 @@ This step takes the output of ... but its own output is not used in any subseque
     - malinous activity predictions produced in ...
     - The filtering step used masking produced in ...
   
-  
 
-# AF, AC & AN
+
+
+# Bibliography and helpful excerpts
+
+(The excerpts below help explain some abbriviations used by the various imported data). 
+
+
+# Gnomad
 
 (from tooltips on gnomad website)
 
@@ -89,12 +108,11 @@ gnomad filters 1) filter = pass, 2) maf != 0, 3) AN >= 76,156
 - 76,156 is [the number of high-quality genomes in 3.1](https://gnomad.broadinstitute.org/news/2020-10-gnomad-v3-1/)
 - Therefore, if a site were called in all individuals it would be 76,156\*2 . Gnomad sometimes issues the following warning
 
-> Warning This variant is covered in fewer than 50% of individuals in gnomAD v3.1.2 genomes. This may indicate a low-quality site.
+> Warning this variant is covered in fewer than 50% of individuals in gnomAD v3.1.2 genomes. This may indicate a low-quality site.
 
 Example : [rs113653250](https://gnomad.broadinstitute.org/variant/1-434284-T-G?dataset=gnomad_r3)
 
 
-# Citations and helpful excerpts. 
 
 ## CADD
 

@@ -24,5 +24,6 @@ bcftools merge  \
    "${DIR2}gnomad.genomes.v3.1.2.sites.${CHR}.subinfo.vcf.gz"\
   -Oz -o "${OUT_DIR}combined.${CHR}.vcf.gz"
 
+
 # Index the combined VCF file
 bcftools index -f -t --threads ${SLURM_CPUS_PER_TASK} "${OUT_DIR}combined.${CHR}.vcf.gz"
