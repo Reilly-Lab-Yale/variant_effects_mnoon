@@ -7,7 +7,7 @@
 #SBATCH -p ycga
 
 module load miniconda
-conda activate mcn_vareff
+conda activate mcn_varef
 
 # Convert the Jupyter notebook to a Python script
 jupyter nbconvert --to script purifying_selection_intuition.ipynb
