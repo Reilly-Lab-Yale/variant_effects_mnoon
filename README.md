@@ -60,11 +60,13 @@ Annotates all variants with a boolean value that indicates whether they are in a
 
 ## 2.5.filter
 
-Removes...
+Removes variants present in exons and splice-sites. 
 
 ## 3.0.pleio_and_filter
 
 Computes emVar status and "pleiotropy" (how many cell types, of the three predicted by malinois, is the variant predicted to be an emVar in). 
+
+removes variants called as "MAF_OR_AC_IS_ZERO"
 
 ## intuition
 This step takes the output of "2.3.add_transposons" but its own output is not used in any subsequent steps. 
