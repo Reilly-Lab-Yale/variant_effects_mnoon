@@ -30,7 +30,6 @@ Pre-processes phylo P scores retrieved from (ZOONOMIA CITE) into a format usable
 Removes variants which do **not** meet one or more of the following criteria:
 - Variant has non-null AF, AC, AN values
     - (See section "Gnomad" below, or the gnomad website for an explanation of these abbriviations.)
-- VAriant has a non-null PHRED score.
 - Variant AN>=76156
     - (See aforementioned "Gnomad" section)
 - Has a non-null CADD score
