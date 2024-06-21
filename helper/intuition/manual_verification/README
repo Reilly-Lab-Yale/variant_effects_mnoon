@@ -1,0 +1,2 @@
+Verified that the ensembl VEP intuition script was computing counts correctly by grabbing a toy dataset (10 random variants), manually computing expected output, & comparing to script output.
+Also verified that missing VEP entries are correctly handled by creating a copy of the toy dataset with one of the VEP entries deleted, running the script on that, and comparing to manual prediction.
