@@ -147,11 +147,6 @@ Tange, O. (2021, March 22). GNU Parallel 20210322 ('2002-01-06').
 
 
 # finalization tasks
-- [ ] finish writing docs
-- [ ] Re-export final conda YML
-- [ ] convert `malinois_vs_phylop=malinois_vs_phylop.rename(columns={i:i.replace('^', ',').replace('&','.') for i in malinois_vs_phylop.columns})` to function call in graphing settings file
-- [ ] modify all graphs to look nice & export to svg or something
-- [ ] move NN E4L9NdjPku1yFLxlZoJtXQ6TaMbewMye to better location
-- [ ] move NN BL2jL5SIMor1yx6B21DpQ1jm4oiF82tt to better location
-- [ ] If you send a copy of your published article to tange@gnu.org, it will be mentioned in the release notes of next version of GNU Parallel.
-- [ ] add better references for files Dr. Rong gave me (add_tf.ipynb et al.)
+- [ ] add better reference for files Dr. Rong gave me (add_tf.ipynb et al.)
+- [ ] Finish adding citations
+- [ ] Link to other parts of analysis : code producing files used here. 
