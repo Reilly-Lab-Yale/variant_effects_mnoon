@@ -1,0 +1,8 @@
+category,worst_consq_string,sum_phylop,sum_of_squared_phylop,sum_roulette_MR,sum_of_squared_roulette_MR,count
+ULTRARARE,regulatory_region_variant,0.34,0.11560000000000002,0.139,0.019321000000000005,1
+RARE,intron_variant,-0.348,0.41672,2.2590000000000003,4.513721,2
+SINGLETON,3_prime_UTR_variant,0.378,0.077274,0.349,0.061165000000000004,2
+LOW_FREQ,upstream_gene_variant,0.328,0.10758400000000001,0.073,0.0053289999999999995,1
+SINGLETON,intergenic_variant,0.424,0.179776,0.128,0.016384,1
+ULTRARARE,non_coding_transcript_exon_variant,0.091,0.008281,0.03,9.0E-4,1
+SINGLETON,intron_variant,-1.074,0.7998500000000001,0.113,0.007789000000000001,2
