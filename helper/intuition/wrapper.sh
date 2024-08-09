@@ -2,9 +2,9 @@
 #SBATCH -J purf_intu
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=10
-#SBATCH --mem=300G
-#SBATCH -t 2-00:00:00
-#SBATCH -p ycga
+#SBATCH --mem=600G
+#SBATCH -t 1-00:00:00
+#SBATCH -p ycga_bigmem
 
 module load miniconda
 conda activate mcn_varef
