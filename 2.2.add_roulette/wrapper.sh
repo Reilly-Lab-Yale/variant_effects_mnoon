@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --array=4-22
 #SBATCH --cpus-per-task=2
-#SBATCH --mem=16G
+#SBATCH --mem-per-cpu=8G
 #SBATCH -t 2-00:00:00
 #SBATCH -p ycga
 #SBATCH --mail-user mackenzie.noon@yale.edu

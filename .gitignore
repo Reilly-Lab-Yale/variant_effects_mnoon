@@ -13,3 +13,7 @@ __pycache__
 3.0.pleio_and_filter/pleio_and_filter.py
 3.5.add_TF_footprints/add_tf.py
 3.6.remove_non_snp/remove_non_snp.py
+helper/intuition/dump100.csv/*
+helper/intuition/counts_broken.csv/*
+3.6.remove_non_snp/remove_non_snp.py
+helper/intuition/counts.csv/*

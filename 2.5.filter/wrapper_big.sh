@@ -2,11 +2,11 @@
 #SBATCH -J filter
 #SBATCH --output=filter_%A_%a.out
 #SBATCH --error=filter_%A_%a.err
-#SBATCH --array=9,13-22
+#SBATCH --array=1-3
 #SBATCH --cpus-per-task=9
-#SBATCH --mem=40G
-#SBATCH -t 24:00:00
-#SBATCH -p ycga
+#SBATCH --mem-per-cpu=4G
+#SBATCH -t 72:00:00
+#SBATCH -p ycga_long
 
 module load miniconda
 conda activate mcn_varef

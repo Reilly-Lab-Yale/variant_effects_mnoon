@@ -2,9 +2,9 @@
 #SBATCH -J filter
 #SBATCH --output=filter_%A_%a.out
 #SBATCH --error=filter_%A_%a.err
-#SBATCH --array=1-8,10-12
+#SBATCH --array=4-22
 #SBATCH --cpus-per-task=9
-#SBATCH --mem=40G
+#SBATCH --mem-per-cpu=4G
 #SBATCH -t 24:00:00
 #SBATCH -p ycga
 
