@@ -12,3 +12,4 @@ __pycache__
 2.5.filter/filter.py
 3.0.pleio_and_filter/pleio_and_filter.py
 3.5.add_TF_footprints/add_tf.py
+3.6.remove_non_snp/remove_non_snp.py
