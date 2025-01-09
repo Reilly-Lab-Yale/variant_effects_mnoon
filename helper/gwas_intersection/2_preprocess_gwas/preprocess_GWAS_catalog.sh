@@ -11,6 +11,9 @@
 #8. remove any rsids where linakge in gnomad is ambiguous
 
 
+cut -f 2,7,8,12,13,22,28 gwas_catalog_v1.0-associations_e113_r2024-12-19.tsv> GWAS_associations
+cut -f 2,9 gwas_catalog-ancestry_r2024-12-19.tsv> GWAS_ancestries.tsv    
+
 #combine gwas ancestry file and append as an extra comma delimited collumn to the associations
 awk '                                      
 BEGIN {
