@@ -11,8 +11,8 @@
 #8. remove any rsids where linakge in gnomad is ambiguous
 
 
-cut -f 2,7,8,12,13,22,28 gwas_catalog_v1.0-associations_e113_r2024-12-19.tsv> GWAS_associations
-cut -f 2,9 gwas_catalog-ancestry_r2024-12-19.tsv> GWAS_ancestries.tsv    
+cut -f 2,7,8,12,13,22,28 gwas_catalog_v1.0-associations_e113_r2024-12-19.tsv> GWAS_associations.tsv
+cut -f 2,9 gwas_catalog-ancestry_r2024-12-19.tsv> GWAS_ancestries.tsv        
 
 #combine gwas ancestry file and append as an extra comma delimited collumn to the associations
 awk '                                      
@@ -99,7 +99,7 @@ awk 'BEGIN { FS="\t"; OFS="\t" } NR > 1 { print $6, $0 }' reformatted_GWAS_catal
 join -t $'\t' -1 1 -2 1 GWAS_prepared_sorted_ASN.tsv LD_ASN_filtered_sorted.tsv > GWAS_LD_combined_ASN.tsv
 
 #add in the tag snps
-cat GWAS_prepared_sorted_ASN.tsv | awk '{print $0, $1, "tag"}'>  GWAS_prepared_sorted_ASN_tagLabel.tsv 
+cat GWAS_prepared_sorted_ASN.tsv | awk '{print $0"\t"$1"\ttag"}'>  GWAS_prepared_sorted_ASN_tagLabel.tsv 
 cat GWAS_LD_combined_ASN.tsv GWAS_prepared_sorted_ASN_tagLabel.tsv  > GWAS_temp_results_ASN.tsv
 
 # Sort final set and remove entries that the tag snp does not have an rsID, and remove double tag snp line
@@ -145,7 +145,7 @@ awk 'BEGIN { FS="\t"; OFS="\t" } NR > 1 { print $6, $0 }' reformatted_GWAS_catal
 join -t $'\t' -1 1 -2 1 GWAS_prepared_sorted_AFR.tsv LD_AFR_filtered_sorted.tsv > GWAS_LD_combined_AFR.tsv
 
 #add in the tag snps
-cat GWAS_prepared_sorted_AFR.tsv | awk '{print $0, $1, "tag"}'>  GWAS_prepared_sorted_AFR_tagLabel.tsv 
+cat GWAS_prepared_sorted_AFR.tsv | awk '{print $0"\t"$1"\ttag"}'>  GWAS_prepared_sorted_AFR_tagLabel.tsv 
 cat GWAS_LD_combined_AFR.tsv GWAS_prepared_sorted_AFR_tagLabel.tsv  > GWAS_temp_results_AFR.tsv
 
 # Sort final set and remove entries that the tag snp does not have an rsID, and remove double tag snp line
@@ -188,7 +188,7 @@ awk 'BEGIN { FS="\t"; OFS="\t" } NR > 1 { print $6, $0 }' reformatted_GWAS_catal
 join -t $'\t' -1 1 -2 1 GWAS_prepared_sorted_EUR.tsv LD_EUR_filtered_sorted.tsv > GWAS_LD_combined_EUR.tsv
 
 #add in the tag snps
-cat GWAS_prepared_sorted_EUR.tsv | awk '{print $0, $1, "tag"}'>  GWAS_prepared_sorted_EUR_tagLabel.tsv 
+cat GWAS_prepared_sorted_EUR.tsv | awk '{print $0"\t"$1"\ttag"}'>  GWAS_prepared_sorted_EUR_tagLabel.tsv 
 cat GWAS_LD_combined_EUR.tsv GWAS_prepared_sorted_EUR_tagLabel.tsv  > GWAS_temp_results_EUR.tsv
 
 # Sort final set and remove entries that the tag snp does not have an rsID, and remove double tag snp line
