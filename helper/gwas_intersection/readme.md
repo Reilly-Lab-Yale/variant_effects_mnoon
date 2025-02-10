@@ -8,3 +8,8 @@ steve's request
 - Summarize : "X number of variants w/ emvar call in cCRE"
      - Alluvial plot
 **no filters**
+
+from steve's files
+- just merge on rsid
+- kill all ambiguious merges, recording number lost at each step
+- 
