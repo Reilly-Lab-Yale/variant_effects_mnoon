@@ -19,7 +19,7 @@ do
     echo "Cutting ${file}"
     cat $inp_root/$file \
         | cut -f12 \
-        | sed 's/^info$/K562__ref\tHepG2__ref\tSKNSH__ref\tK562__alt\tHepG2__alt\tSKNSH__alt,\tK562__skew,\tHepG2__skew\tSKNSH__skew/' \
+        | sed 's/^info$/\tK562__ref\tHepG2__ref\tSKNSH__ref\tK562__alt\tHepG2__alt\tSKNSH__alt\tK562__skew\tHepG2__skew\tSKNSH__skew/' \
         | sed 's/K562__ref=/\t/' \
         | sed 's/;HepG2__ref=/\t/' \
         | sed 's/;SKNSH__ref=/\t/' \
@@ -34,9 +34,9 @@ done
 
 # now paste together the first 11 columns of the original file and the newly broken out malin columns
 echo "pasting AFR"
-cat $inp_root/AFR.tsv |  cut -f1-11 | paste - AFR.tsv.head > $inp_root/AFR_broken.tsv
+cat $inp_root/AFR.tsv |  cut -f1-11 | paste -d '' - AFR.tsv.head > $inp_root/AFR_broken.tsv
 echo "pasting EUR"
-cat $inp_root/EUR.tsv |  cut -f1-11 | paste - EUR.tsv.head > $inp_root/EUR_broken.tsv
+cat $inp_root/EUR.tsv |  cut -f1-11 | paste -d '' - EUR.tsv.head > $inp_root/EUR_broken.tsv
 echo "pasting ASN"
-cat $inp_root/ASN.tsv |  cut -f1-11 | paste - ASN.tsv.head > $inp_root/ASN_broken.tsv
+cat $inp_root/ASN.tsv |  cut -f1-11 | paste -d '' - ASN.tsv.head > $inp_root/ASN_broken.tsv
 echo "DONE"
