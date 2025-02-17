@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[10]:
+# In[8]:
 
 
 import os
@@ -34,7 +34,13 @@ time.sleep(120)
 print("[!] Attempting to connect", flush=True)
 
 
-# In[12]:
+# In[10]:
+
+
+get_ipython().run_line_magic('reload_ext', 'sql')
+
+
+# In[11]:
 
 
 get_ipython().run_cell_magic('sql', '', 'postgresql://mr_root:password@localhost:5433/scratch\n')
@@ -44,18 +50,6 @@ get_ipython().run_cell_magic('sql', '', 'postgresql://mr_root:password@localhost
 
 
 print("[+] Connected.", flush=True)
-
-
-# In[9]:
-
-
-get_ipython().run_cell_magic('sql', '', "SET max_parallel_workers = 16;\nSET max_parallel_workers_per_gather = 6;\nSET parallel_setup_cost = 100;\nSET parallel_tuple_cost = 0.1;\nSET work_mem = '1GB';\nSET maintenance_work_mem = '4GB';\nSET effective_cache_size = '48GB';\nSET shared_buffers = '16GB';\nSET enable_parallel_hash = ON;\nSET enable_parallel_seqscan = ON;\nSET enable_parallel_append = ON;\n")
-
-
-# In[ ]:
-
-
-get_ipython().run_cell_magic('sql', '', 'SET max_parallel_workers_per_gather = 5;\n')
 
 
 # In[ ]:
@@ -112,7 +106,17 @@ print("[+] creating mat view", flush=True)
 # In[ ]:
 
 
-get_ipython().run_cell_magic('sql', '', 'CREATE MATERIALIZED VIEW unique_id_malin_gnomad AS\nSELECT *\nFROM malin_gnomad\nWHERE id IN (SELECT id FROM intermediate_unique_ids);\n')
+get_ipython().run_cell_magic('sql', '', 'CREATE MATERIALIZED VIEW unique_id_malin_gnomad AS\nSELECT m.*\nFROM malin_gnomad m\nJOIN intermediate_unique_ids i ON m.id = i.id;\n')
+
+
+# In[ ]:
+
+
+#%%sql
+#CREATE MATERIALIZED VIEW unique_id_malin_gnomad AS
+#SELECT *
+#FROM malin_gnomad
+#WHERE id IN (SELECT id FROM intermediate_unique_ids);
 
 
 # In[ ]:
@@ -121,7 +125,7 @@ get_ipython().run_cell_magic('sql', '', 'CREATE MATERIALIZED VIEW unique_id_mali
 print("FINISHED ALL TASKS, SHUTTING SERVER DOWN", flush=True)
 
 
-# In[13]:
+# In[7]:
 
 
 get_ipython().system('pg_ctl -D ~/palmer_scratch/db stop')
