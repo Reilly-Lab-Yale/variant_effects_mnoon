@@ -7,6 +7,6 @@ module load miniconda
 conda activate mcn_varef
 
 
-jupyter nbconvert --to script 5_dedup.ipynb
+jupyter nbconvert --to script dedup.ipynb
 
-ipython 5_dedup.py
+ipython dedup.py
