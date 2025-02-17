@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH -p ycga_long
-#SBATCH -t 7-00:00:00
+#SBATCH -p ycga
+#SBATCH -t 1-00:00:00
 #SBATCH -c 4
 #SBATCH --mem=64G
 module load miniconda
