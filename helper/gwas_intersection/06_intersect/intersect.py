@@ -25,10 +25,48 @@ print(f"[+] {datetime.datetime.now()}",flush=True)
 time.sleep(120)
 
 
-# In[3]:
+# In[2]:
 
 
 get_ipython().run_cell_magic('sql', '', 'postgresql://mr_root:password@localhost:5433/scratch\n')
+
+
+# Let's check to make sure that the deduplication was successful...
+
+# In[3]:
+
+
+#%%sql
+#SELECT COUNT(DISTINCT id) AS unique_count
+#FROM unique_id_malin_gnomad;
+#commenting out for future runs: number should be 392260882
+
+
+# In[4]:
+
+
+#%%sql
+#SELECT COUNT(id) AS _count
+#FROM unique_id_malin_gnomad;
+#commenting out for future runs: number should be 392260882
+
+
+# In[5]:
+
+
+#%%sql
+#SELECT COUNT(id) AS _count
+#FROM malin_gnomad;
+#commenting out for future runs: number should be 621936226
+
+
+# In[6]:
+
+
+#%%sql
+#SELECT COUNT(DISTINCT id) AS unique_count
+#FROM malin_gnomad;
+#commenting out for future runs: number should be 419498607
 
 
 # In[3]:
@@ -53,13 +91,7 @@ print(f"[+] {datetime.datetime.now()}",flush=True)
 # In[ ]:
 
 
-get_ipython().run_cell_magic('sql', '', 'DROP TABLE merged_AFR;\n')
-
-
-# In[ ]:
-
-
-get_ipython().run_cell_magic('sql', '', 'CREATE TABLE merged_AFR AS\nSELECT *\nFROM\n    gwas_AFR\nINNER JOIN\n    unique_id_malin_gnomad\nON\n    unique_id_malin_gnomad.id=gwas_AFR.rsid;\n')
+get_ipython().run_cell_magic('sql', '', '--DROP TABLE merged_AFR CASCADE;\nCREATE TABLE merged_AFR AS\nSELECT *\nFROM\n    gwas_AFR\nINNER JOIN\n    unique_id_malin_gnomad\nON\n    unique_id_malin_gnomad.id=gwas_AFR.ld_buddy;\n')
 
 
 # In[ ]:
@@ -72,7 +104,7 @@ print(f"[+] {datetime.datetime.now()}",flush=True)
 # In[ ]:
 
 
-get_ipython().run_cell_magic('sql', '', 'CREATE TABLE merged_EUR AS\nSELECT *\nFROM\n    gwas_EUR\nINNER JOIN\n    unique_id_malin_gnomad\nON\n    unique_id_malin_gnomad.id=gwas_EUR.rsid;\n')
+get_ipython().run_cell_magic('sql', '', '--DROP TABLE merged_EUR CASCADE;\nCREATE TABLE merged_EUR AS\nSELECT *\nFROM\n    gwas_EUR\nINNER JOIN\n    unique_id_malin_gnomad\nON\n    unique_id_malin_gnomad.id=gwas_EUR.ld_buddy;\n')
 
 
 # In[ ]:
@@ -85,7 +117,7 @@ print(f"[+] {datetime.datetime.now()}",flush=True)
 # In[ ]:
 
 
-get_ipython().run_cell_magic('sql', '', 'CREATE TABLE merged_ASN AS\nSELECT *\nFROM\n    gwas_ASN\nINNER JOIN\n    unique_id_malin_gnomad\nON\n    unique_id_malin_gnomad.id=gwas_ASN.rsid;\n')
+get_ipython().run_cell_magic('sql', '', '--DROP TABLE merged_ASN CASCADE;\nCREATE TABLE merged_ASN AS\nSELECT *\nFROM\n    gwas_ASN\nINNER JOIN\n    unique_id_malin_gnomad\nON\n    unique_id_malin_gnomad.id=gwas_ASN.ld_buddy;\n')
 
 
 # In[ ]:
@@ -95,7 +127,7 @@ print("[+] DONE.",flush=True)
 print(f"[+] {datetime.datetime.now()}",flush=True)
 
 
-# In[4]:
+# In[7]:
 
 
 get_ipython().system('pg_ctl -D ~/palmer_scratch/db stop')
