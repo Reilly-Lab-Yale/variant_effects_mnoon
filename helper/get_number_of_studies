@@ -1,0 +1,14 @@
+#script computes number of unique studies in LD-expanded GWAS catalog file
+
+#get all study names in all three population files (anti grep for STUDY header)
+zcat /home/mcn26/varef/data/GWAS/GWAS_LD_AFR_done.tsv.gz | cut -f3 | grep -v ^STUDY$ > ~/combo
+zcat /home/mcn26/varef/data/GWAS/GWAS_LD_ASN_done.tsv.gz | cut -f3 | grep -v ^STUDY$ >> ~/combo
+zcat /home/mcn26/varef/data/GWAS/GWAS_LD_EUR_done.tsv.gz | cut -f3 | grep -v ^STUDY$ >> ~/combo
+
+#executing
+cat ~/combo | sort | uniq -c | wc -l
+#tells us that there are  5781 unique studies. 
+
+#spot-checking with
+cat ~/combo | sort | uniq | cat -A | less
+#to make sure there are no silly duplicates because of whitespace. 
