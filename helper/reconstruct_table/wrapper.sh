@@ -33,8 +33,10 @@ do
 	zcat "$f" | #cat file
 		tail -n +2 | #ignore header
 		awk -F'\t' 'BEGIN {OFS="\t"} { print $2, $1 - 1, $1 }' |
-		gzip > ${output_file}
+		gzip >> ${output_file}
 done
+
+echo "Done!"
 
 #going from POS CHROM ... to chrom start end
 
