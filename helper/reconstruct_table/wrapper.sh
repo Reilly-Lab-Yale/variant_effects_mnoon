@@ -32,7 +32,7 @@ for f in ${input_dir}*.csv.gz;
 do
 	zcat "$f" | #cat file
 		tail -n +2 | #ignore header
-		awk -F'\t' 'BEGIN {OFS="\t"} { print $2, $1 - 1, $1 }' |
+		awk -F'\t' 'BEGIN {OFS="\t"} { print $2, $1 - 1, $1, $3, $4, $5}' |
 		gzip >> ${output_file}
 done
 
