@@ -1,0 +1,12 @@
+GWAS_LD_AFR_done.tsv.gz all
+1513214
+GWAS_LD_AFR_done.tsv.gz dedup
+1502111
+GWAS_LD_ASN_done.tsv.gz all
+5756159
+GWAS_LD_ASN_done.tsv.gz uniq
+5733853
+GWAS_LD_EUR_done.tsv.gz all
+14127461
+GWAS_LD_EUR_done.tsv.gz uniq
+14034206
