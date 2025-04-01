@@ -1,0 +1,110 @@
+[+] Processing chr10
+[+] Number of rows gnomad before merge: 35496856
+[+] Number of unique chr, pos combos before merge 29274366
+[+] Number of rows gnomad after merge: 34542617
+[+] Number of unique chr, pos combos after merge 28738167
+[+] Processing chr11
+[+] Number of rows gnomad before merge: 35078200
+[+] Number of unique chr, pos combos before merge 29287232
+[+] Number of rows gnomad after merge: 34388687
+[+] Number of unique chr, pos combos after merge 28752138
+[+] Processing chr12
+[+] Number of rows gnomad before merge: 34331057
+[+] Number of unique chr, pos combos before merge 28512006
+[+] Number of rows gnomad after merge: 33675753
+[+] Number of unique chr, pos combos after merge 28014252
+[+] Processing chr13
+[+] Number of rows gnomad before merge: 24993787
+[+] Number of unique chr, pos combos before merge 20928887
+[+] Number of rows gnomad after merge: 24879066
+[+] Number of unique chr, pos combos after merge 20846442
+[+] Processing chr14
+[+] Number of rows gnomad before merge: 23566763
+[+] Number of unique chr, pos combos before merge 19566688
+[+] Number of rows gnomad after merge: 23348118
+[+] Number of unique chr, pos combos after merge 19398936
+[+] Processing chr15
+[+] Number of rows gnomad before merge: 22224163
+[+] Number of unique chr, pos combos before merge 18350119
+[+] Number of rows gnomad after merge: 22015975
+[+] Number of unique chr, pos combos after merge 18204948
+[+] Processing chr16
+[+] Number of rows gnomad before merge: 24716971
+[+] Number of unique chr, pos combos before merge 20020169
+[+] Number of rows gnomad after merge: 24206047
+[+] Number of unique chr, pos combos after merge 19660163
+[+] Processing chr17
+[+] Number of rows gnomad before merge: 21943471
+[+] Number of unique chr, pos combos before merge 17773449
+[+] Number of rows gnomad after merge: 21515126
+[+] Number of unique chr, pos combos after merge 17506202
+[+] Processing chr18
+[+] Number of rows gnomad before merge: 19466619
+[+] Number of unique chr, pos combos before merge 16299748
+[+] Number of rows gnomad after merge: 19299897
+[+] Number of unique chr, pos combos after merge 16188211
+[+] Processing chr19
+[+] Number of rows gnomad before merge: 17290209
+[+] Number of unique chr, pos combos before merge 13679936
+[+] Number of rows gnomad after merge: 16808643
+[+] Number of unique chr, pos combos after merge 13321344
+[+] Processing chr1
+[+] Number of rows gnomad before merge: 59159991
+[+] Number of unique chr, pos combos before merge 49052590
+[+] Number of rows gnomad after merge: 58009755
+[+] Number of unique chr, pos combos after merge 48372827
+[+] Processing chr20
+[+] Number of rows gnomad before merge: 16354200
+[+] Number of unique chr, pos combos before merge 13377705
+[+] Number of rows gnomad after merge: 15908303
+[+] Number of unique chr, pos combos after merge 13140027
+[+] Processing chr21
+[+] Number of rows gnomad before merge: 10958207
+[+] Number of unique chr, pos combos before merge 8751532
+[+] Number of rows gnomad after merge: 10271416
+[+] Number of unique chr, pos combos after merge 8330602
+[+] Processing chr22
+[+] Number of rows gnomad before merge: 11606640
+[+] Number of unique chr, pos combos before merge 9194919
+[+] Number of rows gnomad after merge: 11202846
+[+] Number of unique chr, pos combos after merge 8920486
+[+] Processing chr2
+[+] Number of rows gnomad before merge: 62929395
+[+] Number of unique chr, pos combos before merge 52560824
+[+] Number of rows gnomad after merge: 62279029
+[+] Number of unique chr, pos combos after merge 52157431
+[+] Processing chr3
+[+] Number of rows gnomad before merge: 51232827
+[+] Number of unique chr, pos combos before merge 42952397
+[+] Number of rows gnomad after merge: 50430248
+[+] Number of unique chr, pos combos after merge 42392476
+[+] Processing chr4
+[+] Number of rows gnomad before merge: 50144242
+[+] Number of unique chr, pos combos before merge 41848798
+[+] Number of rows gnomad after merge: 49418592
+[+] Number of unique chr, pos combos after merge 41514452
+[+] Processing chr5
+[+] Number of rows gnomad before merge: 46413277
+[+] Number of unique chr, pos combos before merge 38966692
+[+] Number of rows gnomad after merge: 45836326
+[+] Number of unique chr, pos combos after merge 38532160
+[+] Processing chr6
+[+] Number of rows gnomad before merge: 43702087
+[+] Number of unique chr, pos combos before merge 36525477
+[+] Number of rows gnomad after merge: 43416791
+[+] Number of unique chr, pos combos after merge 36313997
+[+] Processing chr7
+[+] Number of rows gnomad before merge: 42467077
+[+] Number of unique chr, pos combos before merge 35129476
+[+] Number of rows gnomad after merge: 41655916
+[+] Number of unique chr, pos combos after merge 34519535
+[+] Processing chr8
+[+] Number of rows gnomad before merge: 39937920
+[+] Number of unique chr, pos combos before merge 33223331
+[+] Number of rows gnomad after merge: 39214191
+[+] Number of unique chr, pos combos after merge 32651146
+[+] Processing chr9
+[+] Number of rows gnomad before merge: 33830205
+[+] Number of unique chr, pos combos before merge 27887377
+[+] Number of rows gnomad after merge: 33361455
+[+] Number of unique chr, pos combos after merge 27576969
