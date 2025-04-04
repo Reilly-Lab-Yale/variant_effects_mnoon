@@ -14,7 +14,7 @@ conda activate mcn_varef
 # Define the directories
 DIR1="/home/mcn26/varef/data/Malinois/gnomAD_variants/"
 DIR2="/gpfs/gibbs/pi/reilly/VariantEffects/data/gnomAD/gnomAD_genomes_v3.1.2/"
-OUT_DIR="/gpfs/gibbs/pi/reilly/VariantEffects/scripts/noon_scripts/0.merge/out/" # make sure this directory exists
+OUT_DIR="/gpfs/gibbs/pi/reilly/VariantEffects/scripts/noon_data/0.merge/out/" # make sure this directory exists
 
 # Define the chromosome based on the Slurm array task ID
 CHR="chr${SLURM_ARRAY_TASK_ID}"
