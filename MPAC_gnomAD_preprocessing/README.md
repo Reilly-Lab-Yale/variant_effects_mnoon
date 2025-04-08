@@ -142,9 +142,6 @@ https://screen.encodeproject.org/
 
 
 
-Tange, O. (2021, March 22). GNU Parallel 20210322 ('2002-01-06').
-  Zenodo. https://doi.org/10.5281/zenodo.4628277
-
 
 [^b]: Evolutionary constraint and innovation across hundreds of placental mammals. Science 380, eabn3943 (2023).
 [^c]: Twelve years of SAMtools and BCFtools Petr Danecek, James K Bonfield, Jennifer Liddle, John Marshall, Valeriu Ohan, Martin O Pollard, Andrew Whitwham, Thomas Keane, Shane A McCarthy, Robert M Davies, Heng Li GigaScience, Volume 10, Issue 2, February 2021, giab008, https://doi.org/10.1093/gigascience/giab008
