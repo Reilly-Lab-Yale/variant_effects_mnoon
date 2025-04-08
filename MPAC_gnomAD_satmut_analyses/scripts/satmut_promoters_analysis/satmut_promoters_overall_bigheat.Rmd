@@ -1,0 +1,140 @@
+---
+title: "Analyses of big heatmap of promoters in Malinois-satmut_promoters"
+author: "Stephen Rong"
+date: "2024-04-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r preamble}
+# load libraries
+library(tidyverse)
+library(data.table)
+library(viridis)
+library(patchwork)
+library(corrplot)
+library(ComplexHeatmap)
+library(GGally)
+
+# load tables
+satmut_promoters_pred_final_base_level <- list()
+for (chr in paste0("chr", c(1:22))) {
+	print(chr)
+	satmut_promoters_pred_final_base_level[[chr]] <- as_tibble(fread(paste0("../../results/satmut_promoters_preprocess/satmut_promoters_final_base/satmut_promoters_final_base_", chr, ".txt.gz"))) %>%  
+		filter(!in_all_exon_splice)
+}
+
+satmut_promoters_pred_final_base_level <- satmut_promoters_pred_final_base_level %>% 
+	bind_rows()
+```
+
+```{r col order}
+# save col order from ref
+satmut_promoters_pred_final_base_level_bigheat <- satmut_promoters_pred_final_base_level %>% 
+	dplyr::select(id, tss_dist, avgKHS_ref_pred_base) %>% 
+	pivot_wider(names_from = tss_dist, names_prefix = "tss_dist_", values_from = avgKHS_ref_pred_base) %>% 
+	column_to_rownames(var="id") %>% 
+	as.matrix() %>% 
+	t() %>%
+	apply(., 2, rev)
+
+satmut_promoters_pred_final_base_level_bigheat[
+	which(is.na(satmut_promoters_pred_final_base_level_bigheat))] <- 0
+
+bigheat <- Heatmap(satmut_promoters_pred_final_base_level_bigheat,
+	heatmap_legend_param = list(title = "Mean reference activity", direction = "horizontal", title_position = "topcenter"),
+	show_column_names = FALSE,
+	show_row_names = FALSE,
+	show_column_dend = FALSE,
+	cluster_rows = FALSE
+)
+
+col_ord <- column_order(bigheat)
+```
+
+```{r phyloP}
+# phyloP
+satmut_promoters_pred_final_base_level_bigheat_phyloP <- satmut_promoters_pred_final_base_level %>% 
+	dplyr::select(id, tss_dist, phyloP_mam241_base) %>% 
+	pivot_wider(names_from = tss_dist, names_prefix = "tss_dist_", values_from = phyloP_mam241_base) %>% 
+	column_to_rownames(var="id") %>% 
+	as.matrix() %>% 
+	t() %>%
+	apply(., 2, rev)
+
+satmut_promoters_pred_final_base_level_bigheat_phyloP <- satmut_promoters_pred_final_base_level_bigheat_phyloP[,col_ord]
+
+pdf("../../results/satmut_promoters_analysis/satmut_promoters_bigheat_promoter/satmut_promoters_pred_final_base_level_bigheat_phyloP.pdf", width=45, height=15)
+col_fun = circlize::colorRamp2(c(0, 5), c("#FFFFFF", "#08519c"))
+bigheat_phyloP <- Heatmap(satmut_promoters_pred_final_base_level_bigheat_phyloP,
+	heatmap_legend_param = list(title = "Mammalian max(0, phyloP)", direction = "horizontal", title_position = "topcenter"),
+	show_column_names = FALSE,
+	show_row_names = FALSE,
+	show_column_dend = FALSE,
+	cluster_rows = FALSE,
+	cluster_columns = FALSE,
+	col = col_fun
+)
+draw(bigheat_phyloP, heatmap_legend_side = "bottom")
+dev.off()
+print(bigheat_phyloP)
+```
+
+```{r skew}
+# skew
+satmut_promoters_pred_final_base_level_bigheat_skew <- satmut_promoters_pred_final_base_level %>% 
+	dplyr::select(id, tss_dist, avgKHS_skew_pred_base) %>% 
+	pivot_wider(names_from = tss_dist, names_prefix = "tss_dist_", values_from = avgKHS_skew_pred_base) %>% 
+	column_to_rownames(var="id") %>% 
+	as.matrix() %>% 
+	t() %>%
+	apply(., 2, rev)
+
+satmut_promoters_pred_final_base_level_bigheat_skew <- satmut_promoters_pred_final_base_level_bigheat_skew[,col_ord]
+
+pdf("../../results/satmut_promoters_analysis/satmut_promoters_bigheat_promoter/satmut_promoters_pred_final_base_level_bigheat_skew.pdf", width=45, height=15)
+col_fun = circlize::colorRamp2(c(-0.5, 0, 0.5), c("#a50f15", "#FFFFFF", "#08519c"))
+bigheat_skew <- Heatmap(satmut_promoters_pred_final_base_level_bigheat_skew,
+	heatmap_legend_param = list(title = "Mean allelic skew", direction = "horizontal", title_position = "topcenter"),
+	show_column_names = FALSE,
+	show_row_names = FALSE,
+	show_column_dend = FALSE,
+	cluster_rows = FALSE,
+	cluster_columns = FALSE,
+	col = col_fun
+)
+draw(bigheat_skew, heatmap_legend_side = "bottom")
+dev.off()
+print(bigheat_skew)
+```
+
+```{r ref}
+# ref
+satmut_promoters_pred_final_base_level_bigheat_ref <- satmut_promoters_pred_final_base_level %>% 
+	dplyr::select(id, tss_dist, avgKHS_ref_pred_base) %>% 
+	pivot_wider(names_from = tss_dist, names_prefix = "tss_dist_", values_from = avgKHS_ref_pred_base) %>% 
+	column_to_rownames(var="id") %>% 
+	as.matrix() %>% 
+	t() %>%
+	apply(., 2, rev)
+
+satmut_promoters_pred_final_base_level_bigheat_ref <- satmut_promoters_pred_final_base_level_bigheat_ref[,col_ord]
+
+pdf("../../results/satmut_promoters_analysis/satmut_promoters_bigheat_promoter/satmut_promoters_pred_final_base_level_bigheat_ref.pdf", width=45, height=15)
+col_fun = circlize::colorRamp2(c(-1, 0, 8), c("#a50f15", "#FFFFFF", "#08519c"))
+bigheat_ref <- Heatmap(satmut_promoters_pred_final_base_level_bigheat_ref,
+	heatmap_legend_param = list(title = "Mean reference activity", direction = "horizontal", title_position = "topcenter"),
+	show_column_names = FALSE,
+	show_row_names = FALSE,
+	show_column_dend = FALSE,
+	cluster_rows = FALSE,
+	cluster_columns = FALSE,
+	col = col_fun
+)
+draw(bigheat_ref, heatmap_legend_side = "bottom")
+dev.off()
+print(bigheat_ref)
+```
