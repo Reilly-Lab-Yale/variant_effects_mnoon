@@ -4,7 +4,7 @@
 
 In sum, these scripts take genomic data from a variety of sources, use them to annotate a set of genetic variants, and produce a "count table" which records the number of times every posssible combination of categorical values occurs. Quantative annotations are thresholded to produce categorical variables or averaged.
 
-The generation of the "count table" facilitates rapid exploratory analysis and graphing in downstream analysis. You can find the code for the downstream analysis in the other half of this repository ().
+The generation of the "count table" facilitates rapid exploratory analysis and graphing in downstream analysis. You can find the code for the downstream analysis in the other half of this repository (`MPAC_gnomAD_and_satmut_analyses`).
 
 # Preliminary notes
 
