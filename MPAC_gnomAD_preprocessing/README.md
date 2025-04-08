@@ -1,12 +1,12 @@
-These scripts were written by me, Mackenzie Noon (mackenzie dot noon at yale dot edu) as part of publication (CITATION).
+
 
 # Purpose
 
-In sum, these scripts take genomic data from a variety of sources, use them to annotate a set of genetic variants, and produce a "count table" which records the number of times every posssible combination of categorical values occurs. Quantative annotations are thresholded to produce categorical variables. (There are two excpetions to this "thresholding" : phylo p and roulette mutation rate. For each of the two exceptions, other methods of summations are used : namely, average(metric) and average(metric^2) are computed for each bin. )
+In sum, these scripts take genomic data from a variety of sources, use them to annotate a set of genetic variants, and produce a "count table" which records the number of times every posssible combination of categorical values occurs. Quantative annotations are thresholded to produce categorical variables or averaged.
 
-The generation of the "count table" facilitates rapid exploratory analysis and graphing in doenstream analysis. You can find the code for this analysis HERE.
+The generation of the "count table" facilitates rapid exploratory analysis and graphing in downstream analysis. You can find the code for the downstream analysis in the other half of this repository ().
 
-# Preliminary notes / warnings. 
+# Preliminary notes
 
 Manual checks
 - This analysis uses many genomic data formats, which inconsistently use 0 and 1 based coordinates. In all nontrivial integrations of multiple formats, manual verification is performed.
@@ -23,11 +23,11 @@ Misc.
 
 ## 0. merge 
 
-- executes `bedtools merge` to combine gnomad variants annotated with Malinois predictions as described in (METHODS) (`data/Malinois/gnomAD_variants/`) with variants annotated with a subset of gnomad annotations (`/gpfs/gibbs/pi/reilly/VariantEffects/data/gnomAD/gnomAD_genomes_v3.1.2/`), as both sets of annotations are useful for subsequent steps. 
+Uses `bedtools merge`[^d] to combine gnomad variants annotated with Malinois predictions with variants annotated with a subset of gnomad annotations as both sets of annotations are useful for subsequent steps. 
 
 ## 1.0.format_zoonomia_phylop
 
-Pre-processes phylo P scores retrieved from (ZOONOMIA CITE) into a format usable by `bcftools annotate`.
+Pre-processes phylo P scores[^b] into a format usable by `bcftools annotate`[^c].
 
 ## 2.0.annotate
 
@@ -55,7 +55,7 @@ Note on rarity code `MAF_OR_AC_IS_ZERO` : all variants bearing this code are fil
 
 ## 2.2.add_roulette
 
-Adds roulette mutation rate from (ROULETTE CITE). 
+Adds roulette mutation rate[^r]. 
 
 ## 2.3.add_transposons
 
@@ -93,12 +93,12 @@ A few additional scripts not directly involved in the generation of the main cou
 
 
 
-# Bibliography and helpful excerpts
+# Helpful excerpts
 
 (The excerpts below help explain some abbriviations used by the various imported data). 
 
 
-# Gnomad
+## Gnomad
 
 (from tooltips on gnomad website)
 
@@ -124,12 +124,12 @@ Example : [rs113653250](https://gnomad.broadinstitute.org/variant/1-434284-T-G?d
 
 >To simplify interpretation in some contexts, we also defined phred-like scores (scaled C  scores) on the basis of the rank of the C score of each variant relative  to all 8.6 billion possible SNVs, ranging from 1 to 99 (Supplementary  Note). For example, substitutions with the highest 10% (10−1) of all  scores—that is, those least likely to be observed human alleles under  our model—were assigned values of 10 or greater (‘≥C10’), whereas  variants  in  the  highest  1%  (10^−2),  0.1%  (10^−3),  etc.  were  assigned  scores ‘≥C20’, ‘≥C30’, etc
 
-(A general framework for estimating the relative pathogenicity of human genetic variants, nature genetics, 2014)
-
-## PhyloP
+[^a]
 
 
 ## ensembl VEP
+
+Consequence codes taken from [here](https://useast.ensembl.org/info/genome/variation/prediction/predicted_data.html) on 2024-06-10.
 
 
 ## Encode
@@ -140,13 +140,14 @@ https://screen.encodeproject.org/
 >3. DNase-H3K4me3 cCREs have high H3K4me3 max-Z scores but low H3K27ac max-Z scores and do not fall within 200 bp of a TSS.
 >4. CTCF-only cCREs have high DNase and CTCF max-Z scores and low H3K4me3 and H3K27ac max-Z scores. 
 
-## Other Citations
+
 
 Tange, O. (2021, March 22). GNU Parallel 20210322 ('2002-01-06').
   Zenodo. https://doi.org/10.5281/zenodo.4628277
 
 
-# finalization tasks
-- [ ] add better reference for files Dr. Rong gave me (add_tf.ipynb et al.)
-- [ ] Finish adding citations
-- [ ] Link to other parts of analysis : code producing files used here. 
+[^b]: Evolutionary constraint and innovation across hundreds of placental mammals. Science 380, eabn3943 (2023).
+[^c]: Twelve years of SAMtools and BCFtools Petr Danecek, James K Bonfield, Jennifer Liddle, John Marshall, Valeriu Ohan, Martin O Pollard, Andrew Whitwham, Thomas Keane, Shane A McCarthy, Robert M Davies, Heng Li GigaScience, Volume 10, Issue 2, February 2021, giab008, https://doi.org/10.1093/gigascience/giab008
+[^a]: A general framework for estimating the relative pathogenicity of human genetic variants, Nature Genetics, 2014
+[^d]: BEDTools: a flexible suite of utilities for comparing genomic features https://doi.org/10.1093/bioinformatics/btq033
+[^r]: A mutation rate model at the basepair resolution identifies the mutagenic effect of polymerase III transcription. Nat Genet 55, 2235–2242 (2023).
