@@ -4,6 +4,10 @@ Code used to analyze and visualize data related to the gnomAD and saturation mut
 
 Contact corresponding authors or me (srong AT ic DOT ac DOT uk) with questions about these scripts. 
 
+## Purpose
+
+
+
 ## Content descriptions
 - scripts/gnomAD_selection_preprocess: Description.
 - scripts/gnomAD_selection_preprocess: Description.
@@ -26,6 +30,8 @@ Contact corresponding authors or me (srong AT ic DOT ac DOT uk) with questions a
 - data/gene_expression_catalogs: Description.
 - data/gene_regulatory_elements: Description.
 - data/disease_annotations: Description. -->
+
+
 
 ## Software dependencies
 Analyses performed on Yale University HPC as Slurm scripts or in RStudio.
