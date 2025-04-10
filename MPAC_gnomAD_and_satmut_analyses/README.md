@@ -1,12 +1,8 @@
 # Identifying non-coding variant effects at scale via machine learning models of cis-regulatory reporter assays
 
-Code used to analyze and visualize data related to the gnomAD and saturation mutagenesis work. Preprint available at X. Publication available at Y.
+Code used to analyze and visualize data related to the gnomAD and saturation mutagenesis work. Preprint available at X.
 
-Contact corresponding authors or me (srong AT ic DOT ac DOT uk) with questions about these scripts. 
-
-## Purpose
-
-
+Contact corresponding authors or me (srong AT ic DOT ac DOT uk) with questions about these scripts. Last updated April 10th 2025. 
 
 ## Content descriptions
 - scripts/gnomAD_selection_preprocess: Description.
@@ -19,7 +15,7 @@ Contact corresponding authors or me (srong AT ic DOT ac DOT uk) with questions a
 - results/gnomAD_selection_preprocess: Description.
 - results/gnomAD_selection_preprocess: Description.
 
-<!-- - data: Description./gencode_filtered_regions
+- data: Description./gencode_filtered_regions
 - data/gnomAD_genomes_v3: Description.
 - data/gnomAD_mackenzie_processed: Description.
 - data/gnomAD_miscellaneous: Description.
@@ -29,9 +25,7 @@ Contact corresponding authors or me (srong AT ic DOT ac DOT uk) with questions a
 - data/gene_constraint_metrics: Description.
 - data/gene_expression_catalogs: Description.
 - data/gene_regulatory_elements: Description.
-- data/disease_annotations: Description. -->
-
-
+- data/disease_annotations: Description.
 
 ## Software dependencies
 Analyses performed on Yale University HPC as Slurm scripts or in RStudio.
