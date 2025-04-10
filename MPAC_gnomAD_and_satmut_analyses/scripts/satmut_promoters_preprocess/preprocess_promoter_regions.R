@@ -12,7 +12,7 @@ library(plyranges)
 library(rtracklayer)
 
 # load promoter/exon data
-satmut_promoters_promoter_regions_1kb <- rtracklayer::import("../../data/gencode_filtered_regionsgencode.v44.protein.coding.canonical.autosomes.0.based.bed", extraCols = c(id = "character"))
+satmut_promoters_promoter_regions_1kb <- rtracklayer::import("../../data/gencode_filtered_regions/gencode.v44.protein.coding.canonical.autosomes.0.based.bed", extraCols = c(id = "character"))
 
 # save regions
 for (chr in paste0("chr", c(22:1))) {

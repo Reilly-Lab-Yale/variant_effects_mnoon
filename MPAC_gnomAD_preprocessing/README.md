@@ -1,3 +1,7 @@
+# Identifying non-coding variant effects at scale via machine learning models of cis-regulatory reporter assays
+
+Code used to preprocess gnomAD predictions into intermediate files and summary tables. Preprint available at X. Publication available at Y.
+
 Contact corresponding authors or me (mackenzie.noon@yale.edu) with questions about these scripts. 
 
 # Purpose

@@ -8,7 +8,7 @@ library(data.table)
 # library(genekitr)
 
 # load gene names
-gencode_gene_names <- as_tibble(rtracklayer::import("../../data/gencode_filtered_regionsgencode.v44.protein.coding.canonical.autosomes.0.based.bed", extraCols = c(id = "character"))) %>% 
+gencode_gene_names <- as_tibble(rtracklayer::import("../../data/gencode_filtered_regions/gencode.v44.protein.coding.canonical.autosomes.0.based.bed", extraCols = c(id = "character"))) %>% 
 	separate(id, sep="_", into=c("ensembl_gene", "ensembl_tx", "gene_name"), remove=F) %>% 
 	mutate(ensembl_gene = gsub("\\..*", "", ensembl_gene)) %>% 
 	mutate(ensembl_tx = gsub("\\..*", "", ensembl_tx)) %>% 
