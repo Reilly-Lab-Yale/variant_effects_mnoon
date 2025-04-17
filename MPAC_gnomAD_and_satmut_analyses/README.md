@@ -5,30 +5,33 @@ Code used to analyze and visualize MPAC gnomAD and saturation mutagenesis predic
 Last updated April 17th 2025 by Stephen Rong (stephen DOT rong AT yale DOT edu). Contact corresponding authors or me  with questions.
 
 ## Content descriptions
+
+### Scripts
 - **scripts/satmut_promoters_preprocess**: Preprocessing scripts for MPAC saturation mutagenesis predictions.
 - **scripts/satmut_promoters_analysis**: Analayses and visualizations for MPAC saturation mutagenesis predictions
 - **scripts/gnomAD_selection_preprocess**: Preprocessing scripts for MPAC gnomAD predictions based on summary tables from https://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut/tree/main/MPAC_gnomAD_preprocessing.
 - **scripts/gnomAD_selection_analysis**: Analayses and visualizations for MPAC gnomAD predictions.
 
+### Results
 - **results/satmut_promoters_preprocess**: Corresponding results folder for scripts/satmut_promoters_preprocess. 
 - **results/satmut_promoters_analysis**: Corresponding results folder for scripts/satmut_promoters_analysis. 
 - **results/gnomAD_selection_analysis**: Corresponding results folder for scripts/gnomAD_selection_analysis. 
 - **results/gnomAD_selection_preprocess**: Corresponding results folder for scripts/gnomAD_selection_preprocess. 
 
+### Data
 - **data/gencode_filtered_regions**: Code and BED files for masking exonic and splice regions.
 - **data/gnomAD_genomes_v3**: Code for redownloading gnomAD v3.1.2  VCFs and subsetting annotations.
 - **data/gnomAD_mackenzie_processed**: Copy of summary tables from https://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut/tree/main/MPAC_gnomAD_preprocessing.
 - **data/gnomAD_miscellaneous**: Miscellaneous TF ChIP-seq and TF footprint enrichment analyses.
 - **data/gnomAD_variants_predictions**: Copies of MPAC gnomAD predictions for raw set of variants.
-- **data/gnomAD_variants_predictions_bed**: !!!
 - **data/gnomAD_variants_predictions_filtered**: Copies of MPAC gnomAD predictions for filtered set of variants.
-- **data/satmut_promoters_predictions**: Copies of MPAC saturation mutagenesis predictions.
+- **data/satmut_promoters_predictions**: Copies of MPAC saturation mutagenesis variant predictions.
 - **data/satmut_promoters_meme_pwms**: PWM meme files for saturation mutagenesis motif analysis.
-- **data/phylo_conservation**: Zoonomia phyloP annotations (not used here).
-- **data/gene_constraint_metrics**: GeneBayes s_het, gnomAD LOEUF/MOEUF, and AlphaMissense gene annotations.
-- **data/gene_expression_catalogs**: Human Protein Atlas gene expression annotations.
+- **data/phylo_conservation**: Zoonomia phyloP base-level annotations (not used here).
+- **data/gene_constraint_metrics**: GeneBayes s_het, gnomAD LOEUF/MOEUF, and AlphaMissense gene constraint annotations.
+- **data/gene_expression_catalogs**: Human Protein Atlas gene expression annotations for K562, HepG2, and SK-N-SH.
 - **data/gene_regulatory_elements**: ENCODE candidate cis-regulatory element (cCRE) annotations.
-- **data/disease_annotations**: ClinVar annotations (not used here).
+- **data/disease_annotations**: ClinVar variant annotations (not used here).
 
 ## Software dependencies
 Analyses performed on Yale University HPC as Slurm scripts or in RStudio.
