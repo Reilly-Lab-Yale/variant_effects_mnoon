@@ -1,6 +1,6 @@
 # Identifying non-coding variant effects at scale via machine learning models of cis-regulatory reporter assays
 
-Code used to analyze and visualize MPAC gnomAD and saturation mutagenesis predictions. Preprint available at (XXX). MPAC predcitions available at https://doi.org/10.5281/zenodo.15178434. See complementary repository for the project https://github.com/john-c-butts/MPAC/ and https://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut/tree/main/MPAC_gnomAD_preprocessing.
+Code used to analyze and visualize MPAC gnomAD and saturation mutagenesis predictions. Preprint available at (XXX). MPAC predcitions available at https://doi.org/10.5281/zenodo.15178434. See complementary repository https://github.com/john-c-butts/MPAC/ and https://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut/tree/main/MPAC_gnomAD_preprocessing.
 
 Last updated April 17th 2025 by Stephen Rong (stephen DOT rong AT yale DOT edu). Contact corresponding authors or me  with questions.
 
