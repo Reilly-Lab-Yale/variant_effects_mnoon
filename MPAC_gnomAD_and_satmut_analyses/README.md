@@ -1,31 +1,34 @@
 # Identifying non-coding variant effects at scale via machine learning models of cis-regulatory reporter assays
 
-Code used to analyze and visualize data related to the gnomAD and saturation mutagenesis work. Preprint available at X.
+Code used to analyze and visualize MPAC gnomAD and saturation mutagenesis predictions. Preprint available at (XXX). MPAC predcitions available at https://doi.org/10.5281/zenodo.15178434. See complementary repository for the project https://github.com/john-c-butts/MPAC/ and https://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut/tree/main/MPAC_gnomAD_preprocessing.
 
-Contact corresponding authors or me (srong AT ic DOT ac DOT uk) with questions about these scripts. Last updated April 10th 2025. 
+Last updated April 17th 2025 by Stephen Rong (stephen DOT rong AT yale DOT edu). Contact corresponding authors or me  with questions.
 
 ## Content descriptions
-- scripts/gnomAD_selection_preprocess: Description.
-- scripts/gnomAD_selection_preprocess: Description.
-- scripts/gnomAD_selection_preprocess: Description.
-- scripts/gnomAD_selection_preprocess: Description.
+- **scripts/satmut_promoters_preprocess**: Preprocessing scripts for MPAC saturation mutagenesis predictions.
+- **scripts/satmut_promoters_analysis**: Analayses and visualizations for MPAC saturation mutagenesis predictions
+- **scripts/gnomAD_selection_preprocess**: Preprocessing scripts for MPAC gnomAD predictions based on summary tables from https://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut/tree/main/MPAC_gnomAD_preprocessing.
+- **scripts/gnomAD_selection_analysis**: Analayses and visualizations for MPAC gnomAD predictions.
 
-- results/gnomAD_selection_preprocess: Description.
-- results/gnomAD_selection_preprocess: Description.
-- results/gnomAD_selection_preprocess: Description.
-- results/gnomAD_selection_preprocess: Description.
+- **results/satmut_promoters_preprocess**: Corresponding results folder for scripts/satmut_promoters_preprocess. 
+- **results/satmut_promoters_analysis**: Corresponding results folder for scripts/satmut_promoters_analysis. 
+- **results/gnomAD_selection_analysis**: Corresponding results folder for scripts/gnomAD_selection_analysis. 
+- **results/gnomAD_selection_preprocess**: Corresponding results folder for scripts/gnomAD_selection_preprocess. 
 
-- data: Description./gencode_filtered_regions
-- data/gnomAD_genomes_v3: Description.
-- data/gnomAD_mackenzie_processed: Description.
-- data/gnomAD_miscellaneous: Description.
-- data/satmut_promoters_predictions: Description.
-- data/satmut_promoters_meme_pwms: Description.
-- data/phylo_conservation: Description.
-- data/gene_constraint_metrics: Description.
-- data/gene_expression_catalogs: Description.
-- data/gene_regulatory_elements: Description.
-- data/disease_annotations: Description.
+- **data/gencode_filtered_regions**: Code and BED files for masking exonic and splice regions.
+- **data/gnomAD_genomes_v3**: Code for redownloading gnomAD v3.1.2  VCFs and subsetting annotations.
+- **data/gnomAD_mackenzie_processed**: Copy of summary tables from https://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut/tree/main/MPAC_gnomAD_preprocessing.
+- **data/gnomAD_miscellaneous**: Miscellaneous TF ChIP-seq and TF footprint enrichment analyses.
+- **data/gnomAD_variants_predictions**: Copies of MPAC gnomAD predictions for raw set of variants.
+- **data/gnomAD_variants_predictions_bed**: !!!
+- **data/gnomAD_variants_predictions_filtered**: Copies of MPAC gnomAD predictions for filtered set of variants.
+- **data/satmut_promoters_predictions**: Copies of MPAC saturation mutagenesis predictions.
+- **data/satmut_promoters_meme_pwms**: PWM meme files for saturation mutagenesis motif analysis.
+- **data/phylo_conservation**: Zoonomia phyloP annotations (not used here).
+- **data/gene_constraint_metrics**: GeneBayes s_het, gnomAD LOEUF/MOEUF, and AlphaMissense gene annotations.
+- **data/gene_expression_catalogs**: Human Protein Atlas gene expression annotations.
+- **data/gene_regulatory_elements**: ENCODE candidate cis-regulatory element (cCRE) annotations.
+- **data/disease_annotations**: ClinVar annotations (not used here).
 
 ## Software dependencies
 Analyses performed on Yale University HPC as Slurm scripts or in RStudio.

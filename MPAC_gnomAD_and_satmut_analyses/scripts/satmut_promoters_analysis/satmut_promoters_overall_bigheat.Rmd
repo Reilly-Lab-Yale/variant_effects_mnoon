@@ -1,5 +1,5 @@
 ---
-title: "Analyses of big heatmap of promoters in Malinois-satmut_promoters"
+title: "Analyses of big heatmap of promoters in MPAC-satmut_promoters"
 author: "Stephen Rong"
 date: "2024-04-23"
 output: html_document

@@ -1,5 +1,5 @@
 ---
-title: "Analyses of purifying selection in Malinois-gnomAD"
+title: "Analyses of purifying selection in MPAC-gnomAD"
 author: "Stephen Rong"
 date: "2024-02-19"
 output: html_document
@@ -455,7 +455,7 @@ ggplot(gnomAD_main_table_full_cCREs_emVar_cat %>% filter(ENCODE_cCREs != "Other 
 	cowplot::theme_cowplot() + 
 	theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1), axis.line.x = element_blank(), axis.line.y = element_blank()) + 
 	scale_fill_manual(values = c("#3E0751", "#405187", "#468E8B", "#79C66E", "grey50")) + 
-	labs(x = "emVars (Malinois)", y = "Proportion", color = "ENCODE cCREs") + 
+	labs(x = "emVars (MPAC)", y = "Proportion", color = "ENCODE cCREs") + 
 	facet_grid(rows = vars(ENCODE_cCREs), scales = "free") +
 	theme(aspect.ratio = 1/(1.6*4), strip.background = element_blank()) + 
 	guides(fill = "none")

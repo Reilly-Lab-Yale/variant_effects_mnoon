@@ -11,7 +11,7 @@ for (j in c("PLS", "pELS", "dELS", "DNase-low")) {
 	gnomAD_chr_list <- NULL
 	for (i in paste0("chr", 1:22)) {
 		print(paste0("processing ", i))
-		gnomAD_chr <- fread(paste0("tabix ../../data/MPAC_gnomAD_variants_filtered/gnomad.genomes.v3.1.2.sites.", i, ".filtered.vcf.gz -R ../../data/gene_regulatory_elements/GRCh38-", j, ".V4.bed.gz | sed 's/;/\t/g' | awk '{print $1, $2, $4, $5, $(NF-8), $(NF-7), $(NF-6), $(NF-5), $(NF-4), $(NF-3), $(NF-2), $(NF-1), $NF}' OFS='\t' | sed -E 's/(K562__ref=|HepG2__ref=|SKNSH__ref=|K562__alt=|HepG2__alt=|SKNSH__alt=|K562__skew=|HepG2__skew=|SKNSH__skew=)//g'"))
+		gnomAD_chr <- fread(paste0("tabix ../../data/gnomAD_variants_predictions_filtered/gnomad.genomes.v3.1.2.sites.", i, ".filtered.vcf.gz -R ../../data/gene_regulatory_elements/GRCh38-", j, ".V4.bed.gz | sed 's/;/\t/g' | awk '{print $1, $2, $4, $5, $(NF-8), $(NF-7), $(NF-6), $(NF-5), $(NF-4), $(NF-3), $(NF-2), $(NF-1), $NF}' OFS='\t' | sed -E 's/(K562__ref=|HepG2__ref=|SKNSH__ref=|K562__alt=|HepG2__alt=|SKNSH__alt=|K562__skew=|HepG2__skew=|SKNSH__skew=)//g'"))
 		names(gnomAD_chr) <- c("chr", "pos", "ref", "alt", "K562_ref", "HepG2_ref", "SKNSH_ref", "K562_alt", "HepG2_alt", "SKNSH_alt", "K562_skew", "HepG2_skew", "SKNSH_skew")
 
 		gnomAD_chr_sums <- gnomAD_chr %>% 
@@ -58,7 +58,7 @@ write_tsv(gnomAD_cCRE_means, "../../results/gnomAD_selection_analysis/gnomAD_mea
 gnomAD_chr_list <- NULL
 for (i in paste0("chr", 1:22)) {
 	print(paste0("processing ", i))
-	gnomAD_chr <- fread(paste0("gunzip -cd ../../data/MPAC_gnomAD_variants_filtered/gnomad.genomes.v3.1.2.sites.", i, ".filtered.vcf.gz | sed 's/;/\t/g' | tail -n +2 | awk '{print $1, $2, $4, $5, $(NF-8), $(NF-7), $(NF-6), $(NF-5), $(NF-4), $(NF-3), $(NF-2), $(NF-1), $NF}' OFS='\t' | sed -E 's/(K562__ref=|HepG2__ref=|SKNSH__ref=|K562__alt=|HepG2__alt=|SKNSH__alt=|K562__skew=|HepG2__skew=|SKNSH__skew=)//g'"))
+	gnomAD_chr <- fread(paste0("gunzip -cd ../../data/gnomAD_variants_predictions_filtered/gnomad.genomes.v3.1.2.sites.", i, ".filtered.vcf.gz | sed 's/;/\t/g' | tail -n +2 | awk '{print $1, $2, $4, $5, $(NF-8), $(NF-7), $(NF-6), $(NF-5), $(NF-4), $(NF-3), $(NF-2), $(NF-1), $NF}' OFS='\t' | sed -E 's/(K562__ref=|HepG2__ref=|SKNSH__ref=|K562__alt=|HepG2__alt=|SKNSH__alt=|K562__skew=|HepG2__skew=|SKNSH__skew=)//g'"))
 	names(gnomAD_chr) <- c("chr", "pos", "ref", "alt", "K562_ref", "HepG2_ref", "SKNSH_ref", "K562_alt", "HepG2_alt", "SKNSH_alt", "K562_skew", "HepG2_skew", "SKNSH_skew")
 
 	gnomAD_chr_sums <- gnomAD_chr %>% 

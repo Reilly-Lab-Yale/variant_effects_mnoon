@@ -29,10 +29,10 @@ for (chr in paste0("chr", c(22:1))) {
 
 	# load predictions
 	satmut_promoters_pred <- as_tibble(fread(paste0("../../data/satmut_promoters_predictions/gencode.v44.canonical.protein.coding.1kb.promoters.sat.mut.updated.pos.", chr, ".vcf.gz")))
-	malinois_cols <- c("K562_ref_pred", "HepG2_ref_pred", "SKNSH_ref_pred", "K562_alt_pred", "HepG2_alt_pred", "SKNSH_alt_pred", "K562_skew_pred", "HepG2_skew_pred", "SKNSH_skew_pred")
+	mpac_cols <- c("K562_ref_pred", "HepG2_ref_pred", "SKNSH_ref_pred", "K562_alt_pred", "HepG2_alt_pred", "SKNSH_alt_pred", "K562_skew_pred", "HepG2_skew_pred", "SKNSH_skew_pred")
 	satmut_promoters_pred <- satmut_promoters_pred %>% 
 		mutate(INFO = stri_split_fixed(INFO, ";")) %>% unnest(INFO) %>% mutate(INFO = as.numeric(gsub(".*=", "", INFO))) %>% 
-		(function(x) {x$TEMP <- rep(malinois_cols, nrow(x)/length(malinois_cols)); return(x)})(.) %>% pivot_wider(names_from="TEMP", values_from=INFO)
+		(function(x) {x$TEMP <- rep(mpac_cols, nrow(x)/length(mpac_cols)); return(x)})(.) %>% pivot_wider(names_from="TEMP", values_from=INFO)
 
 	# clean up formating
 	satmut_promoters_pred <- satmut_promoters_pred %>% 
