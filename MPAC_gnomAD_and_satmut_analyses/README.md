@@ -11,8 +11,8 @@ Last updated April 17th 2025 by Stephen Rong (stephen DOT rong AT yale DOT edu).
 
 **scripts/satmut_promoters_analysis**: Analayses and visualizations for MPAC saturation mutagenesis predictions
 
-**scripts/gnomAD_selection_preprocess**: Preprocessing scripts for MPAC gnomAD predictions based on summary tables from https
-://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut/tree/main/MPAC_gnomAD_preprocessing.
+**scripts/gnomAD_selection_preprocess**: Preprocessing scripts for MPAC gnomAD predictions based on summary tables from https://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut/tree/main/MPAC_gnomAD_preprocessing.
+
 **scripts/gnomAD_selection_analysis**: Analayses and visualizations for MPAC gnomAD predictions.
 
 ### Results
