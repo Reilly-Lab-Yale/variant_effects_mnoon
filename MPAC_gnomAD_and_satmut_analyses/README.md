@@ -29,8 +29,8 @@ Last updated April 17th 2025 by Stephen Rong (stephen DOT rong AT yale DOT edu).
 
 **data/gnomAD_genomes_v3**: Code for redownloading gnomAD v3.1.2  VCFs and subsetting annotations.
 
-**data/gnomAD_mackenzie_processed**: Copy of summary tables from https://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut/
-tree/main/MPAC_gnomAD_preprocessing.
+**data/gnomAD_mackenzie_processed**: Copy of summary tables from https://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut/tree/main/MPAC_gnomAD_preprocessing.
+
 **data/gnomAD_miscellaneous**: Miscellaneous TF ChIP-seq and TF footprint enrichment analyses.
 
 **data/gnomAD_variants_predictions**: Copies of MPAC gnomAD predictions for raw set of variants.
