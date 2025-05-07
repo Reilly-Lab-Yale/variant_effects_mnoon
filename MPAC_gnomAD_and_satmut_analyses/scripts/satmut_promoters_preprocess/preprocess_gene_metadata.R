@@ -8,7 +8,7 @@ library(data.table)
 # library(genekitr)
 
 # load gene names
-gencode_gene_names <- as_tibble(rtracklayer::import("../../data/gencode_filtered_regionsgencode.v44.protein.coding.canonical.autosomes.0.based.bed", extraCols = c(id = "character"))) %>% 
+gencode_gene_names <- as_tibble(rtracklayer::import("../../data/gencode_filtered_regions/gencode.v44.protein.coding.canonical.autosomes.0.based.bed", extraCols = c(id = "character"))) %>% 
 	separate(id, sep="_", into=c("ensembl_gene", "ensembl_tx", "gene_name"), remove=F) %>% 
 	mutate(ensembl_gene = gsub("\\..*", "", ensembl_gene)) %>% 
 	mutate(ensembl_tx = gsub("\\..*", "", ensembl_tx)) %>% 
@@ -17,14 +17,14 @@ gencode_gene_names <- as_tibble(rtracklayer::import("../../data/gencode_filtered
 
 # load LOEUF scores
 # 	filter by mane_select and has loeuf score, then join by ensembl transcript id
-loeuf <- as_tibble(fread("../../data/gene_constraint_metrics/loeuf/gnomad.v4.0.constraint_metrics.tsv.gz"))
+loeuf <- as_tibble(fread("../../data/gene_constraint_metrics/loeuf_moeuf/gnomad.v4.0.constraint_metrics.tsv.gz"))
 loeuf <- distinct(filter(loeuf, mane_select)[c("transcript", "lof.oe_ci.upper")])
 names(loeuf) <- c("ensembl_tx", "loeuf")
 
 
 # load MOEUF scores
 # 	filter by mane_select and has moeuf score, then join by ensembl transcript id
-moeuf <- as_tibble(fread("../../data/gene_constraint_metrics/loeuf/gnomad.v4.0.constraint_metrics.tsv.gz"))
+moeuf <- as_tibble(fread("../../data/gene_constraint_metrics/loeuf_moeuf/gnomad.v4.0.constraint_metrics.tsv.gz"))
 moeuf <- distinct(filter(moeuf, mane_select)[c("transcript", "mis.oe_ci.upper")])
 names(moeuf) <- c("ensembl_tx", "moeuf")
 

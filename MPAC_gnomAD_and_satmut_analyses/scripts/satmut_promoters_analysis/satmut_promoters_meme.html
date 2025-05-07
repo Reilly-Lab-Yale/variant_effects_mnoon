@@ -13,7 +13,7 @@
 
 <meta name="date" content="2024-04-23" />
 
-<title>Analyses of motif stratified promoters in Malinois-satmut_promoters</title>
+<title>Analyses of motif stratified promoters in MPAC-satmut_promoters</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -351,7 +351,7 @@ display: none;
 
 
 <h1 class="title toc-ignore">Analyses of motif stratified promoters in
-Malinois-satmut_promoters</h1>
+MPAC-satmut_promoters</h1>
 <h4 class="author">Stephen Rong</h4>
 <h4 class="date">2024-04-23</h4>
 
@@ -522,7 +522,7 @@ motifs_colors &lt;- c(&quot;TATA&quot;=&quot;#E37D73&quot;, &quot;SP1&quot;=&quo
 
 # load genomic ranges
 #   non-standard bed file
-satmut_promoters_final_gr &lt;- as_tibble(fread(&quot;../../data/gencode_filtered_regionsgencode.v44.protein.coding.canonical.autosomes.0.based.bed&quot;))
+satmut_promoters_final_gr &lt;- as_tibble(fread(&quot;../../data/gencode_filtered_regions/gencode.v44.protein.coding.canonical.autosomes.0.based.bed&quot;))
 names(satmut_promoters_final_gr) &lt;- c(&quot;seqnames&quot;, &quot;start&quot;, &quot;end&quot;, &quot;gene_name&quot;, &quot;score&quot;, &quot;strand&quot;, &quot;id&quot;)
 satmut_promoters_final_gr &lt;- satmut_promoters_final_gr %&gt;% mutate(start = start + 1)  # 0 to 1-index)
 satmut_promoters_final_gr &lt;- extend_granges(GRanges(satmut_promoters_final_gr), -750+50, 100+50)  # 250 bp promoter

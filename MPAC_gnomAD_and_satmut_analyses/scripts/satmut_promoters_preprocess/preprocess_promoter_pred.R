@@ -18,21 +18,21 @@ satmut_promoters_promoter_regions_500bp <- readRDS("../../results/satmut_promote
 satmut_promoters_promoter_regions_250bp <- readRDS("../../results/satmut_promoters_preprocess/satmut_promoters_regions/satmut_promoters_promoter_regions_250bp.rds")
 satmut_promoters_promoter_regions_tss <- readRDS("../../results/satmut_promoters_preprocess/satmut_promoters_regions/satmut_promoters_promoter_regions_tss.rds")
 
-satmut_promoters_exon_regions <- rtracklayer::import("../../data/gencode_filtered_regionsgencode.v44.protein.coding.exons.autosomes.v2.bed")
-satmut_promoters_exon_splice_regions <- rtracklayer::import("../../data/gencode_filtered_regionsgencode.v44.protein.coding.exons.splice.autosomes.v2.bed")
-satmut_promoters_all_exon_regions <- rtracklayer::import("../../data/gencode_filtered_regionsgencode.v44.basic.annotation.exons.autosomes.v2.bed")
-satmut_promoters_all_exon_splice_regions <- rtracklayer::import("../../data/gencode_filtered_regionsgencode.v44.basic.annotation.exons.splice.autosomes.v2.bed")
+satmut_promoters_exon_regions <- rtracklayer::import("../../data/gencode_filtered_regions/gencode.v44.protein.coding.exons.autosomes.v2.bed")
+satmut_promoters_exon_splice_regions <- rtracklayer::import("../../data/gencode_filtered_regions/gencode.v44.protein.coding.exons.splice.autosomes.v2.bed")
+satmut_promoters_all_exon_regions <- rtracklayer::import("../../data/gencode_filtered_regions/gencode.v44.basic.annotation.exons.autosomes.v2.bed")
+satmut_promoters_all_exon_splice_regions <- rtracklayer::import("../../data/gencode_filtered_regions/gencode.v44.basic.annotation.exons.splice.autosomes.v2.bed")
 
 # loop chromosomes
 for (chr in paste0("chr", c(22:1))) {
 	print(chr)
 
 	# load predictions
-	satmut_promoters_pred <- as_tibble(fread(paste0("../../data/gencode_filtered_regionsgencode.v44.canonical.protein.coding.1kb.promoters.sat.mut.updated.pos.", chr, ".vcf.gz")))
-	malinois_cols <- c("K562_ref_pred", "HepG2_ref_pred", "SKNSH_ref_pred", "K562_alt_pred", "HepG2_alt_pred", "SKNSH_alt_pred", "K562_skew_pred", "HepG2_skew_pred", "SKNSH_skew_pred")
+	satmut_promoters_pred <- as_tibble(fread(paste0("../../data/satmut_promoters_predictions/gencode.v44.canonical.protein.coding.1kb.promoters.sat.mut.updated.pos.", chr, ".vcf.gz")))
+	mpac_cols <- c("K562_ref_pred", "HepG2_ref_pred", "SKNSH_ref_pred", "K562_alt_pred", "HepG2_alt_pred", "SKNSH_alt_pred", "K562_skew_pred", "HepG2_skew_pred", "SKNSH_skew_pred")
 	satmut_promoters_pred <- satmut_promoters_pred %>% 
 		mutate(INFO = stri_split_fixed(INFO, ";")) %>% unnest(INFO) %>% mutate(INFO = as.numeric(gsub(".*=", "", INFO))) %>% 
-		(function(x) {x$TEMP <- rep(malinois_cols, nrow(x)/length(malinois_cols)); return(x)})(.) %>% pivot_wider(names_from="TEMP", values_from=INFO)
+		(function(x) {x$TEMP <- rep(mpac_cols, nrow(x)/length(mpac_cols)); return(x)})(.) %>% pivot_wider(names_from="TEMP", values_from=INFO)
 
 	# clean up formating
 	satmut_promoters_pred <- satmut_promoters_pred %>% 

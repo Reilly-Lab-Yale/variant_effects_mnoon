@@ -1,5 +1,5 @@
 ---
-title: "Analyses of motif stratified promoters in Malinois-satmut_promoters"
+title: "Analyses of motif stratified promoters in MPAC-satmut_promoters"
 author: "Stephen Rong"
 date: "2024-04-23"
 output: html_document
@@ -40,7 +40,7 @@ motifs_colors <- c("TATA"="#E37D73", "SP1"="#CA9742", "NRF1"="#98AB4F", "ELK1"="
 
 # load genomic ranges
 #   non-standard bed file
-satmut_promoters_final_gr <- as_tibble(fread("../../data/gencode_filtered_regionsgencode.v44.protein.coding.canonical.autosomes.0.based.bed"))
+satmut_promoters_final_gr <- as_tibble(fread("../../data/gencode_filtered_regions/gencode.v44.protein.coding.canonical.autosomes.0.based.bed"))
 names(satmut_promoters_final_gr) <- c("seqnames", "start", "end", "gene_name", "score", "strand", "id")
 satmut_promoters_final_gr <- satmut_promoters_final_gr %>% mutate(start = start + 1)  # 0 to 1-index)
 satmut_promoters_final_gr <- extend_granges(GRanges(satmut_promoters_final_gr), -750+50, 100+50)  # 250 bp promoter
