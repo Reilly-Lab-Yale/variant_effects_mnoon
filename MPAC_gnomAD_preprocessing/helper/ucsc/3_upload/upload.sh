@@ -10,6 +10,6 @@ run() {
   echo "[+] $*"
   "$@"
 }
-bucket="s3://vcf-mpac-test/"
+bucket="s3://vcf-mpac-test"
 run aws s3 sync /vast/palmer/pi/reilly/VariantEffects/data/ucsc/sorted ${bucket}/bcf
 run aws s3 sync /vast/palmer/pi/reilly/VariantEffects/data/ucsc/bw ${bucket}/bw
