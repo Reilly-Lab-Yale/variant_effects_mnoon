@@ -1,0 +1,6 @@
+
+hub MPAC predictions on gnomad variants
+shortLabel MPAC on gnomad
+longLabel MPAC predictions on gnomad variants
+genomesFile genomes.txt
+email mackenzie.noon@yale.edu
