@@ -15,5 +15,5 @@ root="/vast/palmer/pi/reilly/VariantEffects/data/ucsc"
 cell_types=(K562 HepG2 SKNSH)
 cell_type=${cell_types[$SLURM_ARRAY_TASK_ID]}
 
-bcftools view ${root}/combined/${cell_type}.bcf -Oz | bgzip > ${root}/vcf/${cell_type}.vcf.gz
-tabix ${root}/vcf/${cell_type}.vcf.gz
+bcftools view ${root}/combined/${cell_type}.bcf -Oz > ${root}/vcf/${cell_type}.vcf.gz
+tabix -p vcf ${root}/vcf/${cell_type}.vcf.gz
