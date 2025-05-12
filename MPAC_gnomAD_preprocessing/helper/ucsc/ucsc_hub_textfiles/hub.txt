@@ -1,4 +1,3 @@
-
 hub MPAC predictions on gnomad variants
 shortLabel MPAC on gnomad
 longLabel MPAC predictions on gnomad variants
