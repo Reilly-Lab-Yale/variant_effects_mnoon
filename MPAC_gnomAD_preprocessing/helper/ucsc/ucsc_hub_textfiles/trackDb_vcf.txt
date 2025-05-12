@@ -1,0 +1,30 @@
+track MPAC_Variants
+compositeTrack on
+shortLabel MPAC variants
+longLabel MPAC Predictions on gnomad variants
+visibility dense
+type bcfTabix
+
+    track HepG2Track
+    type bcfTabix
+    parent MPAC_Variants
+    shortLabel HepG2
+    longLabel HepG2 MPAC predictions on gnomad variants
+    bigDataUrl s3://vcf-mpac-test/bcf/HepG2.bcf
+    color 252,167,58
+
+    track SKNSHTrack
+    type bcfTabix
+    parent MPAC_Variants
+    shortLabel SKNSH
+    longLabel SKNSH MPAC predictions on gnomad variants
+    bigDataUrl s3://vcf-mpac-test/bcf/SKNSH.bcf
+    color 233,29,35
+
+    track K562Track
+    type bcfTabix
+    parent MPAC_Variants
+    shortLabel K562
+    longLabel K562 MPAC predictions on gnomad variants
+    bigDataUrl s3://vcf-mpac-test/bcf/K562.bcf
+    color 24,158,146
