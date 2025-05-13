@@ -8,7 +8,7 @@ module load miniconda
 conda activate mcn_varef
 
 # CONFIG
-input_root="/vast/palmer/pi/reilly/VariantEffects/data/ucsc/bed"
+input_root="/vast/palmer/pi/reilly/VariantEffects/data/ucsc/maxabs"
 output_dir="/vast/palmer/pi/reilly/VariantEffects/data/ucsc/combined_bed"
 chrom_sizes="hg38.chrom.sizes"  # UCSC chrom sizes file
 cell_types=("HepG2" "K562" "SKNSH")
@@ -26,9 +26,8 @@ for cell in "${cell_types[@]}"; do
     files=$(ls "${indir}"/chr*.bedgraph | sort -V)
 
     # Concatenate, then compress. assuming individual files already sorted.
-    #cat $files  > "$merged_bedgraph"
-    #bgzip "$merged_bedgraph"
-	#tabix index
+    cat $files  > "$merged_bedgraph"
+    bgzip "$merged_bedgraph"
 	tabix -p bed ${merged_bedgraph}.gz
 
 done
