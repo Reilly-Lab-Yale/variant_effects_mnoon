@@ -9,7 +9,7 @@ module load miniconda
 conda activate speedracer
 
 data_root="/home/mcn26/varef/data/ucsc/bed"
-output_dir="/home/mcn26/varef/data/ucsc/avg"
+output_dir="/home/mcn26/varef/data/ucsc/maxabs"
 
 #get the file names
 #they will be the same for all 3x cell-lines
@@ -21,9 +21,10 @@ for cell_type in HepG2 K562 SKNSH
 do
 	inp=${data_root}/${cell_type}/${chromosomes[${SLURM_ARRAY_TASK_ID}]}
 	chr_name=$(echo ${chromosomes[${SLURM_ARRAY_TASK_ID}]} | awk -F. -v n="1" '{print $n}')
+	mkdir -p ${output_dir}/${cell_type}
 	out=${output_dir}/${cell_type}/${chr_name}.bedgraph
 	echo "in:${inp} out:${out}"
-	cat ${inp} | pypy3 avg.py > ${out}
+	cat ${inp} | pypy3 maxabs.py > ${out}
 	
 done
 
