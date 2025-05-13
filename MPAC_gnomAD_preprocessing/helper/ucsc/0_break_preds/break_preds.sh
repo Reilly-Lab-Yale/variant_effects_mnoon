@@ -13,21 +13,22 @@ run() {
   "$@"
 }
 
-#SLURM_ARRAY_TASK_ID=5
+
 
 data_root="/home/mcn26/varef/data/Malinois/gnomAD_variants"
-outputdir="/home/mcn26/varef/data/ucsc"
 
 chromosomes=($(ls -1 ${data_root} | grep converted | grep -v tbi))
 
 inp=${data_root}/${chromosomes[${SLURM_ARRAY_TASK_ID}]}
 chr_name=$(echo ${chromosomes[${SLURM_ARRAY_TASK_ID}]} | awk -F. -v n="7" '{print $n}')
 
+outputdir="/home/mcn26/varef/data/ucsc/broken/${cell_type}"
+mkdir -p ${outputdir}
+
 #for cell_type in HepG2 K562 SKNSH
 for cell_type in HepG2
 do
-	#run echo ${cell_type}
-	run bcftools annotate -x ^INFO/${cell_type}__ref,^INFO/${cell_type}__alt,^INFO/${cell_type}__skew ${inp} -o ${outputdir}/${cell_type}/${chr_name}.vcf
+	run bcftools annotate -x ^INFO/${cell_type}__ref,^INFO/${cell_type}__alt,^INFO/${cell_type}__skew ${inp} -o ${outputdir}${chr_name}.vcf
 done
 
 echo "[+] done."
