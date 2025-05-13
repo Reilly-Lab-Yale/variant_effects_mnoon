@@ -12,8 +12,6 @@ type bigWig
     longLabel HepG2 MPAC skew predictions on gnomad
     bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bw/HepG2.bw
     color 252,167,58
-    autoScale on
-    maxHeightPixels 128:36:8
 
     track SKNSH_skew
     type bigWig
@@ -22,8 +20,6 @@ type bigWig
     longLabel SKNSH MPAC skew predictions on gnomad
     bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bw/SKNSH.bw
     color 233,29,35
-    autoScale on
-    maxHeightPixels 128:36:8
 
     track K562_skew
     type bigWig
@@ -32,8 +28,6 @@ type bigWig
     longLabel K562 MPAC skew predictions on gnomad
     bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bw/K562.bw
     color 24,158,146
-    autoScale on
-    maxHeightPixels 128:36:8
 
 track MPAC_Variants
 compositeTrack on
