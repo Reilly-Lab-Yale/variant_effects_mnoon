@@ -2,7 +2,7 @@
 #SBATCH -p ycga
 #SBATCH -t 8:00:00
 #SBATCH -c 4
-#SBATCH --mem=128G
+#SBATCH --mem=16G
 set -euo pipefail
 module load miniconda
 conda activate mcn_varef
@@ -26,7 +26,9 @@ for cell in "${cell_types[@]}"; do
     files=$(ls "${indir}"/chr*.bedgraph | sort -V)
 
     # Concatenate, then compress. assuming individual files already sorted.
-    cat $files  > "$merged_bedgraph"
-    bgzip "$merged_bedgraph"
+    #cat $files  > "$merged_bedgraph"
+    #bgzip "$merged_bedgraph"
+	#tabix index
+	tabix -p bed ${merged_bedgraph}.gz
 
 done
