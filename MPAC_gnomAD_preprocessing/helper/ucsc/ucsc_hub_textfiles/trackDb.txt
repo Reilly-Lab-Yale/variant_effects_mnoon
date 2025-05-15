@@ -11,6 +11,8 @@ type bigWig
     shortLabel HepG2 skew
     longLabel HepG2 MPAC skew predictions on gnomad
     bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bw/HepG2.bw
+    viewLimits -6:6
+    viewLimitsMax -6:6
     color 252,167,58
 
     track SKNSH_skew
@@ -19,6 +21,8 @@ type bigWig
     shortLabel SKNSH skew
     longLabel SKNSH MPAC skew predictions on gnomad
     bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bw/SKNSH.bw
+    viewLimits -6:6
+    viewLimitsMax -6:6
     color 233,29,35
 
     track K562_skew
@@ -27,6 +31,8 @@ type bigWig
     shortLabel K562 skew
     longLabel K562 MPAC skew predictions on gnomad
     bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bw/K562.bw
+    viewLimits -6:6
+    viewLimitsMax -6:6
     color 24,158,146
 
 track MPAC_Variants
