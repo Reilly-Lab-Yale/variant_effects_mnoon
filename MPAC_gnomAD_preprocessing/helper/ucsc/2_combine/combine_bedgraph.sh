@@ -27,7 +27,7 @@ for cell in "${cell_types[@]}"; do
 
     # Concatenate, then compress. assuming individual files already sorted.
     cat $files  > "$merged_bedgraph"
-    bgzip "$merged_bedgraph"
-	tabix -p bed ${merged_bedgraph}.gz
+    #bgzip "$merged_bedgraph"
+	#tabix -p bed ${merged_bedgraph}.gz
 
 done
