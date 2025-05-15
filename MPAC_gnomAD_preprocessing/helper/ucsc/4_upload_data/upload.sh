@@ -11,5 +11,5 @@ run() {
   "$@"
 }
 bucket="s3://vcf-mpac-test"
-#run aws s3 sync /vast/palmer/pi/reilly/VariantEffects/data/ucsc/vcf ${bucket}/vcf
-run aws s3 sync /vast/palmer/pi/reilly/VariantEffects/data/ucsc/combined_bed ${bucket}/bedgraph
+run aws s3 sync /vast/palmer/pi/reilly/VariantEffects/data/ucsc/combined_vcf ${bucket}/vcf
+run aws s3 sync /vast/palmer/pi/reilly/VariantEffects/data/ucsc/combined_bigwig ${bucket}/bw
