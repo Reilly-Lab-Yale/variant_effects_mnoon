@@ -35,7 +35,21 @@ def main():
 		emvar=int(emvar)#convert to int to fit in an 8 bit char
 
 		#VCF files (the input) are 1-based, BED files (the output) are 0-based.
-		print('\t'.join([line[0],str(int(line[1])-1),line[1]]+line[2:5]+line[7:]+[color,str(emvar)]))
+		
+		spit=[]
+		spit.append(line[0])#chrom
+		spit.append(str(int(line[1])-1))#start
+		spit.append(line[1])#end
+		spit.append(line[2])#rsid
+		spit.append(line[3])#ref
+		spit.append(line[4])#alt
+		spit.append(line[7])#ref score
+		spit.append(line[8])#alt score
+		spit.append(line[9])#skew
+		spit.append(color)#color
+		spit.append(str(emvar))#emvar
+		print('\t'.join(spit))
+		#print('\t'.join([line[0],str(int(line[1])-1),line[1]]+line[2:5]+line[7:]+[color,str(emvar)]))
 
 
 if __name__=="__main__":
