@@ -10,5 +10,6 @@ string alt_allele; "Alternate allele"
 float   ref_mpac;    "Reference allele MPAC score"
 float   alt_mpac;    "Alternate allele MPAC score"
 float    skew;   "Predicted alleleic skew between reference and alternate."
+string  color;  "Red if variant is an emvar, blue otherwise."
 char    emvar;  "Predicted emvar status"
 )

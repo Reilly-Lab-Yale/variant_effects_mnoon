@@ -25,10 +25,17 @@ def main():
 		#fields of inbound line are, in order; 0: CHROM, 1: POS, 2: ID, 3: REF, 4: ALT, 5: QUAL, 6: FILTER, 7: ref, 8: alt, 9: skew
 		
 		
-		emvar=int(abs(float(line[9]))>0.5 and max(float(line[7]),float(line[8]))>1)
+		emvar=abs(float(line[9]))>0.5 and max(float(line[7]),float(line[8]))>1
+		#variant is an emvar if the absolute skew is greater than 0.5 and the max of ref or alt is greater than 1.
+		color=None
+		if emvar:
+			color='255,0,0'
+		else:
+			color='0,0,255'
+		emvar=int(emvar)#convert to int to fit in an 8 bit char
 
 		#VCF files (the input) are 1-based, BED files (the output) are 0-based.
-		print('\t'.join([line[0],str(int(line[1])-1),line[1]]+line[2:5]+line[7:]+[str(emvar)]))
+		print('\t'.join([line[0],str(int(line[1])-1),line[1]]+line[2:5]+line[7:]+[color,str(emvar)]))
 
 
 if __name__=="__main__":

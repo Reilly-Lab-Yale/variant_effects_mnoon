@@ -1,6 +1,0 @@
-track testskew
-type bedGraph
-shortLabel test_skew
-longLabel HepG2 MPAC skew predictions on gnomad
-bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bedgraph/HepG2.bedGraph.gz
-color 252,167,58

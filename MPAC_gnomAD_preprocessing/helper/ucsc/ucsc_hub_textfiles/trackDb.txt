@@ -1,67 +1,11 @@
-track MPAC_skew
-compositeTrack on
-shortLabel MPAC_skew
-longLabel Max magnituide MPAC predicted skew on gnomAD variants
-visibility full
-type bigWig
-
-    track HepG2_skew
-    type bigWig
-    parent MPAC_skew
-    shortLabel HepG2 skew
-    longLabel HepG2 MPAC skew predictions on gnomad
-    bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bw/HepG2.bw
-    viewLimits -6:6
-    viewLimitsMax -6:6
-    color 252,167,58
-
-    track SKNSH_skew
-    type bigWig
-    parent MPAC_skew
-    shortLabel SKNSH skew
-    longLabel SKNSH MPAC skew predictions on gnomad
-    bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bw/SKNSH.bw
-    viewLimits -6:6
-    viewLimitsMax -6:6
-    color 233,29,35
-
-    track K562_skew
-    type bigWig
-    parent MPAC_skew
-    shortLabel K562 skew
-    longLabel K562 MPAC skew predictions on gnomad
-    bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bw/K562.bw
-    viewLimits -6:6
-    viewLimitsMax -6:6
-    color 24,158,146
-
-track MPAC_Variants
-compositeTrack on
-shortLabel MPAC variants
-longLabel MPAC Predictions on gnomad variants
+track myBigLollyTrack
+shortLabel My BigLolly
+longLabel A BigLolly display of my annotations
+type bigBed 11
 visibility dense
-type vcfTabix
+bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/test.bb
+glyph bigLolly
+lollySize 5
+lollyField 7
 
-    track HepG2_variant
-    type vcfTabix
-    parent MPAC_Variants
-    shortLabel HepG2
-    longLabel HepG2 MPAC predictions on gnomad variants
-    bigDataUrl  https://vcf-mpac-test.s3.us-east-1.amazonaws.com/vcf/HepG2.vcf.gz
-    color 252,167,58
 
-    track SKNSH_variant
-    type vcfTabix
-    parent MPAC_Variants
-    shortLabel SKNSH
-    longLabel SKNSH MPAC predictions on gnomad variants
-    bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/vcf/SKNSH.vcf.gz
-    color 233,29,35
-
-    track K562_variant
-    type vcfTabix
-    parent MPAC_Variants
-    shortLabel K562
-    longLabel K562 MPAC predictions on gnomad variants
-    bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/vcf/K562.vcf.gz
-    color 24,158,146
