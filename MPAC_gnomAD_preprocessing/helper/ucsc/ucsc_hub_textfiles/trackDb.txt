@@ -5,5 +5,6 @@ type bigLolly 3
 visibility dense
 bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/test.bb
 glyph bigLolly
-lollySizeField ref_mpac
+lollySize 20
 lollyField alt_mpac
+lollyNoStems on
