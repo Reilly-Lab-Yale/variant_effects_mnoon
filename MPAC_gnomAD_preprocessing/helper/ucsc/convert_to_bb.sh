@@ -1,1 +1,1 @@
-bedToBigBed -as=specification.as -type=bed3+1 test.bed hg38.chrom.sizes test.bb
+bedToBigBed -as=specification.as -type=bed3+7 test.bed hg38.chrom.sizes test.bb
