@@ -39,7 +39,8 @@ def main():
 		spit=[]
 		spit.append(line[0])#chrom
 		spit.append(str(int(line[1])-1))#start
-		spit.append(line[1])#end
+		spit.append(str(int(line[1])-1))#end
+		#spit.append(line[1])#end
 		spit.append(line[2])#rsid
 		spit.append(line[3])#ref
 		spit.append(line[4])#alt
