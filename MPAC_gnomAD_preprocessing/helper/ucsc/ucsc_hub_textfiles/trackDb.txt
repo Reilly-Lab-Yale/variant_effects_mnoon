@@ -1,9 +1,9 @@
 track myBigLollyTrack
 shortLabel My BigLolly
 longLabel A BigLolly display of my annotations
-type bigBed 3
+type bigLolly 3
 visibility dense
 bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/test.bb
 glyph bigLolly
-lollySizeField 6
-lollyField 7
+lollySizeField ref_mpac
+lollyField alt_mpac
