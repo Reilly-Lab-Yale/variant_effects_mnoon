@@ -1,4 +1,4 @@
-table hg38chr10
+table hg38
 "description"
 (
 string  chrom;		"Reference sequence chromosome or scaffold"
