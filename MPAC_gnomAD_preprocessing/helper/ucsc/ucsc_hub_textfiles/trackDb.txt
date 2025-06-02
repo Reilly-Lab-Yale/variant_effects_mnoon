@@ -1,10 +1,10 @@
-track myBigLollyTrack
-shortLabel My BigLolly
-longLabel A BigLolly display of my annotations
-type bigLolly 3
-visibility dense
-bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/test.bb
+track HepG2 MPAC gnomAd
+shortLabel HepG2
+longLabel MPAC variant effect predictions for all gnomad variants in cell line HepG2
+type bigLolly 9
+visibility full
+bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bigbed/HepG2.bb
 glyph bigLolly
 lollySize 20
-lollyField alt_mpac
+lollyField skew
 lollyNoStems on
