@@ -18,9 +18,11 @@ sortOrder cellLine=+
     glyph bigLolly
     lollySize 20
     lollyField skew
+    mouseOverField alt
     lollyNoStems on
     subGroups cellLine=HepG2
     html HepG2.html
+    autoScale on
 
     track K562_gnomAD
     parent MPAC_gnomAD
@@ -32,9 +34,11 @@ sortOrder cellLine=+
     glyph bigLolly
     lollySize 20
     lollyField skew
+    mouseOverField alt
     lollyNoStems on
     subGroups cellLine=K562
     html K562.html
+    autoScale on
 
     track SKNSH_gnomAD
     parent MPAC_gnomAD
@@ -46,6 +50,8 @@ sortOrder cellLine=+
     glyph bigLolly
     lollySize 20
     lollyField skew
+    mouseOverField alt
     lollyNoStems on
     subGroups cellLine=SKNSH
     html SKNSH.html
+    autoScale on
