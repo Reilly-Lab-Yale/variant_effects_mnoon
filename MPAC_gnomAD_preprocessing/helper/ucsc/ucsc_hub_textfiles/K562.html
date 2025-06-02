@@ -21,13 +21,13 @@
   <p>
     This
     <a href="https://genome.ucsc.edu/cgi-bin/hgTracks">UCSC Genome Browser</a>
-    track displays predicted variant effects  in cell-line K562 for all variants in gnomAD v3.1.2 on genome build hg38. We predict alternate and reference allele MPRA (massively parallel reporter assay) activity and compute the allelic skew between them. We used a machine-learning model called MPAC (Malinois with Parallel Aggregated Cross-validation) to do this. This is part of
+    track displays predicted variant effects  in cell-line K562 for all variants in gnomAD v3.1.2 on genome build hg38. We predict alternate and reference allele MPRA (Massively Parallel Reporter Assay) activity and compute the allelic skew between them. We used a machine-learning model called MPAC (Malinois with Parallel Aggregated Cross-validation) to do this. This is part of
     <a href="https://www.biorxiv.org/content/10.1101/2025.04.16.648420v1">Identifying non-coding variant effects at scale via machine learning models of cis-regulatory reporter assays</a>.
     Read the paper for more details.
   </p>
   <p>
     <a href="https://github.com/Reilly-Lab-Yale/MPAC_gnomAD_and_satmut">Relevant code can be found on our github.</a> 
-    For code specifically used to generate these tracks, consult `MPAC_gnomAD_preprocessing/helper/ucsc`
+    For code specifically used to generate these tracks, consult `MPAC_gnomAD_preprocessing/helper/ucsc` within the repository.
   </p>
   <p>
     Hosting kindly provided by ....
@@ -41,7 +41,9 @@
   </p>
 
   <h2>Preview</h2>
-  (unfifnished)
-  <img src="example.png" alt="Track Preview" width="600" />
+  <img src="https://vcf-mpac-test.s3.us-east-1.amazonaws.com/ucsc_demo.png" alt="Track Preview" width="600" />
+  <p>
+    Red dots are emvars, blue dots are non-emvars. Y axis is skew. Tooltips show the alternate allele. 
+  </pp>
 </body>
 </html>
