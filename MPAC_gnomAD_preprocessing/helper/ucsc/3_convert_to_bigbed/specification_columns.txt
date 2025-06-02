@@ -1,5 +1,3 @@
-table bigLollyExample2
-"bigLolly Example 2"
 (
 string   chrom;            "Reference sequence chromosome or scaffold"
 uint     chromStart;       "Start position in chrom"
