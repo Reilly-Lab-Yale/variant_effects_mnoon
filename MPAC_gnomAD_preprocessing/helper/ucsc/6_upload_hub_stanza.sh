@@ -1,4 +1,5 @@
 #!/bin/bash
+module reset
 module load awscli
 export aws
 run() {
