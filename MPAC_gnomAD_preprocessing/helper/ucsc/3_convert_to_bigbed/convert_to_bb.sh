@@ -19,6 +19,6 @@ echo "table SKNSH_MPAC_gnomAd" > ${cell}.as
 echo "\"MPAC variant effect predictions for all gnomad variants in cell line ${cell}\"" >> ${cell}.as
 cat specification_columns.txt >> ${cell}.as
 #now convert the bed file to bigbed
-#bedToBigBed -as=${cell}.as -type=bed9+4 /home/mcn26/varef/data/ucsc/pre_bigbed_bed/${cell}.bed hg38.chrom.sizes /home/mcn26/varef/data/ucsc/bigbed/${cell}.bb
-    
+bedToBigBed -as=${cell}.as -type=bed9+4 /home/mcn26/varef/data/ucsc/pre_bigbed_bed/${cell}.bed hg38.chrom.sizes /home/mcn26/varef/data/ucsc/bigbed/${cell}.bb
+
 
