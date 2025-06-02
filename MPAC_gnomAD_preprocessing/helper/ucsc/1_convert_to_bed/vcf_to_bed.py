@@ -48,11 +48,11 @@ def main():
 		spit.append(color)#color
 		spit.append(line[7])#ref score
 		spit.append(line[8])#alt score
-
-		#spit.append(line[3])#ref
-		#spit.append(line[4])#alt
+		spit.append(line[9])#skew
+		spit.append(line[3])#ref
+		spit.append(line[4])#alt
 		
-		#spit.append(line[9])#skew
+
 		#spit.append(color)#color
 		#spit.append(str(emvar))#emvar
 		print('\t'.join(spit))
