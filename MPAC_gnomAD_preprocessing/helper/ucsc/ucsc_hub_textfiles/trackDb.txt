@@ -1,10 +1,51 @@
-track HepG2 MPAC gnomAd
-shortLabel HepG2
-longLabel MPAC variant effect predictions for all gnomad variants in cell line HepG2
-type bigLolly 9
+track MPAC_gnomAD
+shortLabel MPAC gnomAD
+longLabel MPAC variant effect predictions for gnomAD variants across cell lines
+compositeTrack on
+type bigLolly
 visibility full
-bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bigbed/HepG2.bb
-glyph bigLolly
-lollySize 20
-lollyField skew
-lollyNoStems on
+subGroup1 cellLine Cell_Line HepG2=HepG2 K562=K562 SKNSH=SKNSH
+dragAndDrop subtracks
+sortOrder cellLine=+
+
+    track HepG2_gnomAD
+    parent MPAC_gnomAD
+    shortLabel HepG2
+    longLabel MPAC variant effect predictions in HepG2
+    type bigLolly 9
+    visibility full
+    bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bigbed/HepG2.bb
+    glyph bigLolly
+    lollySize 20
+    lollyField skew
+    lollyNoStems on
+    subGroups cellLine=HepG2
+    html HepG2.html
+
+    track K562_gnomAD
+    parent MPAC_gnomAD
+    shortLabel K562
+    longLabel MPAC variant effect predictions in K562
+    type bigLolly 9
+    visibility full
+    bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bigbed/K562.bb
+    glyph bigLolly
+    lollySize 20
+    lollyField skew
+    lollyNoStems on
+    subGroups cellLine=K562
+    html K562.html
+
+    track SKNSH_gnomAD
+    parent MPAC_gnomAD
+    shortLabel SKNSH
+    longLabel MPAC variant effect predictions in SKNSH
+    type bigLolly 9
+    visibility full
+    bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bigbed/SKNSH.bb
+    glyph bigLolly
+    lollySize 20
+    lollyField skew
+    lollyNoStems on
+    subGroups cellLine=SKNSH
+    html SKNSH.html

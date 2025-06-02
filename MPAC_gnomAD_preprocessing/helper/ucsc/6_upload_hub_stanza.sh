@@ -11,4 +11,6 @@ bucket="s3://vcf-mpac-test"
 run aws s3 cp ucsc_hub_textfiles/hub.txt $bucket
 run aws s3 cp ucsc_hub_textfiles/genomes.txt $bucket
 run aws s3 cp ucsc_hub_textfiles/trackDb.txt $bucket
-
+run aws s3 cp ucsc_hub_textfiles/SKNSH.html $bucket
+run aws s3 cp ucsc_hub_textfiles/K562.html $bucket
+run aws s3 cp ucsc_hub_textfiles/HepG2.html $bucket
