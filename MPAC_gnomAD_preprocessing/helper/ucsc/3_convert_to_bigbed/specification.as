@@ -12,4 +12,7 @@ uint     thickEnd;         "End position in chrom"
 uint     color;            "Red if variant is an emvar, blue otherwise."
 float   ref_mpac;    "Reference allele MPAC score"
 float   alt_mpac;    "Alternate allele MPAC score"
+float   skew;   "MPAC Predicted allelic skew"
+string  ref;    "Reference allele"
+string  alt;    "Alternate allele"
 )
