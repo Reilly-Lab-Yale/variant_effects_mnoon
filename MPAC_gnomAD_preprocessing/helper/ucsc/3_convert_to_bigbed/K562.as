@@ -1,0 +1,18 @@
+table SKNSH_MPAC_gnomAd
+"MPAC variant effect predictions for all gnomad variants in cell line K562"
+(
+string   chrom;            "Reference sequence chromosome or scaffold"
+uint     chromStart;       "Start position in chrom"
+uint     chromEnd;         "End position in chrom"
+string   name;             "rsID or '.' if not present"
+uint     score;            "Unused. Always 0"
+char[1]  strand;           "Unused.  Always '.'"
+uint     thickStart;       "Start position in chrom"
+uint     thickEnd;         "End position in chrom"
+uint     color;            "Red if variant is an emvar, blue otherwise."
+float   ref_mpac;    "Reference allele MPAC score"
+float   alt_mpac;    "Alternate allele MPAC score"
+float   skew;   "MPAC Predicted allelic skew"
+string  ref;    "Reference allele"
+string  alt;    "Alternate allele"
+)
