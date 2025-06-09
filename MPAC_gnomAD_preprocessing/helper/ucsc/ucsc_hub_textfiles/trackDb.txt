@@ -22,7 +22,8 @@ sortOrder cellLine=+
     lollyNoStems on
     subGroups cellLine=HepG2
     html HepG2.html
-    autoScale on
+    autoScale off
+    viewLimits -4.8:4.8
 
     track K562_gnomAD
     parent MPAC_gnomAD
@@ -38,7 +39,8 @@ sortOrder cellLine=+
     lollyNoStems on
     subGroups cellLine=K562
     html K562.html
-    autoScale on
+    autoScale off
+    viewLimits -4.8:4.8
 
     track SKNSH_gnomAD
     parent MPAC_gnomAD
@@ -54,4 +56,5 @@ sortOrder cellLine=+
     lollyNoStems on
     subGroups cellLine=SKNSH
     html SKNSH.html
-    autoScale on
+    autoScale off
+    viewLimits -4.8:4.8
