@@ -14,7 +14,7 @@ sortOrder cellLine=+
     longLabel MPAC variant effect predictions in HepG2
     type bigLolly 9
     visibility full
-    bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bigbed/HepG2.bb
+    bigDataUrl https://storage.googleapis.com/mpac_ucsc_genome_browser/bigbed/HepG2.bb
     glyph bigLolly
     lollySize 20
     lollyField skew
@@ -31,7 +31,7 @@ sortOrder cellLine=+
     longLabel MPAC variant effect predictions in K562
     type bigLolly 9
     visibility full
-    bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bigbed/K562.bb
+    bigDataUrl https://storage.googleapis.com/mpac_ucsc_genome_browser/bigbed/K562.bb
     glyph bigLolly
     lollySize 20
     lollyField skew
@@ -48,7 +48,7 @@ sortOrder cellLine=+
     longLabel MPAC variant effect predictions in SKNSH
     type bigLolly 9
     visibility full
-    bigDataUrl https://vcf-mpac-test.s3.us-east-1.amazonaws.com/bigbed/SKNSH.bb
+    bigDataUrl https://storage.googleapis.com/mpac_ucsc_genome_browser/bigbed/SKNSH.bb
     glyph bigLolly
     lollySize 20
     lollyField skew
