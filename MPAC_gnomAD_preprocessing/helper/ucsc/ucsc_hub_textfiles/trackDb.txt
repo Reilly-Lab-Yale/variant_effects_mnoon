@@ -23,7 +23,7 @@ sortOrder cellLine=+
     subGroups cellLine=HepG2
     html HepG2.html
     autoScale off
-    viewLimits -4.8:4.8
+    viewLimits -5.8:5.8
 
     track K562_gnomAD
     parent MPAC_gnomAD
@@ -40,7 +40,7 @@ sortOrder cellLine=+
     subGroups cellLine=K562
     html K562.html
     autoScale off
-    viewLimits -4.8:4.8
+    viewLimits -5.8:5.8
 
     track SKNSH_gnomAD
     parent MPAC_gnomAD
@@ -57,4 +57,4 @@ sortOrder cellLine=+
     subGroups cellLine=SKNSH
     html SKNSH.html
     autoScale off
-    viewLimits -4.8:4.8
+    viewLimits -5.8:5.8
